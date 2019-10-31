@@ -1,3 +1,5 @@
+PRAGMA foreign_keys = off;
+
 DROP TABLE IF EXISTS User;
 
 CREATE TABLE User(
@@ -29,3 +31,5 @@ CREATE TABLE Rental(
     PRIMARY KEY(apartmentID, initDate, endDate),
     CHECK(initDate < endDate)
 );
+
+PRAGMA foreign_keys = on;
