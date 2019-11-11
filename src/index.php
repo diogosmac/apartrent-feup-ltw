@@ -4,6 +4,8 @@
     <head>
         <title> ApartRent </title>
         <meta charset="UTF-8">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/form.css" rel="stylesheet">
     </head>
 
     <body>
@@ -13,15 +15,17 @@
         <a href="signup.php"> Sign up </a>
 
         <form>
-            <fieldset>
-                <legend><h3>Rent your apartment now!</h3></legend>
-                <label>Location <input type="text"></label>
-                <label>Check-in <input type="date"></label>
-                <label>Check-out <input type="date"></label>
-                <button formaction="search.php" formmethod="post">GO!</button>
-                <p> or... </p>
-                <button formaction="random.php" formmethod="post">Surprise me!</button>
-            </fieldset>
+                <div class="flex-container">
+                    <div><h2>Rent your apartment now!</h2></div>
+                    <div><label>WHERE</label></div>
+                    <div> <input type="text"></div>
+                    <div><label>CHECKIN </label></div>
+                    <div><input type="date"></div>
+                    <div><label>CHECKOUT</label></div>
+                    <div><input type="date"></div>
+                    <div><button formaction="search.php" formmethod="post">GO!</button></div>
+                    <div>or... <button formaction="random.php" formmethod="post">Surprise me!</button></div>
+                </div>
         </form>
     </body>
 </html>

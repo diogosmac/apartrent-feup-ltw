@@ -1,0 +1,53 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(230, 234, 238);
+    width: 25%;
+    font-family: monospace;
+    border-radius: 2px;
+    padding: 2%;
+  }
+  
+  .flex-container > div {
+    width: 96%;
+    margin: 2%;
+    /*text-align: center;*/
+  }
+
+  .flex-container > div > label {
+    font-size: 120%;
+    font-weight: bold;
+    margin: 0%;
+    padding: 0%;
+  }
+
+  .flex-container > div > h2{
+    text-align: left;
+    font-size: 180%;
+    font-weight: bolder;
+    margin: 4%;
+    margin-bottom: 6%;
+  }
+
+  .flex-container > div > input{
+    box-sizing: border-box;
+      padding: 2%;
+      width: 100%;
+  }
+
+  [type="date"] {
+      text-align: center;
+  }
+
+  .flex-container > div > button{
+    background-color: rgb(241, 162, 42);
+    border: none;
+    color: white;
+    padding: 5% 10%;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 90%;
+    margin: 2% auto;
+    border-radius: 2px;
+  }
