@@ -2,7 +2,7 @@
 <html lang="en-US">
 <html>
     <head>
-        <title>Log In</title>
+        <title>Log In - ApartRent</title>
         <meta charset="UTF-8">
 
         <link href="css/login.css" rel="stylesheet">
@@ -18,7 +18,7 @@
         </div>
 
         <div class="bottom-container">
-            <a href="signup.php"> Sign up </a>
+            <a href="signup.php">I don't have an account</a>
         </div>
 
     </body>
