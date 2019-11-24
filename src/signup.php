@@ -8,6 +8,7 @@
     </head>
 
     <body>
+        <img src="resources/logo-black.png" alt="" id="logo">
         <header>Sign Up</header>
 
         <div class="container">

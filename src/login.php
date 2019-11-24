@@ -9,6 +9,7 @@
     </head>
 
     <body>
+        <img src="resources/logo-black.png" alt="" id="logo">
         <header>Log In</header>
 
         <div class="container">

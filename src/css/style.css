@@ -1,21 +1,29 @@
+/* header */
+
 body > header {
     background-color: #444444;
     color: white;
     padding: 1em;
 }
 
-body header .signup a {
-    padding: 0 1em;
+body > header > img {
+    height: 5em;
 }
 
-body header .signup a:first-child {
+body > header .signup a {
+    padding: 0 1em;
+    vertical-align: bottom;
+
+    color: white;
+    text-decoration: none;
+}
+
+body > header .signup a:first-child {
+    border-right: 1px solid white;
     padding-left: 0;
 }
 
-body header a {
-    color: white;
-    text-decoration: underline;
-}
+/* form */
 
 body .apartmentSearch {
     background-image: url("https://images.unsplash.com/photo-1515073112898-12ecd7997751?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
@@ -30,4 +38,10 @@ body .apartmentSearch {
 .apartmentSearch .flex-container {
     display: inline-block;
     text-align: start;
+}
+
+/* fonts */
+
+body {
+    font-family: 'Verdana', sans-serif;
 }

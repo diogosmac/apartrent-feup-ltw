@@ -13,11 +13,11 @@
 
 <body>
     <header>
-        <h1> ApartRent <h1>
-                <div class="signup">
-                    <a href="login.php"> Log in </a>
-                    <a href="signup.php"> Sign up </a>
-                </div>
+        <img src="resources/logo-white.png" alt="">
+        <div class="signup">
+            <a href="login.php"> Log in </a>
+            <a href="signup.php"> Sign up </a>
+        </div>
     </header>
 
     <form class="apartmentSearch">
