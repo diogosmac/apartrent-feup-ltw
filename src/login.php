@@ -9,7 +9,9 @@
     </head>
 
     <body>
-        <img src="resources/logo-black.png" alt="" id="logo">
+        <a href="index.php">
+            <img src="resources/logo-black.png" alt="" id="logo">
+        </a>
         <header>Log In</header>
 
         <div class="container">

@@ -6,7 +6,7 @@ body > header {
     padding: 1em;
 }
 
-body > header > img {
+body > header #logo {
     height: 5em;
 }
 

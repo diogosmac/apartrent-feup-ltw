@@ -8,7 +8,9 @@
     </head>
 
     <body>
-        <img src="resources/logo-black.png" alt="" id="logo">
+        <a href="index.php">
+            <img src="resources/logo-black.png" alt="" id="logo">
+        </a>
         <header>Sign Up</header>
 
         <div class="container">
