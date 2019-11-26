@@ -2,12 +2,15 @@
 <html lang="en-US">
 <html>
     <head>
-        <title>Sign Up</title>
+        <title>Sign Up - ApartRent</title>
         <meta charset="UTF-8">
         <link href="css/signup.css" rel="stylesheet">
     </head>
 
     <body>
+        <a href="index.php">
+            <img src="resources/logo-black.png" alt="" id="logo">
+        </a>
         <header>Sign Up</header>
 
         <div class="container">
@@ -17,6 +20,6 @@
             <div class="Register"><input type="submit" value="Submit"></div>
         </div>
 
-        <a href="login.php"> Log In </a>
+        <a href="login.php">I already have an account</a>
     </body>
 </html>

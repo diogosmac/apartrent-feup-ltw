@@ -4,8 +4,13 @@ body {
     text-align: center;
 }
 
+body #logo {
+    padding-top: 1em;
+    width: 28em;
+}
+
 body>header {
-    padding-top: 5%;
+    padding-top: 0.5em;
     text-align: center;
     font-size: 220%;
     font-weight: bold;
