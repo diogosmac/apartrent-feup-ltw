@@ -55,3 +55,36 @@ body .apartmentSearch {
 body {
     font-family: 'Verdana', sans-serif;
 }
+
+/* Search Page */
+
+#search_results
+{
+    padding: 1em;
+}
+
+#search_results > article
+{
+    padding-top: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+#search_results .info
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#search_results > article > img
+{
+    height: 15em;
+    width: 20em;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#search_results .info #nome
+{
+    font-weight: bolder;
+}
