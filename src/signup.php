@@ -21,5 +21,7 @@
         </div>
 
         <a href="login.php">I already have an account</a>
+
+        <?php include('templates/common/footer.php') ?>
     </body>
 </html>
