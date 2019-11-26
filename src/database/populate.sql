@@ -3,49 +3,39 @@ PRAGMA foreign_keys = ON;
 INSERT INTO
     User (
         username,
-        PASSWORD,
-        name
+        password,
+        name,
+        email,
+        description,
+        profile_picture
     )
-    VALUES (
-        'user4',
-        'dddd',
-        'Alberto'
+VALUES
+    (
+        'quimquim',
+        'bemlindobemlindo',
+        'Joaquim Alberto',
+        'joaquim@alberto.pt',
+        'Bem Alimentado!',
+        'https://i.ytimg.com/vi/LSI9MftcFgM/hqdefault.jpg'
     );
 
 INSERT INTO
     User (
         username,
-        PASSWORD,
-        name
+        password,
+        name,
+        email,
+        description,
+        profile_picture
     )
-    VALUES (
-        'user3',
-        'cccc',
-        'Joaquim'
-    );
-
-INSERT INTO
-    User (
-        username,
-        PASSWORD,
-        name
-    )
-    VALUES (
-        'user2',
-        'bbbb',
-        'Ana'
-    );
-
-INSERT INTO
-    User (
-        username,
-        PASSWORD,
-        name
-    )
-    VALUES (
-        'user1',
-        'aaaa',
-        'Rui'
+VALUES
+    (
+        'admin',
+        'admin',
+        'NotAdmin',
+        'admin@admin.com',
+        'Admin acc',
+        'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png'
     );
 
 INSERT INTO
@@ -55,15 +45,26 @@ INSERT INTO
         postal_code,
         daily_price,
         description,
-        owner
+        owner,
+        locale,
+        listing_name,
+        n_guests,
+        n_ratings,
+        average_rating
     )
-    VALUES (
+VALUES
+    (
         1,
-        'Rua 252',
-        '3414-251',
-        40.2,
-        'Another place',
-        'user4'
+        'Rua das Ras',
+        '4782-251',
+        40.0,
+        'A cozy little house',
+        'quimquim',
+        'Famalicao',
+        'Casa das Ras',
+        4,
+        5,
+        4.8
     );
 
 INSERT INTO
@@ -73,15 +74,26 @@ INSERT INTO
         postal_code,
         daily_price,
         description,
-        owner
+        owner,
+        locale,
+        listing_name,
+        n_guests,
+        n_ratings,
+        average_rating
     )
-    VALUES (
+VALUES
+    (
         2,
-        'Rua 1',
-        '2314-521',
-        23.1,
-        'A place',
-        'user3'
+        'Rua Nova de S. Sebastiao',
+        '4892-124',
+        120.0,
+        'A new modern house near the beach',
+        'quimquim',
+        'Faro',
+        'Hotel S. Sebastiao',
+        8,
+        1,
+        4.2
     );
 
 INSERT INTO
@@ -91,9 +103,10 @@ INSERT INTO
         endDate,
         userID
     )
-    VALUES (
-        1,
-        '12-10-2019',
-        '13-10-2019',
-        'user2'
+VALUES
+    (
+        2,
+        '26-11-2019',
+        '28-11-2019',
+        'admin'
     );
