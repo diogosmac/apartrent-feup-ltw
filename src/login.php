@@ -23,7 +23,6 @@
         <div class="bottom-container">
             <a href="signup.php">I don't have an account</a>
         </div>
-
-        <?php include('templates/common/footer.php') ?>
+        
     </body>
 </html>
