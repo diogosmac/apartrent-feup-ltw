@@ -70,10 +70,25 @@ body {
     flex-direction: row;
 }
 
+/* #search_results #search_parameters
+{
+    display: flex;
+    flex-direction: column;
+} */
+
+/* #search_results #search_parameters > span
+{
+
+    /*EFEITO TAGS?
+
+} */
+
 #search_results .info
 {
     display: flex;
     flex-direction: column;
+    margin-left: 2em;
+    margin-top: 4em;
 }
 
 #search_results > article > img
@@ -87,4 +102,34 @@ body {
 #search_results .info #nome
 {
     font-weight: bolder;
+}
+
+#search_results .info #preco:before
+{
+    content: 'Price per day: ';
+}
+#search_results .info #preco:after
+{
+    content: '€';
+}
+
+
+#search_results .info #max_pessoas:before
+{
+    content: 'Max guests: ';
+}
+
+#search_results .info #localidade:before
+{
+    content: 'Locale: ';
+}
+
+
+#search_results .info #rating:before
+{
+    content: 'Rating: ';
+}
+#search_results .info #rating:after
+{
+    content: '(max. 5.0)';
 }

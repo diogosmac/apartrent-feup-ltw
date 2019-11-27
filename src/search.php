@@ -15,9 +15,9 @@
     <section id='search_results'>
         <div id='search_parameters'>
             Search results for:
-            <span> Porto </span>
-            <span>10/10/2019</span>
-            <span>12/10/2019</span>
+            <span id='search_place'> Porto </span>
+            <span id='search_begin_date'>10/10/2019</span>
+            <span id='search_end_date'>12/10/2019</span>
         </div>
 
 
@@ -28,7 +28,7 @@
                 <span id='preco'> 40 </span>
                 <span id='max_pessoas'> 4 </span>
                 <span id='localidade'> Arcos de Valdevez </span>
-                <span id='rating'> 5.1 </span>
+                <span id='rating'> 4.9 </span>
             </section>
         </article>
 
