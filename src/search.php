@@ -1,3 +1,6 @@
+<?php
+include_once('actions/searchListings.php');
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <html>
@@ -14,10 +17,16 @@
 
     <section id='search_results'>
         <div id='search_parameters'>
-            Search results for:
-            <span id='search_place'>Porto</span>
-            <span id='search_begin_date'>10/10/2019</span>
-            <span id='search_end_date'>12/10/2019</span>
+            Search results for: 
+            <?php if (isset($location)) { ?>
+                <span id='search_place'><?php $location ?></span>
+            <?php } ?>
+            <?php if (isset($checkIn)) { ?>
+                <span id='search_begin_date'><?php $checkIn ?></span>
+            <?php } ?>
+            <?php if (isset($checkOut)) { ?>
+                <span id='search_end_date'><?php $checkOut ?></span>
+            <?php } ?>
         </div>
 
 

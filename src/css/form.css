@@ -33,17 +33,33 @@
     margin-bottom: 6%;
   }
 
-  .flex-container > div > input{
+  .flex-container > div > .data {
     box-sizing: border-box;
       padding: 2%;
       width: 100%;
+  }
+
+  .flex-container #submit {
+    width: 100%;
+  }
+
+  .flex-container > #surprise {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .flex-container > #surprise > .button {
+    margin-left: 1em;
+    width: 100%;
   }
 
   [type="date"] {
       text-align: center;
   }
 
-  .flex-container > div > button{
+  .flex-container > div > .button{
     background-color: rgb(241, 162, 42);
     border: none;
     color: white;
