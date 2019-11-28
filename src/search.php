@@ -18,26 +18,21 @@ include_once('actions/searchListings.php');
     <section id='search_results'>
         <div id='search_parameters'>
             <?php
-                if ($location == null && $checkIn == null && $checkOut == null)
-                    echo 'No search parameters - showing our top suggestions!';
-                else {
-                    echo 'Search results for: ';
+                    echo '<form class="search_result_form" action="search.php" method="GET">';
 
-                    if ($location != null) 
-                    {
-                        echo '<span id=search_place>', $location, '</span>';
-                    }
+                    if ($location == null) 
+                        echo '<input class="search_result" type="text" name="location" placeholder="Location" >';
+                    else
+                        echo '<input class="search_result" type="text" name="location" value=', $location, '>';
 
-                    if ($checkIn != null) 
-                    {
-                        echo '<span id=search_begin_date>', $checkIn, '</span>';
-                    }
+                    echo '<input class="search_result" type="date" name="checkIn" value=', $checkIn, '>';
 
-                    if ($checkOut != null) 
-                    {
-                         echo '<span id=search_end_date>', $checkOut, '</span>';
-                    }
-                }
+                    echo '<input class="search_result" type="date" name="checkOut" value=', $checkOut, '>';
+                    
+                    echo '<input class="search_result" id="submit" name="submit" type="submit" value="Go!">';
+
+                    echo '</form>';
+        
             ?>
         </div>
 

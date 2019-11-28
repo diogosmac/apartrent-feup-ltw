@@ -73,7 +73,7 @@ body {
 #search_results #search_parameters > span
 {
 
-    padding: 2px 10px;
+    padding: 6px;
     border: 2px;
     border-radius: 8px;
     margin-right: 0.6em;
@@ -130,4 +130,19 @@ body {
 #search_results .info #rating:after
 {
     content: '⭐';
+}
+
+.search_result
+{
+    padding: 8px 10px;
+    border: 2px;
+    border-radius: 8px;
+    margin-right: 0.6em;
+    background-color: rgb(241, 162, 42);
+}
+
+.search_result[type="text"]
+{
+    text-align: center;
+    width: 9em;
 }
