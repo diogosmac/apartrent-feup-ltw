@@ -17,16 +17,28 @@ include_once('actions/searchListings.php');
 
     <section id='search_results'>
         <div id='search_parameters'>
-            Search results for: 
-            <?php if (isset($location)) { ?>
-                <span id='search_place'><?php $location ?></span>
-            <?php } ?>
-            <?php if (isset($checkIn)) { ?>
-                <span id='search_begin_date'><?php $checkIn ?></span>
-            <?php } ?>
-            <?php if (isset($checkOut)) { ?>
-                <span id='search_end_date'><?php $checkOut ?></span>
-            <?php } ?>
+            <?php
+                if ($location == null && $checkIn == null && $checkOut == null)
+                    echo 'No search parameters - showing our top suggestions!';
+                else {
+                    echo 'Search results for: ';
+
+                    if ($location != null) 
+                    {
+                        echo '<span id=search_place>', $location, '</span>';
+                    }
+
+                    if ($checkIn != null) 
+                    {
+                        echo '<span id=search_begin_date>', $checkIn, '</span>';
+                    }
+
+                    if ($checkOut != null) 
+                    {
+                         echo '<span id=search_end_date>', $checkOut, '</span>';
+                    }
+                }
+            ?>
         </div>
 
 
