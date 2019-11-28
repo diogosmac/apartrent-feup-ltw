@@ -55,3 +55,25 @@ body .apartmentSearch {
 body {
     font-family: 'Verdana', sans-serif;
 }
+
+/* profile */
+
+.profile-side-menu {
+    background-color: #777777;
+}
+
+.profile-side-menu a {
+    text-decoration: none;
+    font-size: 100%;
+    color: #FFFFFF;
+}
+
+.profile-side-menu a {
+    padding: 20px 20px 20px 20px;
+    display: block;
+}
+
+.profile-side-menu a:hover {
+    background-color: rgb(241, 162, 42);
+    color: #000000;
+}
