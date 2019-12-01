@@ -18,8 +18,12 @@
                                   FROM Apartments, Rental
                                   WHERE (SELECT count(*)
                                          FROM Apartments NATURAL JOIN Rental
-                                         WHERE ? < endDate
-                                         AND ? > initDate) = 0');
+                                         WHERE :endDate < endDate
+                                         AND :initDate > initDate) = 0');
+
+            //Nao testei se funciona assim com datas
+            $stmt->bindParam(":endDate", strtotime($checkOut), PDO::PARAM_STR);
+            $stmt->bindParam(":initDate", strtotime($checkIn), PDO::PARAM_STR);
             $stmt->execute($checkIn, $checkOut);
         }
         else 
@@ -42,7 +46,7 @@
         global $db;
         require('connection.php');
 
-        $stmt = $db->prepare('SELECT username FROM User
+        $stmt = $db->prepare('SELECT * FROM User
                                 WHERE username = :username
                                 AND password = :password');
 
@@ -73,20 +77,19 @@
         global $db;
         require('connection.php');
 
-        $stmt = $db->prepare('
-        INSERT INTO User (
-                username,
-                password,
-                name,
-                email
-            )
-            VALUES
-                (
-                    :username,
-                    :pass,
-                    :name,
-                    :email
-                )'
+        $stmt = $db->prepare('INSERT INTO User (
+                                username,
+                                password,
+                                name,
+                                email
+                            )
+                            VALUES
+                            (
+                                :username,
+                                :pass,
+                                :name,
+                                :email
+                            )'
         );
 
         $stmt->bindParam(':username', $uid, PDO::PARAM_STR);

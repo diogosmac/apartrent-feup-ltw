@@ -61,7 +61,19 @@ if (isset($_POST['register_button']))
             {
                 //Pode-se adicionar, visto que n há mais nenhum igual
                 addUser($username, $pwd, $name, $email);
-                echo 'User added';
+
+
+                $allInfo = getAllMatches($username, $pwd);
+
+                //Depois de criar conta, faz login automaticamente:
+                session_start();
+
+                $_SESSION['name'] = $allInfo[0]['name'];
+                $_SESSION['username'] = $allInfo[0]['username'];
+                $_SESSION['profile_picture'] = $allInfo[0]['profile_picture'];
+
+                header("Location: ../index.php?signup=success");
+                exit();
             }
             else
             {

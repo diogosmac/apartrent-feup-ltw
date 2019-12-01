@@ -18,7 +18,7 @@ body > header .signup a {
     text-decoration: none;
 }
 
-body > header .signup a:first-child {
+body > header .signup #login {
     border-right: 1px solid white;
     padding-left: 0;
 }

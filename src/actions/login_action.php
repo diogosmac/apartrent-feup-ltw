@@ -23,8 +23,17 @@ if(isset($_POST['login_button']))
         //username and password match
         if(count($query_results) == 1)
         {
-            echo 'Logged as: ';
-            echo $query_results[0]['username'];
+            session_start();
+
+            $_SESSION['name'] = $query_results[0]['name'];
+            $_SESSION['username'] = $query_results[0]['username'];
+            $_SESSION['profile_picture'] = $query_results[0]['profile_picture'];
+
+            // echo 'Hello ';
+            // echo $query_results[0]['name'];
+
+            header("Location: ../index.php?login=success");
+            exit();
         }
         else
         {
