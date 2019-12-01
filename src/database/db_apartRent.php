@@ -43,10 +43,15 @@
         require('connection.php');
 
         $stmt = $db->prepare('SELECT username FROM User
-                                WHERE User.username = ?
-                                AND User.password = ?');
+                                WHERE username = :username
+                                AND password = :password');
 
-        $stmt->execute($uid, $pass);
+        $stmt->bindParam(':username', $uid, PDO::PARAM_STR);
+        $stmt->bindParam(':password', $pass, PDO::PARAM_STR);
+        $stmt->execute();
+
+        // $temp = $stmt->fetchAll();
+        // echo count($temp);
 
         return $stmt->fetchAll();
     }

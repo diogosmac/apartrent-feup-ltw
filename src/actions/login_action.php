@@ -12,7 +12,7 @@ if(isset($_POST['login_button']))
     if(empty($username) || empty($password))
     {
         //redireciona para a pagina inicial
-        header("Location: ../index.php?error=emptyfields");
+        header("Location: ../login.php?error=emptyfields");
         exit();
     }
     else
@@ -20,14 +20,22 @@ if(isset($_POST['login_button']))
         //Executa a query de verificacao
         $query_results = getAllMatches($username, $password);
 
-
-        echo $query_results;
-        echo 'Successful query';
+        //username and password match
+        if(count($query_results) == 1)
+        {
+            echo 'Logged as: ';
+            echo $query_results[0]['username'];
+        }
+        else
+        {
+            header("Location: ../login.php?error=wrongpassword");
+            exit();
+        }
     }
 }
 else
 {
-    //Redireciona para a pagina inicial, em caso contrario 
-    header("Location: ../index.php");
+    //Redireciona para a pagina login, em caso contrario 
+    header("Location: ../login.php");
     exit();
 }
