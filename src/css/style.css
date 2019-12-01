@@ -23,6 +23,19 @@ body > header .signup #login {
     padding-left: 0;
 }
 
+.signup #profile_section{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.signup #profile_section #profile_section_text
+{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 /* footer */
 
 body > footer {
