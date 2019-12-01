@@ -137,3 +137,18 @@ body {
 {
     content: '⭐';
 }
+
+
+/*Edit Profile Page*/
+
+.main-container {
+    text-align: center;
+
+}
+
+
+.description > textarea {
+    width: 50%;
+    resize: vertical;
+    font-size: 130%;
+}
