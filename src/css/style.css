@@ -146,8 +146,40 @@ body {
 
 }
 
+.button > button{
+    background-color: rgb(241, 162, 42);
+    border: none;
+    color: white;
+    padding: 1% 2%;
+    font-weight: bold;
+    font-size: 90%;
+    margin: 1%;
+    border-radius: 2px;
+}
 
-.description > textarea {
+.profile_picture {
+    list-style-type: none;
+}
+
+.image > img {
+    width: 20%;
+}
+
+.description {
+    padding-top: 3%;
+}
+
+.description > div {
+    padding-bottom: 1%;
+}
+
+.description > div > label{
+    font-weight: bold;
+    padding-right: 35%;
+    margin-bottom: 5%;
+}
+
+.description >div > textarea {
     width: 50%;
     resize: vertical;
     font-size: 130%;
