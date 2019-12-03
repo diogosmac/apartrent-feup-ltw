@@ -26,3 +26,38 @@ body > header .signup {
 
     transform: translateY(50%);
 }
+
+/* profile layout */
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.profile-side-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 100%;
+    width: 25%;
+    padding-bottom: 40%;
+    width: 20em;
+}
+
+.profile-info-container {
+    width: 100%;
+    padding: 2em;
+    margin-right: 30%;
+    height: 100%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-info-container > .profile-picture > img {
+    border-radius: 50%;
+    width: 60%;
+}

@@ -18,9 +18,22 @@ body > header .signup a {
     text-decoration: none;
 }
 
-body > header .signup a:first-child {
+body > header .signup #login {
     border-right: 1px solid white;
     padding-left: 0;
+}
+
+.signup #profile_section{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.signup #profile_section #profile_section_text
+{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* footer */
@@ -70,20 +83,14 @@ body {
     flex-direction: row;
 }
 
-/* #search_results #search_parameters
-{
-    display: flex;
-    flex-direction: column;
-} */
-
 #search_results #search_parameters > span
 {
 
-    padding: 2px 10px;
+    padding: 6px;
     border: 2px;
     border-radius: 8px;
     margin-right: 0.6em;
-    background-color: sandybrown;
+    background-color: rgb(241, 162, 42);
 
 }
 
@@ -138,12 +145,24 @@ body {
     content: '⭐';
 }
 
-
 /*Edit Profile Page*/
 
 .main-container {
     text-align: center;
 
+.search_result
+{
+    padding: 8px 10px;
+    border: 2px;
+    border-radius: 8px;
+    margin-right: 0.6em;
+    background-color: rgb(241, 162, 42);
+}
+
+.search_result[type="text"]
+{
+    text-align: center;
+    width: 9em;
 }
 
 .button > button{
@@ -183,4 +202,26 @@ body {
     width: 50%;
     resize: vertical;
     font-size: 130%;
+}
+
+/* profile */
+
+.profile-side-menu {
+    background-color: #777777;
+}
+
+.profile-side-menu a {
+    text-decoration: none;
+    font-size: 100%;
+    color: #FFFFFF;
+}
+
+.profile-side-menu a {
+    padding: 20px 20px 20px 20px;
+    display: block;
+}
+
+.profile-side-menu a:hover {
+    background-color: rgb(241, 162, 42);
+    color: #000000;
 }
