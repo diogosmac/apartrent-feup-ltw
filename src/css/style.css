@@ -162,8 +162,14 @@ body {
 
 /* Edit Profile Page */
 
-.main-container {
+.edit-profile-container {
+    padding-left: 25%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    padding-bottom: 1em;
     text-align: center;
+    width: 50%;
 }
 
 .button > button{
@@ -177,12 +183,24 @@ body {
     border-radius: 2px;
 }
 
-.profile_picture {
-    list-style-type: none;
+.edit-personals {
+    display: grid;
+    grid-template-columns: 48% 4% 48%;
 }
 
-.image > img {
-    width: 20%;
+.edit-personals .account-details {
+    grid-column: 3 / 4;
+    padding-top: 15%;
+}
+
+.edit-personals .account-details > .button {
+    grid-column: 3 / 4;
+    padding-top: 15%;
+}
+
+.edit-personals .image > img {
+    grid-column: 1 / 2;
+    width: 100%;
 }
 
 .description {
@@ -195,12 +213,12 @@ body {
 
 .description > div > label{
     font-weight: bold;
-    padding-right: 35%;
+    padding-right: 100%;
     margin-bottom: 5%;
 }
 
-.description >div > textarea {
-    width: 50%;
+.description > div > textarea {
+    width: 100%;
     resize: vertical;
     font-size: 130%;
 }
