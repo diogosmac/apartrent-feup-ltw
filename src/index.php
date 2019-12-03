@@ -1,3 +1,7 @@
+<?php
+    include_once('includes/init.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 <html>
