@@ -145,6 +145,12 @@ body {
     content: '⭐';
 }
 
+/*Edit Profile Page*/
+
+.main-container {
+    text-align: center;
+}
+
 .search_result
 {
     padding: 8px 10px;
