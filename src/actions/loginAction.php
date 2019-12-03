@@ -1,7 +1,7 @@
 <?php
 
-    include_once('includes/init.php');
-    include_once('database/user.php');
+    include_once('../includes/init.php');
+    include_once('../database/user.php');
 
     // Verifica se o utilizador chegou a pagina atraves da pagina de login
     if(isset($_POST['login_button']))

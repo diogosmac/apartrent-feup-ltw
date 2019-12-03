@@ -5,8 +5,8 @@
         global $db;
 
         $stmt = $db->prepare('SELECT * FROM User
-                                WHERE username = :username
-                                AND password = :password');
+                              WHERE username = :username
+                              AND password = :password');
 
         $stmt->bindParam(':username', $uid, PDO::PARAM_STR);
         $stmt->bindParam(':password', $pass, PDO::PARAM_STR);
@@ -20,7 +20,7 @@
         global $db;
 
         $stmt = $db->prepare('SELECT username FROM User
-                                WHERE username = :username');
+                              WHERE username = :username');
 
         $stmt->bindParam(':username', $uid, PDO::PARAM_STR);
         $stmt->execute();

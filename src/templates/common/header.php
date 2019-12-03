@@ -4,17 +4,17 @@
     <head>
         <?php echo '<title>' . $title . '</title>'; ?>
         <meta charset="UTF-8">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="css/form.css" rel="stylesheet">
-        <link href="css/layout.css" rel="stylesheet">
-        <link href="css/responsive.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <link href="../css/form.css" rel="stylesheet">
+        <link href="../css/layout.css" rel="stylesheet">
+        <link href="../css/responsive.css" rel="stylesheet">
     </head>
 
     <body>
 
         <header>
             <a href="index.php">
-                <img src="resources/logo-white.png" alt="" id="logo">
+                <img src="../resources/logo-white.png" alt="" id="logo">
             </a>
             <div class="signup">
                 <?php
@@ -31,7 +31,7 @@
                                 <img src='.$_SESSION['profile_picture'].'/>
                                 <div id="profile_section_text">
                                     <a href="profile.php"><h4>'.$_SESSION['name'].'</h4></a>
-                                    <a href="actions/logout_action.php" alt=""> Log out </a>
+                                    <a href="actions/logoutAction.php" alt=""> Log out </a>
                                 </div>
                             </div>';
                     }

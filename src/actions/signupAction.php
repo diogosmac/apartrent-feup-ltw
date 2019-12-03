@@ -1,7 +1,7 @@
 <?php
 
-    include_once('includes/init.php');
-    include_once('database/user.php');
+    include_once('../includes/init.php');
+    include_once('../database/user.php');
 
     // Verifica se o utilizador chegou a pagina atraves da pagina de signup
     if (isset($_POST['register_button'])) 
@@ -21,7 +21,8 @@
         {
             $isValidEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
             $doesUsernameOnlyHaveLetters = preg_match("/^[a-zA-Z0-9]*$/", $username);
-            $isValidName = preg_match("/^[a-zA-Z ]*$/", $name);//TODO: Nome<         > e aceite...
+            $isValidName = preg_match("/^[a-zA-Z ]*$/", $name);
+            $isValidName = ($isValidName and $name != "");
 
             if(!$isValidName)
             {
