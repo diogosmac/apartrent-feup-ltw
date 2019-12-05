@@ -18,14 +18,15 @@
 
         <div class="profile-info-container">
             <div class="profile-picture">
-                <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png">
+                <?php echo '<img src="'.$profile_picture.'">'; ?>
             </div>
             <div class="personal-details">
                 <div class="name">
                     <?php echo '<h1>'.$name.'</h1>'; ?>
                 </div>
                 <div class="description">
-                    <article>Sobrevivente da ocorrência 2018/19 da unidade curricular de Concepção e Análise de Algoritmos.</article>
+                    <!-- <article>Sobrevivente da ocorrência 2018/19 da unidade curricular de Concepção e Análise de Algoritmos.</article> -->
+                    <?php echo '<article>'.$description.'</article>'; ?>
                 </div>
             </div>
         </div>

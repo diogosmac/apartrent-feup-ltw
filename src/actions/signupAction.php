@@ -67,7 +67,6 @@
                     $allInfo = getAllUsernameInfo($username);
 
                     //Depois de criar conta, faz login automaticamente:
-                    session_start();
 
                     $_SESSION['name'] = $allInfo[0]['name'];
                     $_SESSION['username'] = $allInfo[0]['username'];
