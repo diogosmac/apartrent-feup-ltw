@@ -6,7 +6,7 @@
                     if ($location == null) 
                         echo '<input class="search_result" type="text" name="location" placeholder="Location" >';
                     else
-                        echo '<input class="search_result" type="text" name="location" value=', $location, '>';
+                        echo '<input class="search_result" type="text" name="location" placeholder="Location" value=', $location, '>';
 
                     echo '<input class="search_result" type="date" name="checkIn" value=', $checkIn, '>';
 

@@ -14,7 +14,7 @@
         if(empty($username) || empty($password))
         {
             // redireciona para a pagina inicial
-            header("Location: login.php?error=emptyfields");
+            header("Location: ../pages/login.php?error=emptyfields");
             exit();
         }
         else
@@ -25,7 +25,7 @@
             // username and password match
             if(count($query_results) == 1)
             {
-                session_start();
+                // session_start();
 
                 $_SESSION['name'] = $query_results[0]['name'];
                 $_SESSION['username'] = $query_results[0]['username'];
@@ -39,7 +39,7 @@
             }
             else
             {
-                header("Location: login.php?error=wrongpassword");
+                header("Location: ../pages/login.php?error=wrongpassword");
                 // header("Location: " . $_SERVER['HTTP_REFERER']);
                 exit();
             }
@@ -48,7 +48,7 @@
     else
     {
         // Redireciona para a pagina login, em caso contrario 
-        header("Location: login.php");
+        header("Location: ../pages/login.php");
         exit();
     }
 

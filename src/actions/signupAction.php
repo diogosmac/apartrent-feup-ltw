@@ -56,7 +56,7 @@
             }
             else
             {
-                $query_results = getAllUsernameMatches($username);
+                $query_results = getAllUsernameInfo($username);
 
                 if(count($query_results) == 0) //Se ainda n existir nenhum username igual
                 {
@@ -64,7 +64,7 @@
                     addUser($username, $pwd, $name, $email);
 
 
-                    $allInfo = getAllMatches($username, $pwd);
+                    $allInfo = getAllUsernameInfo($username);
 
                     //Depois de criar conta, faz login automaticamente:
                     session_start();
