@@ -1,3 +1,3 @@
 <?php
-    include_once('../templates/forms/login.php');
+    include_once('../templates/login.php');
 ?>

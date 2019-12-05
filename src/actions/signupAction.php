@@ -14,7 +14,7 @@
 
         if(empty($username) || empty($email) || empty($pwd) || empty($c_pwd) || empty($name))
         {
-            header("Location: signup.php?error=emptyfields&username=".$username."&email=".$email."&name=".$name);
+            header("Location: ../pages/signup.php?error=emptyfields&username=".$username."&email=".$email."&name=".$name);
             exit();
         }
         else
@@ -27,31 +27,31 @@
             if(!$isValidName)
             {
                 //Retorna para a pagina de signup, mantem username e email
-                header("Location: signup.php?error=invalidname&email=".$email."&username=".$username);
+                header("Location: ../pages/signup.php?error=invalidname&email=".$email."&username=".$username);
                 exit();
             }
             else if(!$isValidEmail && !$doesUsernameOnlyHaveLetters)
             {
                 //Retorna para a pagina de signup, nao mantem nada
-                header("Location: signup.php?error=invalidusernamemail");
+                header("Location: ../pages/signup.php?error=invalidusernamemail");
                 exit();
             }
             else if(!$isValidEmail) //Verifica se o email introduzido e valido
             {
                 //Retorna para a pagina de signup, mantem o username e o nome
-                header("Location: signup.php?error=invalidmail&username=".$username."&name=".$name);
+                header("Location: ../pages/signup.php?error=invalidmail&username=".$username."&name=".$name);
                 exit();
             }
             else if(!$doesUsernameOnlyHaveLetters) //Verifica se o username nao tem caracteres especiais
             {
                 //Retorna para a pagina de signup, mantem o email e o nome
-                header("Location: signup.php?error=invalidusername&email=".$email."&name=".$name);
+                header("Location: ../pages/signup.php?error=invalidusername&email=".$email."&name=".$name);
                 exit();
             }
             else if($pwd !== $c_pwd) //Verifica se as passwords coincidem
             {
                 //Retorna para a pagina de signup, mantem o email, o username e o nome
-                header("Location: signup.php?error=passwordsdontmatch&email=".$email."&username=".$username."&name=".$name);
+                header("Location: ../pages/signup.php?error=passwordsdontmatch&email=".$email."&username=".$username."&name=".$name);
                 exit();
             }
             else
@@ -73,13 +73,13 @@
                     $_SESSION['username'] = $allInfo[0]['username'];
                     $_SESSION['profile_picture'] = $allInfo[0]['profile_picture'];
 
-                    header("Location: index.php?signup=success");
+                    header("Location: ../index.php?signup=success");
                     exit();
                 }
                 else
                 {
                     //Retorna para a pagina de signup, mantem o email
-                    header("Location: signup.php?error=usernamealreadyexists&email=".$email);
+                    header("Location: ../pages/signup.php?error=usernamealreadyexists&email=".$email);
                     exit();
                 }
             }
@@ -89,7 +89,7 @@
     else 
     { 
         //Redireciona para a pagina signup, em caso contrario 
-        header("Location: signup.php");
+        header("Location: ../pages/signup.php");
         exit();
     }
 

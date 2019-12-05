@@ -1,7 +1,7 @@
 <?php
     $title = "Search results - ApartRent";
     include_once('../actions/searchListings.php');
-    include_once('../templates/common/header.php');
-    include_once('../templates/listing/searchResults.php');
-    include_once('../templates/common/footer.php');
+    include_once('../templates/header.php');
+    include_once('../templates/searchResults.php');
+    include_once('../templates/footer.php');
 ?>

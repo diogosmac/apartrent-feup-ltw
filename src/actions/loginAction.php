@@ -34,7 +34,7 @@
                 // echo 'Hello ';
                 // echo $query_results[0]['name'];
 
-                header("Location: index.php?login=success");
+                header("Location: ../index.php?login=success");
                 exit();
             }
             else
