@@ -12,7 +12,7 @@
     {
         echo '
             <div id="profile_section">
-                <img src='.$_SESSION['profile_picture'].'/>
+                <img src="'.$_SESSION['profile_picture'].'">
                 <div id="profile_section_text">
                     <a href="profile.php"><h4>'.$_SESSION['name'].'</h4></a>
                     <a href="../actions/logoutAction.php" alt=""> Log out </a>

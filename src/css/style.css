@@ -23,6 +23,12 @@ body > header .signup #login {
     padding-left: 0;
 }
 
+.signup #profile_section > img{
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+}
+
 .signup #profile_section{
     display: flex;
     flex-direction: row;
