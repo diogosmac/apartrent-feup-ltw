@@ -5,19 +5,34 @@
         global $db;
 
         if ($checkIn == null)
-            $checkIn = date('01/01/1970');
+        {
+            //Dia de hoje
+            $tempDateTimeIn = new DateTime('now');
+            $checkIn = $tempDateTimeIn->format('d-m-Y');
+        }
+
 
         if ($checkOut == null)
-            $checkOut = date('31/12/3019');
+        {
+            //Dia seguinte ao checkIn
+            $tempDateTimeOut = new DateTime($checkIn);
+            $checkOut = $tempDateTimeOut->modify('+1 day')->format('d-m-Y');
+        }
+
+        echo $checkIn. ' --> ';
+        echo $checkOut;
+        echo $location;
 
         if ($location == null)
         {
             $stmt = $db->prepare('SELECT id
-                                  FROM Apartment, Rental
-                                  WHERE (SELECT count(*)
-                                         FROM Apartment NATURAL JOIN Rental
-                                         WHERE :endDate < endDate
-                                         AND :initDate > initDate) = 0');
+                                  FROM Apartment
+                                  WHERE id NOT IN (SELECT id
+                                                    FROM Apartment NATURAL JOIN Rental
+                                                    WHERE   (initDate <= :initDate AND endDate >= :initDate)
+                                                            OR (initDate < :endDate AND endDate >= :endDate)
+                                                            OR (:initDate <= initDate AND :endDate >= initDate))
+                                ');
 
             $stmt->bindParam(":endDate", $checkOut, PDO::PARAM_STR);
             $stmt->bindParam(":initDate", $checkIn, PDO::PARAM_STR);
@@ -25,13 +40,19 @@
         }
         else 
         {
+            echo '<p>Pesquisa com localide</p>';
+
             $stmt = $db->prepare('SELECT id
-                                  FROM Apartment, Rental
-                                  WHERE (SELECT count(*)
-                                         FROM Apartment NATURAL JOIN Rental
-                                         WHERE :endDate < endDate
-                                         AND :initDate > initDate
-                                         AND locale LIKE :location) = 0');
+                                  FROM Apartment
+                                  WHERE id NOT IN (SELECT id
+                                                    FROM Apartment NATURAL JOIN Rental
+                                                    WHERE(
+                                                            (initDate <= :initDate AND endDate >= :initDate)
+                                                            OR (initDate < :endDate AND endDate >= :endDate)
+                                                            OR (:initDate <= initDate AND :endDate >= initDate)
+                                                        ))
+                                        AND locale = :location
+                                ');
 
             $stmt->bindParam(":endDate", $checkOut, PDO::PARAM_STR);
             $stmt->bindParam(":initDate", $checkIn, PDO::PARAM_STR);
