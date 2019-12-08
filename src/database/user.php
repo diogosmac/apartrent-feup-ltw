@@ -15,19 +15,21 @@
         return $stmt->fetchAll();
     }
 
-    function getPropertyFromUser($PropertyName, $uid)
+    function getIdFromUsername($username)
     {
         global $db;
 
-        $stmt = $db->prepare('SELECT :property, name, email, description, profile_picture FROM User
-                              WHERE username = :username');
+        $stmt = $db->prepare('SELECT idUser 
+                              FROM User
+                              WHERE username = :username
+                            ');
 
-        $stmt->bindParam(':property', $PropertyName, PDO::PARAM_STR);
-        $stmt->bindParam(':username', $uid, PDO::PARAM_STR);
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
 
-        return $stmt->fetchAll();
+        return $stmt->fetch();
     }
+    
 
     function getAllUserInfo($userID)
     {
@@ -35,9 +37,9 @@
 
         $stmt = $db->prepare('SELECT username, name, email, description, profile_picture 
                               FROM User
-                              WHERE idUser = :username');
+                              WHERE idUser = :uid');
 
-        $stmt->bindParam(':username', $userID, PDO::PARAM_STR);
+        $stmt->bindParam(':uid', $userID, PDO::PARAM_STR);
         $stmt->execute();
 
         return $stmt->fetchAll();
@@ -70,6 +72,21 @@
         $stmt->execute();
 
         return;
+    }
+
+    function searchByUsername($username)
+    {
+        global $db;
+
+        $stmt = $db->prepare('SELECT idUser
+                              FROM User
+                              WHERE username = :username
+                            ');
+
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 
 ?>
