@@ -92,6 +92,8 @@
         
         $stmt->bindParam(":username", $user, PDO::PARAM_STR);
         $stmt->execute();
+    }
+
     function getApartmentPhotos($idApartment)
     {
         global $db;
@@ -107,5 +109,4 @@
 
         return $stmt->fetchAll();
     }
-
 ?>
