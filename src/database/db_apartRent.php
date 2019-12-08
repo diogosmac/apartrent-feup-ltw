@@ -84,6 +84,7 @@
 
     function getUserListings($userID)
     {
+
         
         global $db;
         $stmt = $db->prepare('SELECT id
@@ -91,8 +92,10 @@
                               WHERE owner = :user');
 
         
-        $stmt->bindParam(":user", $userID, PDO::PARAM_STR);
+        $stmt->bindParam(":user", $userID, PDO::PARAM_INT);
         $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 
     function getApartmentPhotos($idApartment)

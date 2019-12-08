@@ -8,7 +8,6 @@
         </div>
 
         <?php 
-
             include_once('../database/db_apartRent.php');
 
             //Returns all apartment ids that are available form checkIn -> checkOut dates.
@@ -45,5 +44,4 @@
                 }
 
         ?>
-
     </section>

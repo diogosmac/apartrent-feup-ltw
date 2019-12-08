@@ -40,7 +40,6 @@ body > header .signup {
     flex-direction: column;
     justify-content: start;
     height: 100%;
-    width: 25%;
     padding-bottom: 40%;
     width: 20em;
 }
