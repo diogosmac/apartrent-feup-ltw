@@ -7,7 +7,8 @@ INSERT INTO
         name,
         email,
         description,
-        profile_picture
+        profile_picture,
+        idUser
     )
 VALUES
     (
@@ -15,8 +16,9 @@ VALUES
         'bemlindobemlindo',
         'Joaquim Alberto',
         'joaquim@alberto.pt',
-        'Bem Alimentado!',
-        'https://i.ytimg.com/vi/LSI9MftcFgM/hqdefault.jpg'
+        'Bem Alimentado! Bem liindooooo',
+        'https://i.ytimg.com/vi/LSI9MftcFgM/hqdefault.jpg',
+        1
     );
 
 INSERT INTO
@@ -26,7 +28,8 @@ INSERT INTO
         name,
         email,
         description,
-        profile_picture
+        profile_picture,
+        idUser
     )
 VALUES
     (
@@ -35,7 +38,8 @@ VALUES
         'NotAdmin',
         'admin@admin.com',
         'Admin acc',
-        'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png'
+        'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png',
+        2
     );
 
 INSERT INTO
@@ -59,7 +63,7 @@ VALUES
         '4782-251',
         40.0,
         'A cozy little house',
-        'quimquim',
+        1,
         'Famalicao',
         'Casa das Ras',
         4,
@@ -88,7 +92,7 @@ VALUES
         '4892-124',
         120.0,
         'A new modern house near the beach',
-        'quimquim',
+        1,
         'Faro',
         'Hotel S. Sebastiao',
         8,
@@ -101,14 +105,14 @@ INSERT INTO
         apartmentID,
         initDate,
         endDate,
-        userID
+        idUser
     )
 VALUES
     (
         2,
         '26-11-2019',
         '28-11-2019',
-        'admin'
+        2
     );
 
 INSERT INTO

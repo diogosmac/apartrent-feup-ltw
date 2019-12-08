@@ -29,14 +29,15 @@
         return $stmt->fetchAll();
     }
 
-    function getAllUsernameInfo($uid)
+    function getAllUserInfo($userID)
     {
         global $db;
 
-        $stmt = $db->prepare('SELECT username, name, email, description, profile_picture FROM User
-                              WHERE username = :username');
+        $stmt = $db->prepare('SELECT username, name, email, description, profile_picture 
+                              FROM User
+                              WHERE idUser = :username');
 
-        $stmt->bindParam(':username', $uid, PDO::PARAM_STR);
+        $stmt->bindParam(':username', $userID, PDO::PARAM_STR);
         $stmt->execute();
 
         return $stmt->fetchAll();

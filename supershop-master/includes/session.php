@@ -22,8 +22,8 @@
     $_SESSION['cart'][$id]++;
   }
 
-  function setCurrentUser($username) {
-    $_SESSION['username'] = $username;
+  function setCurrentUserID($userID) {
+    $_SESSION['userID'] = $userID;
   }
 
   function getErrorMessages() {

@@ -3,14 +3,15 @@ PRAGMA foreign_keys = off;
 DROP TABLE IF EXISTS User;
 
 CREATE TABLE User (
-    username VARCHAR PRIMARY KEY,
+    username VARCHAR NOT NULL,
     password VARCHAR NOT NULL,
     name VARCHAR NOT NULL,
     email TEXT CONSTRAINT [@sign] CHECK (email LIKE '%@%') UNIQUE NOT NULL,
     description TEXT,
     profile_picture TEXT DEFAULT (
         'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png'
-    ) NOT NULL
+    ) NOT NULL,
+    idUser INTEGER PRIMARY KEY AUTOINCREMENT
 );
 
 DROP TABLE IF EXISTS Apartment;
@@ -21,7 +22,7 @@ CREATE TABLE Apartment (
     postal_code CHAR (8) NOT NULL,
     daily_price REAL NOT NULL,
     description TEXT,
-    owner VARCHAR REFERENCES User (username),
+    owner INTEGER REFERENCES User (idUser),
     locale TEXT NOT NULL,
     listing_name TEXT NOT NULL,
     n_guests INTEGER NOT NULL CONSTRAINT [Number Guests] CHECK (n_guests > 0),
@@ -37,7 +38,7 @@ CREATE TABLE Rental (
     apartmentID INTEGER REFERENCES Apartment (id),
     initDate DATE,
     endDate DATE,
-    userID VARCHAR REFERENCES User (username),
+    idUser INTEGER REFERENCES User (idUser),
     PRIMARY KEY (
         apartmentID,
         initDate,
@@ -49,9 +50,9 @@ CREATE TABLE Rental (
 DROP TABLE IF EXISTS Photo;
 
 CREATE TABLE Photo (
-    idPhoto     INTEGER PRIMARY KEY AUTOINCREMENT,
-    path        TEXT,
-    idApartment INTEGER REFERENCES Apartment (id) 
+    idPhoto INTEGER PRIMARY KEY AUTOINCREMENT,
+    path TEXT,
+    idApartment INTEGER REFERENCES Apartment (id)
 );
 
 PRAGMA foreign_keys = on;

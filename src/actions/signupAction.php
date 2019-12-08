@@ -68,6 +68,7 @@
 
                     //Depois de criar conta, faz login automaticamente:
 
+                    $_SESSION['userID'] = $allInfo[0]['idUser'];
                     $_SESSION['name'] = $allInfo[0]['name'];
                     $_SESSION['username'] = $allInfo[0]['username'];
                     $_SESSION['profile_picture'] = $allInfo[0]['profile_picture'];

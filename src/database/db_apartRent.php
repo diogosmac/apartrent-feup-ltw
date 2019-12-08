@@ -82,15 +82,16 @@
         return $stmt->fetch();
     }
 
-    function getUserListings($user) {
+    function getUserListings($userID)
+    {
         
         global $db;
         $stmt = $db->prepare('SELECT id
                               FROM Apartment
-                              WHERE owner = :username');
+                              WHERE owner = :user');
 
         
-        $stmt->bindParam(":username", $user, PDO::PARAM_STR);
+        $stmt->bindParam(":user", $userID, PDO::PARAM_STR);
         $stmt->execute();
     }
 

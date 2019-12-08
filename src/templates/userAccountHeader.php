@@ -1,9 +1,9 @@
 <?php
     include_once('../includes/session.php');
 
-    $usr = getUsername();
+    $userID = getUserID();
 
-    if(!isset($usr)) //Se nao houver sessao iniciada
+    if(!isset($userID)) //Se nao houver sessao iniciada
     {
         echo '<a id="login" href="login.php"> Log in </a>';
         echo '<a href="signup.php"> Sign up </a>';

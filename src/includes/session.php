@@ -2,11 +2,11 @@
     
     session_start();
 
-    function getUsername() {
-        if (!isset($_SESSION['username']))
+    function getUserID() {
+        if (!isset($_SESSION['userID']))
             return NULL;
         
-        return $_SESSION['username'];
+        return $_SESSION['userID'];
     }
 
     function getErrorMessages() {

@@ -25,14 +25,12 @@
             // username and password match
             if(count($query_results) == 1)
             {
-                // session_start();
 
+                $_SESSION['userID'] = $query_results[0]['idUser'];
                 $_SESSION['name'] = $query_results[0]['name'];
                 $_SESSION['username'] = $query_results[0]['username'];
                 $_SESSION['profile_picture'] = $query_results[0]['profile_picture'];
 
-                // echo 'Hello ';
-                // echo $query_results[0]['name'];
 
                 header("Location: ../index.php?login=success");
                 exit();

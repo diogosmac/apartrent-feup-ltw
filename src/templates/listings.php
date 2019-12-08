@@ -15,9 +15,9 @@
             <?php
                 include_once('../database/db_apartRent.php');
 
-                $user = getUsername();
+                $userID = getUserID();
 
-                $query_results = getUserListings($user);
+                $query_results = getUserListings($userID);
 
                 if(count($query_results) == 0) {
                     echo '<p> No results found. </p>';
