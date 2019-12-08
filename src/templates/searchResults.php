@@ -23,8 +23,8 @@
                 {
                     $apartment = getApartmentByID($apartmentID['id']);
 
-                    //TODO: UPDATE DATABASE
-                    $image_path = "https://2.bp.blogspot.com/-SROg0AGJQYc/T6VtHQXQWQI/AAAAAAAAARM/0eDpalQsrSs/s1600/rrL_scene-1a.jpg";
+                    $apartment_images = getApartmentPhotos($apartmentID['id']);//Gets all images
+                    $image_path = $apartment_images[0]['path'];//Only displays the 1st one
 
                     $apartment_name = $apartment['listing_name'];
                     $apartment_daily_price = $apartment['daily_price'];
