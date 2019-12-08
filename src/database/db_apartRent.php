@@ -10,7 +10,10 @@
             $tempDateTimeIn = new DateTime('now');
             $checkIn = $tempDateTimeIn->format('d-m-Y');
         }
-
+       /* else {
+            $temp = $checkIn;
+            $checkIn = $temp->format('d-m-Y');
+        }*/
 
         if ($checkOut == null)
         {
@@ -21,7 +24,7 @@
 
         echo $checkIn. ' --> ';
         echo $checkOut;
-        echo $location;
+        echo ' ' . $location;
 
         if ($location == null)
         {
@@ -29,9 +32,11 @@
                                   FROM Apartment
                                   WHERE id NOT IN (SELECT id
                                                     FROM Apartment NATURAL JOIN Rental
-                                                    WHERE   (initDate <= :initDate AND endDate >= :initDate)
+                                                    WHERE(
+                                                            (initDate <= :initDate AND endDate >= :initDate)
                                                             OR (initDate < :endDate AND endDate >= :endDate)
-                                                            OR (:initDate <= initDate AND :endDate >= initDate))
+                                                            OR (:initDate <= initDate AND :endDate >= initDate)
+                                                        ))
                                 ');
 
             $stmt->bindParam(":endDate", $checkOut, PDO::PARAM_STR);
@@ -40,7 +45,7 @@
         }
         else 
         {
-            echo '<p>Pesquisa com localide</p>';
+            echo '<p>Pesquisa com localidade</p>';
 
             $stmt = $db->prepare('SELECT id
                                   FROM Apartment
@@ -77,6 +82,16 @@
         return $stmt->fetch();
     }
 
+    function getUserListings($user) {
+        
+        global $db;
+        $stmt = $db->prepare('SELECT id
+                              FROM Apartment
+                              WHERE owner = :username');
+
+        
+        $stmt->bindParam(":username", $user, PDO::PARAM_STR);
+        $stmt->execute();
     function getApartmentPhotos($idApartment)
     {
         global $db;
