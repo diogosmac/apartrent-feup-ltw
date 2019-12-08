@@ -8,8 +8,8 @@
         <div class="profile-side-menu">
             <a href="edit_profile.php">Edit Profile</a>
             <a href="add_listings.php">Add Listings</a>
-            <a href="view_listings.php">My Listings</a>
-            <a href="view_rentals.php">My Rentals</a>
+            <a href="viewListings.php">My Listings</a>
+            <a href="viewRentals.php">My Rentals</a>
         </div>
 
         <?php
