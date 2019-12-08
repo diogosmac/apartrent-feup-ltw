@@ -4,14 +4,12 @@
 
 
 <div class="profile-container">
-
+    
     <div class="profile-side-menu">
                 <a href="edit_profile.php">Edit Profile</a>
                 <a href="add_listings.php">Add Listings</a>
                 <a href="viewListings.php">My Listings</a>
                 <a href="viewRentals.php">My Rentals</a>
-
-                <div class="profile-info-container">
 
         <section id='search_results'>
             <?php
@@ -47,6 +45,5 @@
                 }
             ?>
         </section>
-            </div>
     </div>
 </div>

@@ -46,4 +46,12 @@ CREATE TABLE Rental (
     CHECK (initDate < endDate)
 );
 
+DROP TABLE IF EXISTS Photo;
+
+CREATE TABLE Photo (
+    idPhoto     INTEGER PRIMARY KEY AUTOINCREMENT,
+    path        TEXT,
+    idApartment INTEGER REFERENCES Apartment (id) 
+);
+
 PRAGMA foreign_keys = on;
