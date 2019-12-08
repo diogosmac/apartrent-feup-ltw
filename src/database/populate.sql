@@ -110,3 +110,42 @@ VALUES
         '28-11-2019',
         'admin'
     );
+
+INSERT INTO
+    Photo (
+        idPhoto,
+        path,
+        idApartment
+    )
+VALUES
+    (
+        1,
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/LOUIS_A_AND_LAURA_STIRN_HOUSE%2C_STAPLETON%2C_RICHMOND_COUNTY%2C_NY.jpg/1200px-LOUIS_A_AND_LAURA_STIRN_HOUSE%2C_STAPLETON%2C_RICHMOND_COUNTY%2C_NY.jpg',
+        2
+    );
+
+INSERT INTO
+    Photo (
+        idPhoto,
+        path,
+        idApartment
+    )
+VALUES
+    (
+        2,
+        'https://q-cf.bstatic.com/images/hotel/max1024x768/210/210824060.jpg',
+        1
+    );
+
+INSERT INTO
+    Photo (
+        idPhoto,
+        path,
+        idApartment
+    )
+VALUES
+    (
+        3,
+        'https://r-cf.bstatic.com/images/hotel/max1024x768/223/223777965.jpg',
+        1
+    );
