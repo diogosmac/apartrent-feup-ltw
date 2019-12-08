@@ -6,10 +6,10 @@
     <div class="profile-container">
 
         <div class="profile-side-menu">
-            <a href="edit_profile.php">Edit Profile</a>
-            <a href="add_listings.php">Add Listings</a>
-            <a href="view_listings.php">My Listings</a>
-            <a href="view_rentals.php">My Rentals</a>
+            <a href="../pages/editProfile.php">Edit Profile</a>
+            <a href="../pages/add_listings.php">Add Listings</a>
+            <a href="../pages/view_listings.php">My Listings</a>
+            <a href="../pages/view_rentals.php">My Rentals</a>
         </div>
 
         <?php

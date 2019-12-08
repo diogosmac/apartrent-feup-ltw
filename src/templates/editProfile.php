@@ -1,14 +1,34 @@
+<?php
+    include_once('../includes/init.php');
+    include_once('../actions/validSession.php');
+    
+    include_once('../actions/profileAction.php');         
+?>
+
 <div class="edit-profile-container">
     <div class="edit-personals">
         <div class="profile-picture">
-            <div class="image"><img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png"> </div>
-            <div class="button"><button id="profile-pic-upload" type="button">Change photo</button> </div>
+            <div class="image">
+                <?php echo('<img src="'.$profile_picture.'">'); ?>
+            </div>
+            <div class="button">
+                <label for="profile-pic-upload" class="button">Upload Image</label>
+                <input id="profile-pic-upload" type="file" style="visibility:hidden;">
+            </div>
         </div>
         <div class="account-details">
-            <div class="username"><input type="text" name="username" placeholder="New Username"></div>
-            <div class="password"><input type="password" name="password" placeholder="New Password"></div>
-            <div class="confirm-password"><input type="password" name="confirm_password" placeholder="Confirm Password"></div>
-            <div class="button"><button id="update-profile" type="button">Confirm</button></div>
+            <div class="username">
+                <?php echo('<input type="text" name="username" placeholder="New Username">'); ?>
+            </div>
+            <div class="password">
+                <input type="password" name="password" placeholder="New Password">
+            </div>
+            <div class="confirm-password">
+                <input type="password" name="confirm_password" placeholder="Confirm Password">
+            </div>
+            <div class="button">
+                <button id="update-profile" type="button">Confirm</button>
+            </div>
         </div>
     </div>
     <div class="description">

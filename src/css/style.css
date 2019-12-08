@@ -184,7 +184,8 @@ body {
     width: 50%;
 }
 
-.button > button{
+.button > button, .button > label
+{
     background-color: rgb(241, 162, 42);
     border: none;
     color: white;
