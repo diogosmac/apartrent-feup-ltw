@@ -73,7 +73,6 @@ body > header .signup {
 .profile-info-container {
     width: 100%;
     padding: 2em;
-    margin-right: 30%;
     height: 100%;
     float: right;
     display: flex;
@@ -87,4 +86,10 @@ body > header .signup {
     width: 16.5em;
     height: 16.5em;
     object-fit: cover;
+}
+
+/* my listings */
+
+#search_results {
+    width: 100%;
 }
