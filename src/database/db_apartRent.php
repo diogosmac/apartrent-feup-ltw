@@ -4,57 +4,65 @@
     {
         global $db;
 
-        if ($checkIn == null)
-        {
+        if ($checkIn == null) {
             //Dia de hoje
             $tempDateTimeIn = new DateTime('now');
             $checkIn = $tempDateTimeIn->format('d-m-Y');
         }
-       /* else {
-            $temp = $checkIn;
+        else {
+            $temp = new DateTime($checkIn);
             $checkIn = $temp->format('d-m-Y');
-        }*/
+        }
 
-        if ($checkOut == null)
-        {
+        if ($checkOut == null) {
             //Dia seguinte ao checkIn
             $tempDateTimeOut = new DateTime($checkIn);
             $checkOut = $tempDateTimeOut->modify('+1 day')->format('d-m-Y');
+        }
+        else {
+            $temp = new DateTime($checkOut);
+            $checkOut = $temp->format('d-m-Y');
         }
 
         echo $checkIn. ' --> ';
         echo $checkOut;
         echo ' ' . $location;
 
-        if ($location == null)
-        {
+        if ($location == null) {
+
             $stmt = $db->prepare('SELECT id
                                   FROM Apartment
                                   WHERE id NOT IN (SELECT id
-                                                    FROM Apartment NATURAL JOIN Rental
-                                                    WHERE(
-                                                            (initDate <= :initDate AND endDate >= :initDate)
+                                                    FROM Apartment, Rental
+                                                    WHERE Apartment.id = Rental.apartmentID
+                                                    AND (
+                                                            (initDate <= :initDate AND endDate > :initDate)
                                                             OR (initDate < :endDate AND endDate >= :endDate)
-                                                            OR (:initDate <= initDate AND :endDate >= initDate)
+                                                            OR (:initDate <= initDate AND :endDate > initDate)
+                                                            OR (:initDate < endDate AND :endDate >= endDate)
                                                         ))
                                 ');
 
-            $stmt->bindParam(":endDate", $checkOut, PDO::PARAM_STR);
             $stmt->bindParam(":initDate", $checkIn, PDO::PARAM_STR);
+
+            $stmt->bindParam(":endDate", $checkOut, PDO::PARAM_STR);
             $stmt->execute();
+        
         }
-        else 
-        {
+        else {
+        
             echo '<p>Pesquisa com localidade</p>';
 
             $stmt = $db->prepare('SELECT id
                                   FROM Apartment
                                   WHERE id NOT IN (SELECT id
-                                                    FROM Apartment NATURAL JOIN Rental
-                                                    WHERE(
-                                                            (initDate <= :initDate AND endDate >= :initDate)
+                                                    FROM Apartment, Rental
+                                                    WHERE Apartment.id = Rental.apartmentID
+                                                    AND (
+                                                            (initDate <= :initDate AND endDate > :initDate)
                                                             OR (initDate < :endDate AND endDate >= :endDate)
-                                                            OR (:initDate <= initDate AND :endDate >= initDate)
+                                                            OR (:initDate <= initDate AND :endDate > initDate)
+                                                            OR (:initDate < endDate AND :endDate >= endDate)
                                                         ))
                                         AND locale = :location
                                 ');
@@ -63,9 +71,11 @@
             $stmt->bindParam(":initDate", $checkIn, PDO::PARAM_STR);
             $stmt->bindParam(":location", $location, PDO::PARAM_STR);
             $stmt->execute();
+
         }
 
         return $stmt->fetchAll();
+
     }
 
     function getApartmentByID($id)
