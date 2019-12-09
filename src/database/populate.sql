@@ -7,7 +7,6 @@ INSERT INTO
         name,
         email,
         description,
-        profile_picture,
         idUser
     )
 VALUES
@@ -17,7 +16,6 @@ VALUES
         'Joaquim Alberto',
         'joaquim@alberto.pt',
         'Bem Alimentado! Bem liindooooo',
-        'https://i.ytimg.com/vi/LSI9MftcFgM/hqdefault.jpg',
         1
     );
 
@@ -28,7 +26,6 @@ INSERT INTO
         name,
         email,
         description,
-        profile_picture,
         idUser
     )
 VALUES
@@ -38,8 +35,26 @@ VALUES
         'NotAdmin',
         'admin@admin.com',
         'Admin acc',
-        'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png',
         2
+    );
+
+INSERT INTO
+    User (
+        username,
+        password,
+        name,
+        email,
+        description,
+        idUser
+    )
+VALUES
+    (
+        'PedroBaptista',
+        'Pedro123',
+        'Pedro Baptista',
+        'up201705255@fe.up.pt',
+        NULL,
+        24
     );
 
 INSERT INTO
@@ -117,39 +132,13 @@ VALUES
 
 INSERT INTO
     Photo (
-        idPhoto,
-        path,
-        idApartment
+        idPhoto
     )
 VALUES
-    (
-        1,
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/LOUIS_A_AND_LAURA_STIRN_HOUSE%2C_STAPLETON%2C_RICHMOND_COUNTY%2C_NY.jpg/1200px-LOUIS_A_AND_LAURA_STIRN_HOUSE%2C_STAPLETON%2C_RICHMOND_COUNTY%2C_NY.jpg',
-        2
-    );
+    (0);
+
 
 INSERT INTO
-    Photo (
-        idPhoto,
-        path,
-        idApartment
-    )
+    [User-Photo] (idUser, idPhoto)
 VALUES
-    (
-        2,
-        'https://q-cf.bstatic.com/images/hotel/max1024x768/210/210824060.jpg',
-        1
-    );
-
-INSERT INTO
-    Photo (
-        idPhoto,
-        path,
-        idApartment
-    )
-VALUES
-    (
-        3,
-        'https://r-cf.bstatic.com/images/hotel/max1024x768/223/223777965.jpg',
-        1
-    );
+    (1, 0);

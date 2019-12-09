@@ -16,7 +16,7 @@
                 <input id="profile-pic-upload" type="file" style="visibility:hidden;">
             </div>
         </div>
-        <div class="account-details">
+        <form class="account-details" action="../database/upload.php" method="POST">
             <div class="username">
                 <?php echo('<input type="text" name="username" placeholder="New Username">'); ?>
             </div>
@@ -27,9 +27,9 @@
                 <input type="password" name="confirm_password" placeholder="Confirm Password">
             </div>
             <div class="button">
-                <button id="update-profile" type="button">Confirm</button>
+                <input id="update-profile" type="submit" value="Confirm">
             </div>
-        </div>
+        </form>
     </div>
     <div class="description">
         <div><label for="description">Description</label></div> 

@@ -35,7 +35,7 @@
     {
         global $db;
 
-        $stmt = $db->prepare('SELECT username, name, email, description, profile_picture 
+        $stmt = $db->prepare('SELECT username, name, email, description 
                               FROM User
                               WHERE idUser = :uid');
 

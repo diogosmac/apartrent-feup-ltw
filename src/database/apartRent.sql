@@ -8,9 +8,6 @@ CREATE TABLE User (
     name VARCHAR NOT NULL,
     email TEXT CONSTRAINT [@sign] CHECK (email LIKE '%@%') UNIQUE NOT NULL,
     description TEXT,
-    profile_picture TEXT DEFAULT (
-        'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png'
-    ) NOT NULL,
     idUser INTEGER PRIMARY KEY AUTOINCREMENT
 );
 
@@ -49,10 +46,21 @@ CREATE TABLE Rental (
 
 DROP TABLE IF EXISTS Photo;
 
-CREATE TABLE Photo (
-    idPhoto INTEGER PRIMARY KEY AUTOINCREMENT,
-    path TEXT,
-    idApartment INTEGER REFERENCES Apartment (id)
+CREATE TABLE Photo (idPhoto INTEGER PRIMARY KEY AUTOINCREMENT);
+
+DROP TABLE IF EXISTS [Apartment-Photo];
+
+CREATE TABLE [Apartment-Photo] (
+    idApartment INTEGER REFERENCES Apartment (id),
+    idPhoto INTEGER REFERENCES Photo (idPhoto) UNIQUE,
+    PRIMARY KEY (idApartment, idPhoto)
+);
+
+DROP TABLE IF EXISTS [User-Photo];
+
+CREATE TABLE [User-Photo] (
+    idUser INTEGER REFERENCES User (idUser) PRIMARY KEY UNIQUE,
+    idPhoto INTEGER CONSTRAINT fk_userphoto_idphoto REFERENCES Photo (idPhoto)
 );
 
 PRAGMA foreign_keys = on;

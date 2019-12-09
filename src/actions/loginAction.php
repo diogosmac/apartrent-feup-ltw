@@ -2,6 +2,7 @@
 
     include_once('../includes/init.php');
     include_once('../database/user.php');
+    include_once('../database/photo.php');
 
     // Verifica se o utilizador chegou a pagina atraves da pagina de login
     if(isset($_POST['login_button']))
@@ -29,7 +30,7 @@
                 $_SESSION['userID'] = $query_results[0]['idUser'];
                 $_SESSION['name'] = $query_results[0]['name'];
                 $_SESSION['username'] = $query_results[0]['username'];
-                $_SESSION['profile_picture'] = $query_results[0]['profile_picture'];
+                $_SESSION['profile_picture'] = getPhotoPathUser($_SESSION['userID']);
 
 
                 header("Location: ../index.php?login=success");
@@ -38,7 +39,6 @@
             else
             {
                 header("Location: ../pages/login.php?error=wrongpassword");
-                // header("Location: " . $_SERVER['HTTP_REFERER']);
                 exit();
             }
         }

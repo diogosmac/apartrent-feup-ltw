@@ -2,6 +2,7 @@
 
     include_once('../includes/init.php');
     include_once('../database/user.php');
+    include_once('../database/photo.php');
 
     // Verifica se o utilizador chegou a pagina atraves da pagina de signup
     if (isset($_POST['register_button'])) 
@@ -71,7 +72,9 @@
                     $_SESSION['userID'] = $userID['idUser'];
                     $_SESSION['name'] = $allInfo[0]['name'];
                     $_SESSION['username'] = $allInfo[0]['username'];
-                    $_SESSION['profile_picture'] = $allInfo[0]['profile_picture'];
+
+                    setDefaultPicture($userID['idUser']);
+                    $_SESSION['profile_picture'] = getPhotoPath(0);
 
                     header("Location: ../index.php?signup=success");
                     exit();
