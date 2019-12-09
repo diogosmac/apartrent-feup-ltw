@@ -5,8 +5,10 @@
 
     if(!isset($userID)) //Se nao houver sessao iniciada
     {
-        echo '<a id="login" href="login.php"> Log in </a>';
-        echo '<a href="signup.php"> Sign up </a>';
+        echo '<div id="login_signup">
+                <a id="login" href="login.php"> Log in </a>
+                <a href="signup.php"> Sign up </a>
+              </div>';
     }
     else //Se houver sessao iniciada
     {
