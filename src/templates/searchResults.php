@@ -15,7 +15,7 @@
 
             if(count($query_results) == 0)
             {
-                echo '<p>Not results found for you search parameters!</p>';
+                echo '<p>No results found for you search parameters!</p>';
             }
             else
                 foreach($query_results as $apartmentID)
