@@ -11,12 +11,12 @@
             <div class="image">
                 <?php echo('<img src="'.$profile_picture.'">'); ?>
             </div>
-            <div class="button">
-                <label for="profile-pic-upload" class="button">Upload Image</label>
-                <input id="profile-pic-upload" type="file" style="visibility:hidden;">
-            </div>
         </div>
-        <form class="account-details" action="../database/upload.php" method="POST">
+        <form class="account-details" action="../actions/editProfileAction.php" method="POST" enctype="multipart/form-data">
+            <div class="button">
+                <label for="profile_pic" class="button">Upload Image</label>
+                <input id="profile_pic" type="file" style="visibility:hidden;" name="profile_pic">
+            </div>
             <div class="username">
                 <?php echo('<input type="text" name="username" placeholder="New Username">'); ?>
             </div>
