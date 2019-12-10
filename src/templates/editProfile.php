@@ -18,7 +18,7 @@
                 <input id="profile_pic" type="file" style="visibility:hidden;" name="profile_pic">
             </div>
             <div class="username">
-                <?php echo('<input type="text" name="username" placeholder="New Username">'); ?>
+                <input type="text" name="username" placeholder="New Username">
             </div>
             <div class="password">
                 <input type="password" name="password" placeholder="New Password">
@@ -27,7 +27,7 @@
                 <input type="password" name="confirm_password" placeholder="Confirm Password">
             </div>
             <div class="button">
-                <input id="update-profile" type="submit" value="Confirm">
+                <input id="update-profile" type="submit" value="Confirm" name="edit_profile_button">
             </div>
         </form>
     </div>
