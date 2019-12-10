@@ -54,7 +54,7 @@ VALUES
         'Pedro Baptista',
         'up201705255@fe.up.pt',
         NULL,
-        24
+        3
     );
 
 INSERT INTO
@@ -137,8 +137,35 @@ INSERT INTO
 VALUES
     (0);
 
+INSERT INTO
+    [User-Photo] (
+        idUser,
+        idPhoto
+    )
+VALUES
+    (
+        1,
+        0
+    );
 
 INSERT INTO
-    [User-Photo] (idUser, idPhoto)
+    [User-Photo] (
+        idUser,
+        idPhoto
+    )
 VALUES
-    (1, 0);
+    (
+        2,
+        0
+    );
+
+INSERT INTO
+    [User-Photo] (
+        idUser,
+        idPhoto
+    )
+VALUES
+    (
+        3,
+        0
+    );

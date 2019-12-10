@@ -11,6 +11,8 @@
   }
   else
   {
+    $oldPhotoID = getPhotoID($userID);
+
     addNewPhoto();
 
     global $db;
@@ -26,6 +28,10 @@
 
     updateProfilePhoto($userID, $id);
     $_SESSION['profile_picture'] = getPhotoPath($id);
+
+    //Deletes old profile photo, to save some space
+    $oldPhotoPath = getPhotoPath($oldPhotoID['idPhoto']);
+    unlink($oldPhotoPath);
   }
 
 

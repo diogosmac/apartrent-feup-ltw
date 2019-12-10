@@ -77,4 +77,20 @@
         return;
     }
 
+    function getPhotoID($userID)
+    {
+        global $db;
+        
+        $stmt = $db->prepare('
+                                SELECT idPhoto
+                                FROM [User-Photo]
+                                WHERE idUser = :uid
+                            ');
+
+        $stmt->bindParam(':uid', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
 ?>
