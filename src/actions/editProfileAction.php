@@ -20,10 +20,13 @@
     //Verifica se foi pedida uma alteracao de password
     if($_POST['password'] != null)
     {
-      if($_POST['password'] == $_POST['confirm_password'])
-      {
-        updatePassword($userID, $_POST['password']);
-      }
+      //Password match has already been verified, so it can just update the db
+      updatePassword($userID, $_POST['password']);
+    }
+
+    if($_POST['description'] != null)
+    {
+      updateDescription($userID, $_POST['description']);
     }
 
     //Redireciona para a pagina de perfil

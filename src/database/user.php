@@ -123,4 +123,21 @@
         return;
     }
 
+    function updateDescription($userID, $newDescription)
+    {
+        global $db;
+        
+        $stmt = $db->prepare('
+                                UPDATE User
+                                SET description = :newDescription
+                                WHERE idUser = :userID
+                            ');
+
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':newDescription', $newDescription, PDO::PARAM_STR);
+        $stmt->execute();
+                    
+        return;
+    }
+
 ?>
