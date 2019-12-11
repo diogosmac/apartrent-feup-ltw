@@ -26,10 +26,15 @@
                 <input id="profile_pic" type="file" style="visibility:hidden;" name="profile_pic">
             </div>
             <div class="username">
-                <input type="text" name="username" placeholder="New Username">
+                <input type="text" name="username" placeholder="New Username"
+                pattern='^(?=.{5,12}$)(?!.*[._-]{2})[a-zA-Z][a-zA-Z0-9._-]*[a-zA-Z0-9]$'
+                title="A username must have between 5 and 12 characters. It cannot start nor end with special characters and those cannot appear more than once in a row">
             </div>
             <div class="password">
-                <input type="password" id="password" name="password" placeholder="New Password" onkeyup='checkMatch();'>
+                <input type="password" id="password" name="password" placeholder="New Password" 
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" 
+                title="Password must contain at least 8 characters, with one Uppercase letter, one lowercase letter, and one number"
+                onkeyup='checkMatch();'>
             </div>
             <div class="confirm-password">
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" onkeyup='checkMatch();'>
