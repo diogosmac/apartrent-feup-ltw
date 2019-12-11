@@ -9,7 +9,7 @@ body {
 
 body > header {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
     grid-template-rows: auto;
 }
 
@@ -24,31 +24,60 @@ body > header .signup {
     grid-column: 2;
     grid-row: 1;
 
-    transform: translateY(50%);
+    /* transform: translateY(50%); */
+}
+
+.signup #login_signup {
+    transform: translateY(175%);
+}
+
+.signup #profile_section > img{
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    transform: translateY(30%);
+    object-fit: cover;
+}
+
+.signup #profile_section{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    transform: translate(50%, -10%);
+}
+
+.signup #profile_section #profile_section_text
+{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* profile layout */
 
 .profile-container {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    align-items: stretch;
+    align-items: stretch; */
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: [start] 12em [division] auto [end];
 }
 
 .profile-side-menu {
+    grid-column: start division;
+    grid-row: 1;
     display: flex;
     flex-direction: column;
     justify-content: start;
-    height: 100%;
-    width: 25%;
     padding-bottom: 40%;
-    width: 20em;
 }
 
 .profile-info-container {
+    grid-column: division end;
+    grid-row:  1;
     width: 100%;
     padding: 2em;
-    margin-right: 30%;
     height: 100%;
     float: right;
     display: flex;
@@ -59,5 +88,13 @@ body > header .signup {
 
 .profile-info-container > .profile-picture > img {
     border-radius: 50%;
-    width: 60%;
+    width: 16.5em;
+    height: 16.5em;
+    object-fit: cover;
+}
+
+/* my listings */
+
+#search_results {
+    width: 100%;
 }
