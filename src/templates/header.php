@@ -3,7 +3,7 @@
 <html>
     <head>
         <?php echo '<title>' . $title . '</title>'; ?>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
         <link href="../css/layout.css" rel="stylesheet">
