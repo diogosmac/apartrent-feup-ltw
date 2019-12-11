@@ -35,7 +35,7 @@
                     echo '<img class="mySlides" src="'.$photo['path'].'">';
                 }
 
-                echo '<button class="leftButton" onclick="plusDivs(-1)">&#10094;</button>
+          echo '<button class="leftButton" onclick="plusDivs(-1)">&#10094;</button>
                 <button class="rightButton" onclick="plusDivs(1)">&#10095;</button>
             </div>
 
@@ -64,20 +64,22 @@
             </div>
         </div>
         
-        <div class="rent">
+        <div class="rent" id= "rent">
             <h3> Rent </h3>
         
             <div class="checkin">
                 <label>Check-in </label>
-                <input class="data" type="date" name="checkIn">
+                <input class="data" type="date" onclick="updatePrice()" name="checkIn">
             </div>
 
             <div class="checkout">
                 <label>Check-out </label>
-                <input class="data" type="date" name="checkOut">
+                <input class="data" type="date" onclick="updatePrice()" name="checkOut">
             </div>
-        
-            <p> Total price: **€ </p>
+            
+            <div id="price">
+                <p> Total price: € </p>
+            </div>
             <input id="submit" name="submit" type="submit" value="Reserve!">
 
         </div>
@@ -106,5 +108,22 @@
             x[i].style.display = "none";  
         }
         x[slideIndex-1].style.display = "block";  
+    }
+
+    function updatePrice() {
+        var dates = document.getElementsByClassName("data")[0];
+        var price = document.getElementById("price");
+        var oldPrice = price.getElementsByTagName('p')[0];
+
+        console.log(dates)
+
+        oldPrice.remove();
+
+        var newPrice = document.createElement("p");
+        newPrice.innerHTML = '<p>' + 'Total price: ' + '∞' + ' €' + '</p>';
+
+        price.appendChild(newPrice);
+
+        return 3;
     }
 </script>
