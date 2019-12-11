@@ -1,5 +1,19 @@
 <?php
 
+    function getApartmentPhotos($idApartment)
+    {
+        global $db;
+
+        $stmt = $db->prepare('SELECT idPhoto
+                              FROM [Apartment-Photo]
+                              WHERE idApartment = :idWantedApartment');
+
+        $stmt->bindParam(":idWantedApartment", $idApartment, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
     function setDefaultPicture($userID)
     {
         global $db;

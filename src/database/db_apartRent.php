@@ -104,19 +104,4 @@
         return $stmt->fetchAll();
     }
 
-    function getApartmentPhotos($idApartment)
-    {
-        global $db;
-
-        $stmt = $db->prepare('SELECT idPhoto, path
-                                  FROM Apartment, Photo
-                                  WHERE :idWantedApartment = Apartment.id
-                                  AND Apartment.id = Photo.idApartment      
-                            ');
-
-        $stmt->bindParam(":idWantedApartment", $idApartment, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->fetchAll();
-    }
 ?>

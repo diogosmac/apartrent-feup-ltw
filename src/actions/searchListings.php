@@ -2,6 +2,7 @@
 
     include_once('../database/connection.php');
     include('../database/db_apartRent.php');
+    include('../database/photo.php');
 
     function utf8ize($d) {
         if (is_array($d))
@@ -30,8 +31,8 @@
     else {
         foreach ($query_results as $apartmentID) {
             $apartment = getApartmentByID($apartmentID['id']);
-            $apartment_images = getApartmentPhotos($apartmentID['id']); //Gets all images
-            $image_path = $apartment_images[0]['path']; //Only displays the 1st one
+            $apartment_images = getApartmentPhotos($apartmentID['id']); // Gets all images
+            $image_path = getPhotoPath($apartment_images[0]['idPhoto']);           // Only displays the 1st one
             $apartment_name = $apartment['listing_name'];
             $apartment_daily_price = $apartment['daily_price'];
             $apartment_max = $apartment['n_guests'];

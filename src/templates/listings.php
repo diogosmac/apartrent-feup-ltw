@@ -15,6 +15,7 @@
     <section id='search_results'>
         <?php
             include_once('../database/db_apartRent.php');
+            include_once('../database/photo.php');
 
             $userID = getUserID();
 
@@ -27,9 +28,9 @@
                 foreach($query_results as $apartmentID) {
                     $apartment = getApartmentByID($apartmentID['id']);
 
-                    $apartment_images = getApartmentPhotos($apartmentID['id']);//Gets all images
-                    $image_path = $apartment_images[0]['path'];//Only displays the 1st one
-
+                    $apartment_images = getApartmentPhotos($apartmentID['id']); // Gets all images
+                    $image_path = getPhotoPath($apartment_images[0]['idPhoto']);           // Only displays the 1st one
+        
                     $apartment_name = $apartment['listing_name'];
                     $apartment_daily_price = $apartment['daily_price'];
                     $apartment_max = $apartment['n_guests'];
