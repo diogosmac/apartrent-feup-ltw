@@ -20,6 +20,9 @@
     //Verifica se foi pedida uma alteracao de password
     if($_POST['password'] != null)
     {
+      // $options = ['cost' => 12];
+      // $securePassword = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
+
       //Password match has already been verified, so it can just update the db
       updatePassword($userID, $_POST['password']);
     }

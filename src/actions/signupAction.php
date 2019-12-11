@@ -55,6 +55,9 @@
 
                 if(count($query_results) == 0) //Se ainda n existir nenhum username igual
                 {
+                    // $options = ['cost' => 12];
+                    // $securePassword = password_hash($pwd, PASSWORD_DEFAULT, $options);
+
                     //Pode-se adicionar, visto que n há mais nenhum igual
                     addUser($username, $pwd, $name, $email);
 
@@ -62,7 +65,6 @@
                     $allInfo = getAllUserInfo($userID['idUser']);
 
                     //Depois de criar conta, faz login automaticamente:
-
                     $_SESSION['userID'] = $userID['idUser'];
                     $_SESSION['name'] = $allInfo[0]['name'];
                     $_SESSION['username'] = $allInfo[0]['username'];

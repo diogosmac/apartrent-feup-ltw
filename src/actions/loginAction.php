@@ -20,6 +20,9 @@
         }
         else
         {
+            // $options = ['cost' => 12];
+            // $securePassword = password_hash($password, PASSWORD_DEFAULT, $options);
+
             // Executa a query de verificacao
             $query_results = getAllMatches($username, $password);
 
