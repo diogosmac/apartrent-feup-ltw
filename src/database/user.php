@@ -89,4 +89,55 @@
         return $stmt->fetchAll();
     }
 
+    function updateUsername($userID, $newUsername)
+    {
+        global $db;
+        
+        $stmt = $db->prepare('
+                                UPDATE User
+                                SET username = :newUsername
+                                WHERE idUser = :userID
+                            ');
+
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':newUsername', $newUsername, PDO::PARAM_STR);
+        $stmt->execute();
+                    
+        return;
+    }
+
+    function updatePassword($userID, $newPassword)
+    {
+        global $db;
+        
+        $stmt = $db->prepare('
+                                UPDATE User
+                                SET password = :newPassword
+                                WHERE idUser = :userID
+                            ');
+
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':newPassword', $newPassword, PDO::PARAM_STR);
+        $stmt->execute();
+                    
+        return;
+    }
+
+    function updateDescription($userID, $newDescription)
+    {
+        global $db;
+        
+        $stmt = $db->prepare('
+                                UPDATE User
+                                SET description = :newDescription
+                                WHERE idUser = :userID
+                            ');
+
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':newDescription', $newDescription, PDO::PARAM_STR);
+        $stmt->execute();
+                    
+        return;
+    }
+
 ?>

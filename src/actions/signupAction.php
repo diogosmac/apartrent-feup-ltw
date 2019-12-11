@@ -49,12 +49,6 @@
                 header("Location: ../pages/signup.php?error=invalidusername&email=".$email."&name=".$name);
                 exit();
             }
-            else if($pwd !== $c_pwd) //Verifica se as passwords coincidem
-            {
-                //Retorna para a pagina de signup, mantem o email, o username e o nome
-                header("Location: ../pages/signup.php?error=passwordsdontmatch&email=".$email."&username=".$username."&name=".$name);
-                exit();
-            }
             else
             {
                 $query_results = searchByUsername($username);
