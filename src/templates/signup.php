@@ -14,7 +14,7 @@
     </a>
     <header>Sign Up</header>
 
-    <script src="../templates/confirmPasswords.js"></script>
+    <script src="../js/confirmPasswords.js"></script>
     <form method="POST" action="../actions/signupAction.php" onsubmit="return checkMatch();">
         <div class="container">
             <div class="Name"><input type="text" name="name" placeholder="Name"
