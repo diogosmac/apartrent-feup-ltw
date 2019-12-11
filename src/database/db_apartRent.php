@@ -57,7 +57,7 @@
                                                     AND (
                                                             (initDate <= :initDate AND endDate > :initDate)
                                                             OR (initDate < :endDate AND endDate >= :endDate)
-                                                            OR (:initDate <= initDate AND :endDate > initDate)
+                                                            8                              OR (:initDate <= initDate AND :endDate > initDate)
                                                             OR (:initDate < endDate AND :endDate >= endDate)
                                                         ))
                                         AND locale = :location
@@ -81,6 +81,20 @@
         $stmt = $db->prepare('SELECT *
                                   FROM Apartment
                                   WHERE id = :id');
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
+    function getOwnerByID($id)
+    {
+        global $db;
+
+        $stmt = $db->prepare('SELECT *
+                              FROM User
+                              Where idUser = :id');
 
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();

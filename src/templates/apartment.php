@@ -1,59 +1,88 @@
-<div class="apartment_container">
+<?php
+    include_once('../includes/init.php');           
     
-    <div class="first_row">
-        <div class="images">
-            <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/LOUIS_A_AND_LAURA_STIRN_HOUSE%2C_STAPLETON%2C_RICHMOND_COUNTY%2C_NY.jpg/1200px-LOUIS_A_AND_LAURA_STIRN_HOUSE%2C_STAPLETON%2C_RICHMOND_COUNTY%2C_NY.jpg">
-            <img class="mySlides" src="https://q-cf.bstatic.com/images/hotel/max1024x768/210/210824060.jpg">
-            <img class="mySlides" src="https://r-cf.bstatic.com/images/hotel/max1024x768/223/223777965.jpg">
+    $id = $_GET['id'];
 
-            <button class="leftButton" onclick="plusDivs(-1)">&#10094;</button>
-            <button class="rightButton" onclick="plusDivs(1)">&#10095;</button>
-        </div>
+    include_once('../database/db_apartRent.php');
 
-        <div class="apartmentInfos">
-            
-            <h1> Hotel S. Sebastiao </h1>
-            
-            <div class="infos">
-                <div class="mainInfos">
-                    <p> Faro - Rua Nova de S. Sebastiao, 4892-124 </p>
-                    <p> Situado num cinema remodelado de estilo Arte Déco, o Moov Hotel Porto Centro dispõe de quartos modernos com acesso Wi-Fi gratuito. O hotel fica a cerca de 3 minutos a pé de estações de metro e de comboios com ligações ao Aeroporto do Porto. </p>
-                </div>
+    $apartment = getApartmentByID($id);
+
+    $apartment_images = getApartmentPhotos($id);//Gets all images
+
+    $apartment_ownerID = $apartment['owner'];
+
+    
+    $apartment_name = $apartment['listing_name'];
+    $apartment_daily_price = $apartment['daily_price'];
+    $apartment_adress = $apartment['address'];
+    $apartment_postalcode = $apartment['postal_code'];
+    $apartment_locale = $apartment['locale'];
+    $apartment_description = $apartment['description'];
+    $apartment_rating = $apartment['average_rating'];
+    $apartment_dailyprice = $apartment['daily_price'];
+    $apartment_max = $apartment['n_guests'];
+    
+    $apartment_owner = getOwnerByID($apartment_ownerID);
+    $owner_name = $apartment_owner['name'];
+    $owner_photo = $apartment_owner['profile_picture'];
+
+
+    echo '<div class="apartment_container">
+        <div class="first_row">
+            <div class="images">';
+
+                foreach($apartment_images as $photo) {
+                    echo '<img class="mySlides" src="'.$photo['path'].'">';
+                }
+
+                echo '<button class="leftButton" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="rightButton" onclick="plusDivs(1)">&#10095;</button>
+            </div>
+
+            <div class="apartmentInfos">
                 
-                <div class="otherInfos">
-                    <div>
-                        <p class="rate"> Rating: 4.2 </p>
-                        <p> Daily price: 120.0$ </p>
-                        <p> Max guests: 8 </p>
+                <h1> '.$apartment_name.' </h1>
+                
+                <div class="infos">
+                    <div class="mainInfos">
+                        <p> '.$apartment_locale.' - '.$apartment_adress.', '.$apartment_postalcode.' </p>
+                        <p> '.$apartment_description.' </p>
                     </div>
-                    <div class="owner">
-                        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png">
-                        <p> Owner </p>
+                    
+                    <div class="otherInfos">
+                        <div>
+                            <p class="rate"> Rating: '.$apartment_rating.' </p>
+                            <p> Daily price: '.$apartment_daily_price.' € </p>
+                            <p> Max guests: '.$apartment_max.' </p>
+                        </div>
+                        <div class="owner">
+                            <img src="'.$owner_photo.'">
+                            <p> '.$owner_name.' </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="rent">
-        <h3> Rent </h3>
-    
-        <div class="checkin">
-            <label>Check-in </label>
-            <input class="data" type="date" name="checkIn">
+        
+        <div class="rent">
+            <h3> Rent </h3>
+        
+            <div class="checkin">
+                <label>Check-in </label>
+                <input class="data" type="date" name="checkIn">
+            </div>
+
+            <div class="checkout">
+                <label>Check-out </label>
+                <input class="data" type="date" name="checkOut">
+            </div>
+        
+            <p> Total price: **€ </p>
+            <input id="submit" name="submit" type="submit" value="Reserve!">
+
         </div>
-
-        <div class="checkout">
-            <label>Check-out </label>
-            <input class="data" type="date" name="checkOut">
-        </div>
-    
-        <p> Total price: **$ </p>
-        <input id="submit" name="submit" type="submit" value="Reserve!">
-
-    </div>
-</div>
-
+    </div>';
+?>
 
 
 <script>

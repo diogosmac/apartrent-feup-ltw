@@ -32,7 +32,7 @@
                     $apartment_rating = $apartment['average_rating'];
 
                     echo'<article>
-                        <a href="apartment.php">
+                        <a href="apartment.php?id='.$apartmentID['id'].'">
                         <img src="'.$image_path.'" alt="">
                         <section class="info">
                             <span id="nome">'.$apartment_name.'</span>
