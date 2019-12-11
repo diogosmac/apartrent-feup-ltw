@@ -32,6 +32,7 @@
                     $apartment_rating = $apartment['average_rating'];
 
                     echo'<article>
+                        <a href="apartment.php">
                         <img src="'.$image_path.'" alt="">
                         <section class="info">
                             <span id="nome">'.$apartment_name.'</span>
@@ -40,6 +41,7 @@
                             <span id="localidade"> '.$apartment_locale.' </span>
                             <span id="rating">'.$apartment_rating.'</span>
                         </section>
+                        </a>
                     </article>';
                 }
 

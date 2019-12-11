@@ -104,6 +104,15 @@ body {
 
 }
 
+#search_results > article > a {
+    text-decoration: none;
+    display: flex;
+}
+
+#search_results > article > a:visited {
+    color: black;
+}
+
 #search_results .info {
 
     display: flex;
@@ -113,7 +122,8 @@ body {
 
 }
 
-#search_results > article > img {
+
+#search_results > article > a > img {
 
     height: 15em;
     width: 20em;
@@ -296,4 +306,126 @@ body {
     background-color: rgb(241, 162, 42);
     color: #000000;
 
+}
+
+
+/* apartment */
+
+.apartment_container {
+    text-align: center;
+}
+
+.first_row {
+    display: flex;
+}
+
+.first_row > img {
+    width: 200%;
+}
+
+.images {
+    position: relative;
+}
+
+.images > img {
+    width: 35em;
+}
+
+.leftButton {
+    position: absolute;
+    top: 45%;
+    left: 0%;
+    background-color: #000;
+    opacity: 0.5;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.rightButton {
+    position: absolute;
+    top: 45%;
+    left: 100%;
+    transform: translate(-100%);
+    background-color: #000;
+    opacity: 0.5;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.apartmentInfos {
+    margin: auto;
+}
+
+.otherInfos {
+    border-top-style: solid;
+    border-width: 2px;
+    margin: auto;
+    display: flex;
+    width: 80%;
+}
+
+.otherInfos > div {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.rate:after {
+    content: '\2B50';
+}
+
+.owner {
+    padding-top: 5%;
+}
+
+.owner > img {
+    width: 30%;
+    border-radius: 50%;
+}
+
+.rent {
+    display: flex;
+    border-style: solid;
+    border-color: rgb(241, 162, 42);
+    padding: 2%;
+}
+
+.checkin {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.checkin > label {
+    margin: auto;
+}
+
+.checkout > label {
+    margin: auto;
+}
+
+.rent > p {
+    margin: auto;
+}
+
+.rent > input {
+    background-color: rgb(241, 162, 42);
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 90%;
+    border-radius: 3%;
+    margin: auto;
+    padding: 2% 4%;
 }

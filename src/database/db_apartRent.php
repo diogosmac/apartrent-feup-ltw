@@ -24,10 +24,6 @@
             $checkOut = $temp->format('d-m-Y');
         }
 
-        echo $checkIn. ' --> ';
-        echo $checkOut;
-        echo ' ' . $location;
-
         if ($location == null) {
 
             $stmt = $db->prepare('SELECT id
