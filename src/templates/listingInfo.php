@@ -25,8 +25,11 @@
         {
             echo ('
                 <section class="listing_buttons">
-                    <input type="button" value="Delete">
-                    <input type="button" value="Edit">
+                <a href="../index.php"><i class="fas fa-trash"></i></a>
+                <a href="../index.php"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+
+                    
+
                 </section>
             ');
         }

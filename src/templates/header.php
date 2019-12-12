@@ -8,6 +8,7 @@
         <link href="../css/form.css" rel="stylesheet">
         <link href="../css/layout.css" rel="stylesheet">
         <link href="../css/responsive.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
     </head>
 
     <body>

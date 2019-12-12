@@ -124,12 +124,11 @@ body {
     margin-top: 4em;
 }
 
-.listing_buttons > input {
+.listing_buttons > a {
     border: none;
-    margin-top: 1em;
+    margin-bottom: 1em;
     padding: 1em;
-    color: white;
-    background-color: rgb(241, 162, 42);
+    color: rgb(241, 162, 42);
 }
 
 
