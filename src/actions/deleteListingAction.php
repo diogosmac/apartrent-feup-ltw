@@ -17,7 +17,7 @@
     }
     else
     {
-        header('Location: ../index.php');
+        header('Location: ../pages/listings.php?manage=1');
     }
 
 ?>
