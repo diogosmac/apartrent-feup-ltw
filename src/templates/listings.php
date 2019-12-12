@@ -1,4 +1,5 @@
 <?php
+    include_once('../actions/validSession.php');
     include_once('../includes/init.php');    
     include_once('../templates/listingInfo.php');
     include_once('../database/db_apartRent.php');
@@ -10,9 +11,9 @@
     
     <div class="profile-side-menu">
         <a href="../pages/editProfile.php">Edit Profile</a>
-        <a href="../pages/add_listings.php">Add Listings</a>
-        <a href="../pages/viewListings.php">My Listings</a>
         <a href="../pages/view_rentals.php">My Rentals</a>
+        <a href="../pages/listings.php">My Listings</a>
+        <a href="../pages/listings.php?manage=1">Manage Listings</a>
     </div>
 
     <section id='search_results'>
@@ -23,8 +24,12 @@
                 echo '<p> No results found. </p>';
             }
             else
+            {
                 foreach($query_results as $apartmentID)
+                {
                     showListing($apartmentID);
+                }
+            }
         ?>
     </section>
 </div>

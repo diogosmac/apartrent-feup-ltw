@@ -114,6 +114,26 @@ body {
 
 }
 
+/*Manage listings*/
+
+.listing_buttons {
+
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    margin-top: 4em;
+}
+
+.listing_buttons > input {
+    border: none;
+    margin-top: 1em;
+    padding: 1em;
+    color: white;
+    background-color: rgb(241, 162, 42);
+}
+
+
+
 #search_results article > img {
 
     height: 15em;
