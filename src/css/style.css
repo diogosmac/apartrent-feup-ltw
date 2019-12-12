@@ -359,7 +359,16 @@ body {
 }
 
 .apartmentInfos {
-    margin: auto;
+    width: 100%;
+    background-color: #E0E0E0;
+    padding: 1em;
+}
+
+.infos {
+    /* border-style: solid;
+    border-color: black; */
+    background-color: white;
+    padding: 1em;
 }
 
 .otherInfos {
@@ -367,7 +376,6 @@ body {
     border-width: 2px;
     margin: auto;
     display: flex;
-    width: 80%;
 }
 
 .otherInfos > div {
@@ -384,48 +392,47 @@ body {
 }
 
 .owner > img {
-    width: 30%;
+    width: 4em;
+    height: 4em;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .rent {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     border-style: solid;
     border-color: rgb(241, 162, 42);
+    background-color: rgb(241, 162, 42);
     padding: 2%;
+}
+
+.rent > div {
+    text-align: center;
 }
 
 .checkin {
     display: flex;
     flex-direction: column;
-    margin: auto;
 }
 
 .checkout {
     display: flex;
     flex-direction: column;
-    margin: auto;
-}
-
-.checkin > label {
-    margin: auto;
-}
-
-.checkout > label {
-    margin: auto;
 }
 
 .rent > p {
     margin: auto;
 }
 
-.rent > input {
-    background-color: rgb(241, 162, 42);
+.rent #submit {
+    background-color: #E0E0E0;
+    color: black;
     border: none;
-    color: white;
     font-weight: bold;
     font-size: 90%;
     border-radius: 3%;
     margin: auto;
-    padding: 2% 4%;
+    padding: 1em 2em;
 }

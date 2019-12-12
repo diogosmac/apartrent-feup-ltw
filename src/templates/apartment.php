@@ -65,7 +65,10 @@
         </div>
         
         <div class="rent" id= "rent">
-            <h3> Rent </h3>
+
+            <div>
+                <h3> Rent </h3>
+            </div>
         
             <div class="checkin">
                 <label>Check-in </label>
@@ -80,7 +83,10 @@
             <div id="price">
                 <p> Total price: € </p>
             </div>
-            <input id="submit" name="submit" type="submit" value="Reserve!">
+            
+            <div>
+                <input id="submit" name="submit" type="submit" value="Reserve!">
+            </div>
 
         </div>
     </div>';
