@@ -129,7 +129,8 @@
         global $db;
 
         /* Cleans [Apartment-Photo] relation */
-        $stmt = $db->prepare('DELETE FROM [Apartment-Photo]
+        $stmt = $db->prepare('
+                                DELETE FROM [Apartment-Photo]
                                 WHERE idApartment = :apartmentID
                 ');
 
@@ -140,7 +141,11 @@
 
         foreach($allPhotos as $Photo)
         {
-            deletePhoto($Photo);
+            //Deletes photo from db
+            deletePhoto($Photo['idPhoto']);
+
+            //Deletes photo from server
+            unlink(getPhotoPath($Photo['idPhoto']));
         }
 
         return;
