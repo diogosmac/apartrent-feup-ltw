@@ -90,8 +90,6 @@
 
     function getUserListings($userID)
     {
-
-        
         global $db;
         $stmt = $db->prepare('SELECT id
                               FROM Apartment
@@ -102,6 +100,21 @@
         $stmt->execute();
 
         return $stmt->fetchAll();
+    }
+
+    function deleteApartment($apartmentID)
+    {
+        global $db;
+
+        $stmt = $db->prepare('DELETE FROM Apartment
+                                WHERE Apartment.id = :idApartment
+                ');
+
+        
+        $stmt->bindParam(":idApartment", $apartmentID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return;
     }
 
 ?>

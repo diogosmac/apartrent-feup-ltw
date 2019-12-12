@@ -107,4 +107,43 @@
         return $stmt->fetch();
     }
 
+    function deletePhoto($idPhoto)
+    {
+        global $db;
+        
+        $stmt = $db->prepare('
+                                DELETE FROM Photo
+                                WHERE idPhoto = :idPhoto
+                            ');
+
+        $stmt->bindParam(':idPhoto', $idPhoto, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return;
+    }
+
+    function deletePhotosFromApartment($apartmentID)
+    {
+        $allPhotos = getApartmentPhotos($apartmentID);
+
+        global $db;
+
+        /* Cleans [Apartment-Photo] relation */
+        $stmt = $db->prepare('DELETE FROM [Apartment-Photo]
+                                WHERE idApartment = :apartmentID
+                ');
+
+        
+        $stmt->bindParam(":apartmentID", $apartmentID, PDO::PARAM_INT);
+        $stmt->execute();
+
+
+        foreach($allPhotos as $Photo)
+        {
+            deletePhoto($Photo);
+        }
+
+        return;
+    }
+
 ?>
