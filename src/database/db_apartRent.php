@@ -133,4 +133,17 @@
 
         return $stmt->fetchAll();
     }
+
+    function addReservation($idApartment, $idUser, $checkIn, $checkOut) {
+        global $db;
+
+        $stmt = $db->prepare('INSERT INTO Rental
+            VALUES(:apart, :chkIn, :chkOut, :user)');
+        $stmt->bindParam(":apart", $idApartment, PDO::PARAM_INT);
+        $stmt->bindParam(":chkIn", $checkIn, PDO::PARAM_STR);
+        $stmt->bindParam(":chkOut", $checkOut, PDO::PARAM_STR);
+        $stmt->bindParam(":user", $idUser, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
 ?>
