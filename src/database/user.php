@@ -29,6 +29,20 @@
 
         return $stmt->fetch();
     }
+
+    function getUsernameFromId($id) {
+        global $db;
+
+        $stmt = $db->prepare('SELECT username 
+                              FROM User
+                              WHERE idUser = :id
+                            ');
+
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetch()['username'];
+    }
     
 
     function getAllUserInfo($userID)

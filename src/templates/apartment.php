@@ -1,135 +1,101 @@
 <?php
-    include_once('../includes/init.php');           
-    
-    $id = $_GET['id'];
+include_once('../includes/init.php');
 
-    include_once('../database/db_apartRent.php');
+$id = $_GET['id'];
 
-    $apartment = getApartmentByID($id);
+include_once('../database/db_apartRent.php');
 
-    $apartment_images = getApartmentPhotos($id);//Gets all images
+$apartment = getApartmentByID($id);
 
-    $apartment_ownerID = $apartment['owner'];
+$apartment_images = getApartmentPhotos($id); //Gets all images
 
-    
-    $apartment_name = $apartment['listing_name'];
-    $apartment_daily_price = $apartment['daily_price'];
-    $apartment_adress = $apartment['address'];
-    $apartment_postalcode = $apartment['postal_code'];
-    $apartment_locale = $apartment['locale'];
-    $apartment_description = $apartment['description'];
-    $apartment_rating = $apartment['average_rating'];
-    $apartment_dailyprice = $apartment['daily_price'];
-    $apartment_max = $apartment['n_guests'];
-    
-    $apartment_owner = getOwnerByID($apartment_ownerID);
-    $owner_name = $apartment_owner['name'];
-    $owner_photo = $apartment_owner['profile_picture'];
+$apartment_ownerID = $apartment['owner'];
 
+$apartment_name = $apartment['listing_name'];
+$apartment_daily_price = $apartment['daily_price'];
+$apartment_adress = $apartment['address'];
+$apartment_postalcode = $apartment['postal_code'];
+$apartment_locale = $apartment['locale'];
+$apartment_description = $apartment['description'];
+$apartment_rating = $apartment['average_rating'];
+$apartment_dailyprice = $apartment['daily_price'];
+$apartment_max = $apartment['n_guests'];
 
-    echo '<div class="apartment_container">
-        <div class="first_row">
-            <div class="images">';
+$apartment_owner = getOwnerByID($apartment_ownerID);
+$owner_name = $apartment_owner['name'];
+$owner_photo = $apartment_owner['profile_picture'];
+?>
 
-                foreach($apartment_images as $photo) {
-                    echo '<img class="mySlides" src="'.$photo['path'].'">';
-                }
+<script src="../js/apartment.js" defer></script>
 
-          echo '<button class="leftButton" onclick="plusDivs(-1)">&#10094;</button>
-                <button class="rightButton" onclick="plusDivs(1)">&#10095;</button>
-            </div>
+<div class="apartment_container">
+    <div class="first_row">
+        <div class="images">
+            <?php foreach ($apartment_images as $photo) { ?>
+                <img class="mySlides" src=" <?php echo $photo['path'] ?> ">
+            <?php } ?>
+            <button class="leftButton" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="rightButton" onclick="plusDivs(1)">&#10095;</button>
+        </div>
 
-            <div class="apartmentInfos">
-                
-                <h1> '.$apartment_name.' </h1>
-                
-                <div class="infos">
-                    <div class="mainInfos">
-                        <p> '.$apartment_locale.' - '.$apartment_adress.', '.$apartment_postalcode.' </p>
-                        <p> '.$apartment_description.' </p>
+        <div class="apartmentInfos">
+
+            <h2> <?php echo $apartment_name ?> </h2>
+
+            <div class="infos">
+                <div class="mainInfos">
+                    <p> <?php echo $apartment_locale . ' - ' . $apartment_adress . ', ' . $apartment_postalcode ?> </p>
+                    <p> <?php echo $apartment_description ?> </p>
+                </div>
+
+                <div class="otherInfos">
+                    <div>
+                        <p class="rate"> <?php echo 'Rating: ' . $apartment_rating ?> </p>
+                        <p class="price"> <?php echo 'Daily price: ' . $apartment_daily_price . ' €' ?> </p>
+                        <p class="guests"> <?php echo 'Max guests: ' . $apartment_max ?> </p>
                     </div>
-                    
-                    <div class="otherInfos">
-                        <div>
-                            <p class="rate"> Rating: '.$apartment_rating.' </p>
-                            <p> Daily price: '.$apartment_daily_price.' € </p>
-                            <p> Max guests: '.$apartment_max.' </p>
-                        </div>
-                        <div class="owner">
-                            <img src="'.$owner_photo.'">
-                            <p> '.$owner_name.' </p>
-                        </div>
+                    <div class="owner">
+                        <img src=" <?php echo $owner_photo ?> ">
+                        <p> <?php echo $owner_name ?> </p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="rent" id= "rent">
+    </div>
 
-            <div>
-                <h3> Rent </h3>
-            </div>
-        
-            <div class="checkin">
-                <label>Check-in </label>
-                <input class="data" type="date" onclick="updatePrice()" name="checkIn">
-            </div>
+    <div class="rent" id="rent">
 
-            <div class="checkout">
-                <label>Check-out </label>
-                <input class="data" type="date" onclick="updatePrice()" name="checkOut">
-            </div>
-            
-            <div id="price">
-                <p> Total price: € </p>
-            </div>
-            
-            <div>
-                <input id="submit" name="submit" type="submit" value="Reserve!">
-            </div>
-
+        <div>
+            <h3> Rent </h3>
         </div>
-    </div>';
-?>
 
+        <div class="checkin">
+            <label>Check-in</label>
+            <input class="data" type="date" onclick="updatePrice()" name="checkIn">
+        </div>
 
-<script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
+        <div class="checkout">
+            <label>Check-out</label>
+            <input class="data" type="date" onclick="updatePrice()" name="checkOut">
+        </div>
 
-    function plusDivs(n) {
-        showDivs(slideIndex += n);
-    }
+        <div id="price">
+            <p> Total price: € </p>
+        </div>
 
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        if (n > x.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = x.length
-        }
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-        }
-        x[slideIndex-1].style.display = "block";  
-    }
+        <div>
+            <input id="submit" name="submit" type="submit" value="Reserve!">
+        </div>
 
-    function updatePrice() {
-        var dates = document.getElementsByClassName("data")[0];
-        var price = document.getElementById("price");
-        var oldPrice = price.getElementsByTagName('p')[0];
+    </div>
+</div>
 
-        console.log(dates)
+<div class="comment-section">
+    <h3>Comments:</h3>
+    <div id="comments"></div>
 
-        oldPrice.remove();
-
-        var newPrice = document.createElement("p");
-        newPrice.innerHTML = '<p>' + 'Total price: ' + '∞' + ' €' + '</p>';
-
-        price.appendChild(newPrice);
-
-        return 3;
-    }
-</script>
+    <form id="comment-box">
+        <input id="message" type="text" placeholder="Help us improve, leave a comment!">
+        <input id="button" type="submit" value="Send">
+    </form>
+</div>

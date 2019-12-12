@@ -311,30 +311,7 @@ body {
 
 /* apartment */
 
-.apartment_container {
-    text-align: center;
-}
-
-.first_row {
-    display: flex;
-}
-
-.first_row > img {
-    width: 200%;
-}
-
-.images {
-    position: relative;
-}
-
-.images > img {
-    width: 35em;
-}
-
 .leftButton {
-    position: absolute;
-    top: 45%;
-    left: 0%;
     background-color: #000;
     opacity: 0.5;
     color: white;
@@ -345,9 +322,6 @@ body {
 }
 
 .rightButton {
-    position: absolute;
-    top: 45%;
-    left: 100%;
     transform: translate(-100%);
     background-color: #000;
     opacity: 0.5;
@@ -359,71 +333,47 @@ body {
 }
 
 .apartmentInfos {
-    width: 100%;
     background-color: #E0E0E0;
     padding: 1em;
 }
 
 .infos {
-    /* border-style: solid;
-    border-color: black; */
     background-color: white;
-    padding: 1em;
+    padding: 0.25em 1em;
+}
+
+.mainInfos {
+    border-bottom-style: solid;
+    border-width: 1px;
 }
 
 .otherInfos {
     border-top-style: solid;
-    border-width: 2px;
-    margin: auto;
-    display: flex;
+    border-width: 1px;
 }
 
 .otherInfos > div {
-    margin: 0 auto;
-    width: 50%;
+    padding: 0.25em;
 }
 
-.rate:after {
+.otherInfos .rate:after {
     content: '\2B50';
 }
 
-.owner {
-    padding-top: 5%;
-}
-
 .owner > img {
-    width: 4em;
-    height: 4em;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .rent {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     border-style: solid;
     border-color: rgb(241, 162, 42);
     background-color: rgb(241, 162, 42);
     padding: 2%;
 }
 
-.rent > div {
-    text-align: center;
-}
-
-.checkin {
-    display: flex;
-    flex-direction: column;
-}
-
-.checkout {
-    display: flex;
-    flex-direction: column;
-}
-
-.rent > p {
-    margin: auto;
+.checkin label, .checkout label {
+    margin-bottom: 0.5em;
 }
 
 .rent #submit {
@@ -433,6 +383,59 @@ body {
     font-weight: bold;
     font-size: 90%;
     border-radius: 3%;
-    margin: auto;
     padding: 1em 2em;
+}
+
+.comment-section {
+    padding: 1em;
+    background-color: #E0E0E0;
+}
+
+#comments {
+    border: 0.1em solid #AAAAAA;
+    background-color: #444444;
+}
+
+#comments .line {
+    border: 0.1em solid #AAAAAA;
+}
+
+#comments .line * {
+    color: white;
+    padding: 0.5em;
+}
+
+#comments .time {
+    background-color: white;
+    color: #444444;
+    border-right: solid #AAAAAA;
+}
+
+#comments .username {
+    color: rgb(241, 162, 42);
+    font-weight: bold;
+}
+
+#comments .username::after {
+    content: " said:";
+    font-weight: normal;
+}
+
+#comment-box {
+    padding: 1em auto;
+    border-top: 1px solid #444444;
+}
+
+#comment-box input {
+    margin: 1em auto;
+    padding: 1em;
+    border: 2px solid #444444;
+    background-color: white;
+    color: #444444;
+    height: auto;
+}
+
+#comment-box #button {
+    color: #E0E0E0;
+    background-color: #444444;
 }

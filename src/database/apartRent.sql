@@ -55,4 +55,18 @@ CREATE TABLE Photo (
     idApartment INTEGER REFERENCES Apartment (id)
 );
 
+DROP TABLE IF EXISTS Comments;
+
+CREATE TABLE Comments (
+    apartmentID INTEGER REFERENCES Apartment (id),
+    numComment INTEGER NOT NULL,
+    idUser INTEGER REFERENCES User (idUser),
+    date_time DATETIME NOT NULL,
+    text TEXT NOT NULL,
+    PRIMARY KEY (
+        apartmentID,
+        numComment
+    )
+);
+
 PRAGMA foreign_keys = on;

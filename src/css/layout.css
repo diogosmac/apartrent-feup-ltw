@@ -93,3 +93,152 @@ body > header .signup {
 #search_results {
     width: 100%;
 }
+
+/* apartment layout */
+
+.apartment_container {
+    text-align: center;
+}
+
+.first_row {
+    display: flex;
+}
+
+.first_row > img {
+    width: 200%;
+}
+
+.images {
+    position: relative;
+}
+
+.images > img {
+    width: 35em;
+}
+
+.leftButton {
+    position: absolute;
+    top: 45%;
+    left: 0%;
+}
+
+.rightButton {
+    position: absolute;
+    top: 45%;
+    left: 100%;
+}
+
+.apartmentInfos {
+    width: 100%;
+}
+
+.otherInfos {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 55% auto;
+    grid-template-rows: 1em auto auto auto;
+}
+
+.otherInfos > div {
+    margin: 0 auto;
+}
+
+.otherInfos .rate {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.otherInfos .price {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.otherInfos .guests {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.owner {
+    grid-column: 2;
+    grid-row: 2/4;
+}
+
+.owner > img {
+    width: 4em;
+    height: 4em;
+}
+
+.rent {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.rent > div {
+    text-align: center;
+}
+
+.checkin {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+}
+
+.rent > p {
+    margin: auto;
+}
+
+.rent #submit {
+    margin: auto;
+}
+
+#comments {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+#comments .line {
+    display: grid;
+    grid-template-columns: 15% 20% auto;
+}
+
+#comments .line * {
+    display: inline-block;
+}
+
+#comments .time {
+    text-align: center;
+    grid-column: 1;
+}
+
+#comments .username {
+    grid-column: 2;
+}
+
+#comments .comment {
+    grid-column: 3;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#comment-box {
+    display: flex;
+}
+
+#comment-box input {
+    margin: 1em auto;
+}
+
+#comment-box #message {
+    flex-grow: 1;
+}
+
+#comment-box #button {
+    margin-left: 1em;
+}
