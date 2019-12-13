@@ -298,3 +298,10 @@ body {
     color: #000000;
 
 }
+
+
+/* My Rentals*/
+
+.info > span {
+    padding-bottom: 2%;
+}
