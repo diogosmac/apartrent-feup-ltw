@@ -63,4 +63,18 @@ CREATE TABLE [User-Photo] (
     idPhoto INTEGER CONSTRAINT fk_userphoto_idphoto REFERENCES Photo (idPhoto)
 );
 
+DROP TABLE IF EXISTS Comments;
+
+CREATE TABLE Comments (
+    apartmentID INTEGER REFERENCES Apartment (id),
+    numComment INTEGER NOT NULL,
+    idUser INTEGER REFERENCES User (idUser),
+    date_time DATETIME NOT NULL,
+    text TEXT NOT NULL,
+    PRIMARY KEY (
+        apartmentID,
+        numComment
+    )
+);
+
 PRAGMA foreign_keys = on;

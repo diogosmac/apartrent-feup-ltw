@@ -68,7 +68,8 @@ body .apartmentSearch {
 
 body {
 
-    font-family: 'Verdana', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
+    /* font-family: 'Verdana', sans-serif; */
 
 }
 
@@ -105,6 +106,15 @@ body {
 
 }
 
+#search_results > article > a {
+    text-decoration: none;
+    display: flex;
+}
+
+#search_results > article > a:visited {
+    color: black;
+}
+
 #search_results .info {
 
     display: flex;
@@ -114,7 +124,8 @@ body {
 
 }
 
-#search_results article > img {
+
+#search_results > article > a > img {
 
     height: 15em;
     width: 20em;
@@ -299,6 +310,137 @@ body {
 
 }
 
+/* apartment */
+
+.leftButton {
+    background-color: #000;
+    opacity: 0.5;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.rightButton {
+    transform: translate(-100%);
+    background-color: #000;
+    opacity: 0.5;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.apartmentInfos {
+    background-color: #E0E0E0;
+    padding: 1em;
+}
+
+.infos {
+    background-color: white;
+    padding: 0.25em 1em;
+}
+
+.mainInfos {
+    border-bottom-style: solid;
+    border-width: 1px;
+}
+
+.otherInfos {
+    border-top-style: solid;
+    border-width: 1px;
+}
+
+.otherInfos > div {
+    padding: 0.25em;
+}
+
+.otherInfos .rate:after {
+    content: '\2B50';
+}
+
+.owner > img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.rent {
+    border-style: solid;
+    border-color: rgb(241, 162, 42);
+    background-color: rgb(241, 162, 42);
+    padding: 2%;
+}
+
+.checkin label, .checkout label {
+    margin-bottom: 0.5em;
+}
+
+.rent #reserve-button {
+    background-color: #E0E0E0;
+    color: black;
+    border: none;
+    font-weight: bold;
+    font-size: 90%;
+    width: 10em;
+    height: 3em;
+    padding: 0;
+}
+
+.comment-section {
+    padding: 1em;
+    background-color: #E0E0E0;
+}
+
+#comments {
+    border: 0.1em solid #AAAAAA;
+    background-color: #444444;
+}
+
+#comments .line {
+    border: 0.1em solid #AAAAAA;
+}
+
+#comments .line * {
+    color: white;
+    padding: 0.5em;
+}
+
+#comments .time {
+    background-color: white;
+    color: #444444;
+    border-right: solid #AAAAAA;
+}
+
+#comments .username {
+    color: rgb(241, 162, 42);
+    font-weight: bold;
+}
+
+#comments .username::after {
+    content: " said:";
+    font-weight: normal;
+}
+
+#comment-box {
+    padding: 1em auto;
+    border-top: 1px solid #444444;
+}
+
+#comment-box input {
+    margin: 1em auto;
+    padding: 1em;
+    border: 2px solid #444444;
+    background-color: white;
+    color: #444444;
+    height: auto;
+}
+
+#comment-box #button {
+    color: #E0E0E0;
+    background-color: #444444;
+}
 
 /* My Rentals*/
 
