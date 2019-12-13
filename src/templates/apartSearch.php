@@ -9,7 +9,7 @@
             <div><input class="data" type="date" name="checkIn"></div>
             <div><label>CHECKOUT</label></div>
             <div><input class="data" type="date" name="checkOut"></div>
-            <div><input class="button" id="submit" name="submit" type="submit" value="Go!"></div>
+            <div><button class="button" id="submit" type="submit">Go!</button></div>
             <div id="surprise">or ... <input class="button" name="random" type="submit" value="Surprise me!" formaction="random.php"></div>
         </div>
     </form>

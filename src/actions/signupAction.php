@@ -2,6 +2,7 @@
 
     include_once('../includes/init.php');
     include_once('../database/user.php');
+    include_once('../database/photo.php');
 
     // Verifica se o utilizador chegou a pagina atraves da pagina de signup
     if (isset($_POST['register_button'])) 
@@ -48,18 +49,15 @@
                 header("Location: ../pages/signup.php?error=invalidusername&email=".$email."&name=".$name);
                 exit();
             }
-            else if($pwd !== $c_pwd) //Verifica se as passwords coincidem
-            {
-                //Retorna para a pagina de signup, mantem o email, o username e o nome
-                header("Location: ../pages/signup.php?error=passwordsdontmatch&email=".$email."&username=".$username."&name=".$name);
-                exit();
-            }
             else
             {
                 $query_results = searchByUsername($username);
 
                 if(count($query_results) == 0) //Se ainda n existir nenhum username igual
                 {
+                    // $options = ['cost' => 12];
+                    // $securePassword = password_hash($pwd, PASSWORD_DEFAULT, $options);
+
                     //Pode-se adicionar, visto que n há mais nenhum igual
                     addUser($username, $pwd, $name, $email);
 
@@ -67,11 +65,12 @@
                     $allInfo = getAllUserInfo($userID['idUser']);
 
                     //Depois de criar conta, faz login automaticamente:
-
                     $_SESSION['userID'] = $userID['idUser'];
                     $_SESSION['name'] = $allInfo[0]['name'];
                     $_SESSION['username'] = $allInfo[0]['username'];
-                    $_SESSION['profile_picture'] = $allInfo[0]['profile_picture'];
+
+                    setDefaultPicture($userID['idUser']);
+                    $_SESSION['profile_picture'] = getPhotoPath(0);
 
                     header("Location: ../index.php?signup=success");
                     exit();

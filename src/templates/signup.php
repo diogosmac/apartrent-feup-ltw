@@ -14,16 +14,28 @@
     </a>
     <header>Sign Up</header>
 
-    <form method="POST" action="../actions/signupAction.php">
+    <script src="../js/confirmPasswords.js"></script>
+    <form method="POST" action="../actions/signupAction.php" onsubmit="return checkMatch();">
         <div class="container">
-            <div class="Name"><input type="text" name="name" placeholder="Name" required></div>
+            <div class="Name"><input type="text" name="name" placeholder="Name"
+            pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" 
+            title="Names can only have letters, no numbers nor special caracters"
+            required></div>
+
             <div class="Email"><input type="email" name="email" placeholder="Email" required></div>
-            <div class="Username"><input type="text" name="username" placeholder="Username" required></div>
-            <div class="Password"><input type="password" name="password" placeholder="Password"
+
+            <div class="Username"><input type="text" name="username" placeholder="Username" 
+            pattern='^(?=.{5,12}$)(?!.*[._-]{2})[a-zA-Z][a-zA-Z0-9._-]*[a-zA-Z0-9]$'
+            title="A username must have between 5 and 12 characters. It cannot start nor end with special characters and those cannot appear more than once in a row"
+            required></div>
+            
+            <div class="Password"><input type="password" id="password" name="password" placeholder="Password"
                                          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" 
                                          title="Password must contain at least 8 characters, with one Uppercase letter, one lowercase letter, and one number"
-                                         required></div>
-            <div class="ConfPassword"><input type="password" name="confirm_password" placeholder="Confirm Password" required></div>
+                                         required onkeyup='checkMatch();'></div>
+
+            <div class="ConfPassword"><input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required onkeyup='checkMatch();'></div>
+            <span id='message'></span>
             <div class="Register"><input type="submit" name="register_button" value="Submit"></div>
         </div>
     </form>

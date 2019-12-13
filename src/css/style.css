@@ -81,9 +81,10 @@ body {
 
 }
 
-#search_results > article {
+#search_results article {
 
-    padding-top: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     display: flex;
     flex-direction: row;
 
@@ -210,8 +211,8 @@ body {
 
 }
 
-.button > button, .button > label {
-
+.button > input, .button > label
+{
     background-color: rgb(241, 162, 42);
     border: none;
     color: white;
