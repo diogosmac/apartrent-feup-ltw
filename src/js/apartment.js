@@ -80,19 +80,79 @@ function showDivs(n) {
     x[slideIndex - 1].style.display = "block";
 }
 
+function daysBetween(date1, date2) {
+    var first = new Date(date1);
+    var second = new Date(date2);
+
+    var timeDiff = second.getTime() - first.getTime();
+    return timeDiff / (1000 * 60 * 60 * 24);
+}
+
 function updatePrice() {
-    var dates = document.getElementsByClassName("data")[0];
-    var price = document.getElementById("price");
-    var oldPrice = price.getElementsByTagName('p')[0];
 
-    console.log(dates)
+    var dates = document.getElementsByClassName("rentalDate");
+    var price = parseInt(document.getElementById('priceNum').innerHTML);
+    var rentalPrice = document.getElementById('rentalCalc');
 
-    oldPrice.remove();
+    var rentalTime = daysBetween(dates[0].value, dates[1].value);
+    var newPrice = "-";
+    if (rentalTime > 0) {
+        newPrice = price * rentalTime;
+    }
 
-    var newPrice = document.createElement("p");
-    newPrice.innerHTML = '<p>' + 'Total price: ' + '∞' + ' €' + '</p>';
+    rentalPrice.innerHTML = newPrice;
 
-    price.appendChild(newPrice);
+    return 0;
 
-    return 3;
+}
+
+var submitButton = document.getElementById('reserve-button');
+submitButton.addEventListener('click', checkSubmission)
+
+function checkSubmission(event) {
+
+    var dates = document.getElementsByClassName("rentalDate");
+    var checkIn = dates[0].value;
+    var checkOut = dates[1].value;
+
+    let requestUrl = '../actions/makeReservation.php?' +
+        encodeForAjax({
+            'apartmentID': apartID,
+            'checkIn': checkIn,
+            'checkOut': checkOut
+        });
+
+    let request = new XMLHttpRequest();
+    request.open('get', requestUrl, true);
+    request.addEventListener('load', reservationRedirect);
+    request.send();
+
+    event.preventDefault();
+
+}
+
+function reservationRedirect() {
+
+    var returnCode = parseInt(this.response);
+
+    switch(returnCode) {
+        case 3:
+            alert('You need to be signed in to make a reservation!');
+            return;
+        case 2:
+            alert('Please pick valid dates for your check-in and check-out!');
+            return;
+        case 1:
+            alert('The reservation could not be made, due to conflict with an existing reservation.\nWe recommend that you search for properties for your intended dates, so that this inconvenience doesn\'t happen too often...\nThank you :-]');
+            return;
+        case 0:
+            alert('Your reservation has been placed successfully!');
+            window.location.href = '../pages/viewRentals.php';
+            return;
+        default:
+            console.log('UNKNOWN RETURN VALUE, CHECK THE CODE YOU BUNCH OF MONKEYS');
+            return;
+
+    }
+
 }

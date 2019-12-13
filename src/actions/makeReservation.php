@@ -8,9 +8,18 @@
     $checkIn = $_GET['checkIn'];
     $checkOut = $_GET['checkOut'];
 
-    if (null !== getUserID() && isset($checkIn) && isset($checkOut)) {
-        $userID = getUserID();
-        addReservation($apartmentID, $userID, $checkIn, $checkOut);
+    if (null !== getUserID()) {
+        if (isset($checkIn) && isset($checkOut) && $checkOut > $checkIn) {
+            $userID = getUserID();            
+            $response = addReservation($apartmentID, $userID, $checkIn, $checkOut);
+            echo json_encode($response);
+        }
+        else {
+            echo json_encode(2);
+        }
+    }
+    else {
+        echo json_encode(3);
     }
 
 ?>

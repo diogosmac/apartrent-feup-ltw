@@ -377,14 +377,15 @@ body {
     margin-bottom: 0.5em;
 }
 
-.rent #submit {
+.rent #reserve-button {
     background-color: #E0E0E0;
     color: black;
     border: none;
     font-weight: bold;
     font-size: 90%;
-    border-radius: 3%;
-    padding: 1em 2em;
+    width: 10em;
+    height: 3em;
+    padding: 0;
 }
 
 .comment-section {

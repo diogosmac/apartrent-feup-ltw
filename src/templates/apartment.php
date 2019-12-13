@@ -18,7 +18,6 @@ $apartment_postalcode = $apartment['postal_code'];
 $apartment_locale = $apartment['locale'];
 $apartment_description = $apartment['description'];
 $apartment_rating = $apartment['average_rating'];
-$apartment_dailyprice = $apartment['daily_price'];
 $apartment_max = $apartment['n_guests'];
 
 $apartment_owner = getOwnerByID($apartment_ownerID);
@@ -51,7 +50,11 @@ $owner_photo = $apartment_owner['profile_picture'];
                 <div class="otherInfos">
                     <div>
                         <p class="rate"> <?php echo 'Rating: ' . $apartment_rating ?> </p>
-                        <p class="price"> <?php echo 'Daily price: ' . $apartment_daily_price . ' €' ?> </p>
+                        <p class="price">
+                            <span>Daily price:</span>
+                            <span id="priceNum"> <?php echo $apartment_daily_price ?> </span>
+                            <span>€</span>
+                        </p>
                         <p class="guests"> <?php echo 'Max guests: ' . $apartment_max ?> </p>
                     </div>
                     <div class="owner">
@@ -71,20 +74,24 @@ $owner_photo = $apartment_owner['profile_picture'];
 
         <div class="checkin">
             <label>Check-in</label>
-            <input class="data" type="date" onclick="updatePrice()" name="checkIn">
+            <input class="rentalDate" type="date" onchange="updatePrice()" name="checkIn">
         </div>
 
         <div class="checkout">
             <label>Check-out</label>
-            <input class="data" type="date" onclick="updatePrice()" name="checkOut">
+            <input class="rentalDate" type="date" onchange="updatePrice()" name="checkOut">
         </div>
 
         <div id="price">
-            <p> Total price: € </p>
+            <p>
+                <span>Total price:</span>
+                <span id="rentalCalc">-</span>
+                <span>€</span>
+            </p>
         </div>
 
         <div>
-            <input id="submit" name="submit" type="submit" value="Reserve!">
+            <input id="reserve-button" name="submit" type="submit" value="Reserve!">
         </div>
 
     </div>

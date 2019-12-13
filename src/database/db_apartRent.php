@@ -134,16 +134,45 @@
         return $stmt->fetchAll();
     }
 
-    function addReservation($idApartment, $idUser, $checkIn, $checkOut) {
+    function conflictingReservations($idApartment, $checkIn, $checkOut) {
+
         global $db;
 
-        $stmt = $db->prepare('INSERT INTO Rental
-            VALUES(:apart, :chkIn, :chkOut, :user)');
+        $stmt = $db->prepare('SELECT apartmentID
+                            FROM Rental
+                            WHERE :apart = apartmentID
+                            AND (
+                                (initDate <= :initDate AND endDate > :initDate)
+                                OR (initDate < :endDate AND endDate >= :endDate)
+                                OR (:initDate <= initDate AND :endDate > initDate)
+                                OR (:initDate < endDate AND :endDate >= endDate)
+                                )
+        ');
         $stmt->bindParam(":apart", $idApartment, PDO::PARAM_INT);
-        $stmt->bindParam(":chkIn", $checkIn, PDO::PARAM_STR);
-        $stmt->bindParam(":chkOut", $checkOut, PDO::PARAM_STR);
-        $stmt->bindParam(":user", $idUser, PDO::PARAM_STR);
+        $stmt->bindParam(":initDate", $checkIn, PDO::PARAM_STR);
+        $stmt->bindParam(":endDate", $checkOut, PDO::PARAM_STR);
         $stmt->execute();
+        return $stmt->fetchAll();
+
+    }
+
+    function addReservation($idApartment, $idUser, $checkIn, $checkOut) {
+
+        global $db;
+
+        if (count(conflictingReservations($idApartment, $checkIn, $checkOut)) == 0) {
+
+            $stmt = $db->prepare('INSERT INTO Rental
+                VALUES(:apart, :chkIn, :chkOut, :user)');
+            $stmt->bindParam(":apart", $idApartment, PDO::PARAM_INT);
+            $stmt->bindParam(":chkIn", $checkIn, PDO::PARAM_STR);
+            $stmt->bindParam(":chkOut", $checkOut, PDO::PARAM_STR);
+            $stmt->bindParam(":user", $idUser, PDO::PARAM_STR);
+            $stmt->execute();
+            return 0;
+        }
+        return 1;
+
     }
 
 ?>
