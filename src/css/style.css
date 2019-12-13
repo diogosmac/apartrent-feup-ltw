@@ -310,7 +310,6 @@ body {
 
 }
 
-
 /* apartment */
 
 .leftButton {
@@ -441,4 +440,10 @@ body {
 #comment-box #button {
     color: #E0E0E0;
     background-color: #444444;
+}
+
+/* My Rentals*/
+
+.info > span {
+    padding-bottom: 2%;
 }

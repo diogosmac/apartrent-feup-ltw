@@ -173,6 +173,17 @@
         }
         return 1;
 
+    function getUserRents($userID) {
+
+        global $db;
+        $stmt = $db->prepare('SELECT apartmentID, initDate, endDate
+                              FROM Rental
+                              WHERE idUser = :user');
+
+        $stmt->bindParam(":user", $userID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 
 ?>

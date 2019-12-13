@@ -9,7 +9,7 @@
             <a href="../pages/editProfile.php">Edit Profile</a>
             <a href="../pages/add_listings.php">Add Listings</a>
             <a href="../pages/viewListings.php">My Listings</a>
-            <a href="../pages/view_rentals.php">My Rentals</a>
+            <a href="../pages/viewRentals.php">My Rentals</a>
         </div>
 
         <?php
