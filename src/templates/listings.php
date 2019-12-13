@@ -32,4 +32,21 @@
             }
         ?>
     </section>
+
+    <div class="ModalBox">
+        <div class="ModalContent">
+            <div class="ModalCloseBar">
+                <!-- <span>Cancel</span> -->
+                <i class="fas fa-times-circle"></i>
+            </div>
+
+            <p>Please enter your email address to find out more</p>
+
+            <form id="learn-more-form">
+                <input type="email" placeholder="Your Best Email">
+                <button id="submit">Submit</button>
+            </form>
+            
+        </div>
+    </div>
 </div>
