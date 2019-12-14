@@ -1,3 +1,5 @@
+
+
 <?php
 
     function showRent($rental) {
@@ -14,6 +16,10 @@
         $apartment_locale = $apartment['locale'];
         $apartment_addres = $apartment['address'];
         $apartment_postalcode = $apartment['postal_code'];
+        $apartment_dailyprice = $apartment['daily_price'];
+        $number_days = getDays($rent_initDate, $rent_endDate);
+
+        $total_price = $apartment_dailyprice * $number_days;
 
         echo '<article>
                 <img src="' . $image_path . '" alt="">
@@ -22,8 +28,20 @@
                     <span> '.$apartment_locale.' - '.$apartment_addres.', '.$apartment_postalcode.' </span>
                     <span> Check-in: '.$rent_initDate.' </span>
                     <span> Check-out: '.$rent_endDate.' </span>
+                    <span> Total price: '.$total_price.' € </span>
                 </section>
             </article>';
+    }
+
+    
+    function getDays($init_date, $end_date) {
+        $date1 = strtotime($init_date);
+        $date2 = strtotime($end_date);
+
+        $datediff = $date2 - $date1;
+        $datediff = round($datediff / (60 * 60 * 24));
+
+        return $datediff;
     }
 
 ?>
