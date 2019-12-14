@@ -129,6 +129,7 @@ body {
     margin-bottom: 1em;
     padding: 1em;
     color: rgb(241, 162, 42);
+    cursor: pointer;
 }
 
 
@@ -337,11 +338,44 @@ body {
     text-align: center;
 }
 
-.ModalContent > div > i{
-    text-align: right;
+.ModalCloseBar {
+    display: inline-block;
+    text-align: right; 
     font-size: 18px;
     font-weight: bold;
     color: rgb(241, 162, 42);
     cursor: pointer;
-    /* display: inline-block; */
+    align-self: right;
+}
+
+.ModalCloseBar > i{
+    align-self: right;
+}
+
+.ModalContent >  form
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.ModalContent >  form > input
+{
+    margin-bottom: 1em;
+}
+
+.ModalContent >  form > input[type="number"]
+{
+    margin-bottom: 1em;
+}
+
+.ModalContent >  form > textarea
+{
+    margin-bottom: 1em;
+    resize: none;
+}
+
+.ModalContent >  form > button
+{
+    align-self: center;
+    width: 50%;
 }

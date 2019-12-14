@@ -25,7 +25,6 @@
                     <?php echo '<h1>'.$name.'</h1>'; ?>
                 </div>
                 <div class="description">
-                    <!-- <article>Sobrevivente da ocorrência 2018/19 da unidade curricular de Concepção e Análise de Algoritmos.</article> -->
                     <?php echo '<article>'.$description.'</article>'; ?>
                 </div>
             </div>
