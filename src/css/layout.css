@@ -11,6 +11,7 @@ header {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
+    padding: 1em;
 }
 
 header img {
@@ -19,35 +20,66 @@ header img {
 }
 
 header .signup {
+    padding-right: 1em;
+    display: flex;
+    justify-content: end;
     text-align: end;
     grid-column: 2;
     grid-row: 1;
+    right: 0;
+}
+
+header .signup div {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
 }
 
 .signup #login_signup {
-    transform: translateY(175%);
+    align-self: center;
 }
 
-.signup #profile_section > img{
+#login_signup a {
+    padding: 0;
+}
+
+#login_signup a:nth-child(1) {
+    padding-right: 1em;
+    border-right: 2px solid #fff;
+}
+
+#login_signup a:nth-child(2) {
+    padding-left: 1em;
+}
+
+.signup #profile_section > img {
     width: 4em;
     height: 4em;
     border-radius: 50%;
-    transform: translateY(30%);
     object-fit: cover;
+    padding: 0 1em;
 }
 
-.signup #profile_section{
+.signup #profile_section {
     display: flex;
     flex-direction: row;
-    margin: 0;
-    transform: translate(50%, -10%);
+    align-self: center;
 }
 
-.signup #profile_section #profile_section_text
-{
-    margin: 0;
+.signup #profile_section #profile_section_text {
     display: flex;
     flex-direction: column;
+    align-self: center;
+    justify-content: space-around;
+}
+
+#profile_section_text a {
+    padding: 0.25em 0;
+}
+
+#profile_section_text span {
+    font-size: large;
+    font-weight: bold;
 }
 
 /* footer layout */
@@ -58,7 +90,7 @@ header .signup {
 }
 
 #content-wrap {
-    padding-bottom: 2em;
+    padding-bottom: 3em;
 }
 
 footer {
@@ -66,6 +98,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
+    height: 3em;
 }
 
 /* profile layout */
@@ -73,20 +106,16 @@ footer {
 .profile-container {
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: [start] 12em [division] auto [end];
+    grid-template-columns: 12em auto;
 }
 
 .profile-side-menu {
-    grid-column: start division;
+    grid-column: 1;
     grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    padding-bottom: 40%;
 }
 
 .profile-info-container {
-    grid-column: division end;
+    grid-column: 2;
     grid-row:  1;
     padding: 2em;
     height: 100%;
@@ -106,8 +135,36 @@ footer {
 
 /* my listings */
 
-#search_results {
-    width: 100%;
+.results {
+    padding: 1em;
+}
+
+.results article {
+    display: flex;
+    flex-direction: row;
+}
+
+.results > article > a {
+    display: flex;
+}
+
+.results .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    margin-top: 4em;
+}
+
+.results > article img {
+    height: 15em;
+    width: 20em;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.search_result_form {
+    padding: 0 1em;
+    padding-top: 1.5em;
 }
 
 /* apartment layout */
@@ -258,3 +315,5 @@ footer {
 #comment-box #button {
     margin-left: 1em;
 }
+
+/* my rentals */

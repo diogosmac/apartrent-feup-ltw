@@ -1,6 +1,6 @@
 <?php
 
-    echo '<form class="search_result_form" action="#" method="GET">';
+    echo '<form action="#" method="GET">';
 
     if ($location == null) 
         echo '<input class="search_result" id="search_location" type="text" name="location" placeholder="Location" >';

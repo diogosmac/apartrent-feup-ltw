@@ -1,5 +1,4 @@
-body 
-{
+body {
     font-family: monospace;
     background-color: rgb(230, 234, 238);
     text-align: center;
@@ -10,8 +9,7 @@ body #logo {
     width: 28em;
 }
 
-header
-{
+header {
     padding-top: 0.5em;
     text-align: center;
     font-size: 220%;
@@ -19,8 +17,7 @@ header
     padding-bottom: 0%;
 }
 
-.container 
-{
+.container  {
     margin: auto;
     width: 30%;
     max-width: 32em;
@@ -28,22 +25,19 @@ header
     text-align: center;
 }
 
-.container > div 
-{
+.container > div  {
     padding-top: 15px;
 }
 
     /* Caixas input */
-.container > div > input
-{
+.container > div > input {
     font-size: 100%;
     width: 75%;
     padding: 2%; 
 }
 
     /* Butao */
- .Register > input
- {
+ .Register > input {
     background-color: rgb(241, 162, 42);
     border: none;
     color: #fff;

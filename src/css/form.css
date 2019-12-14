@@ -25,7 +25,7 @@
     padding: 0%;
   }
 
-  .flex-container > div > h2{
+  .flex-container > div > h2 {
     text-align: left;
     font-size: 180%;
     font-weight: bolder;
@@ -59,7 +59,7 @@
       text-align: center;
   }
 
-  .flex-container > div > .button{
+  .flex-container > div > .button {
     background-color: rgb(241, 162, 42);
     border: none;
     color: #fff;

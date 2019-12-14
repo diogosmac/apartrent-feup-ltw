@@ -1,204 +1,137 @@
 /* header */
 
 header {
-
     background-color: #444444;
     color: #fff;
     padding: 1em;
-
 }
 
 header #logo {
-
     height: 5em;
-
 }
 
 header .signup a {
-
     padding: 0 1em;
     vertical-align: bottom;
 
     color: #fff;
     text-decoration: none;
-
-}
-
-header .signup #login {
-
-    border-right: 1px solid #fff;
-    padding-left: 0;
-
 }
 
 /* footer */
 
 footer {
-
     height: 3em;
     background-color: #444444;
     color: #fff;
     padding-top: 1px;
     padding-bottom: 1px;
     padding-left: 1em;
-
 }
 
 /* form */
 
 body .apartmentSearch {
-
-    background-image: url("https://images.unsplash.com/photo-1515073112898-12ecd7997751?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    background-image: url("../resources/front-page-background.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding-top: 2em;
     padding-right: 2em;
     padding-bottom: 10em;
     text-align: end;
-
 }
 
 .apartmentSearch .flex-container {
-
     display: inline-block;
     text-align: start;
-
 }
 
 /* fonts */
 
 body {
-
     font-family: 'Trebuchet MS', sans-serif;
     /* font-family: 'Verdana', sans-serif; */
-
 }
 
 /* Search Page */
 
-#results {
+.results {
     padding: 1em;
 }
 
-#results article {
+.results article {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    display: flex;
-    flex-direction: row;
-}
-
-.search_result_form {
-
-    padding-top: 0.5em;
-    padding-bottom: 1em;
-
 }
 
 .search_result_form .search_result {
-
     padding: 0.8em;
     border-radius: 8px;
     margin-right: 0.6em;
     background-color: rgb(241, 162, 42);
-
 }
 
-#results > article > a {
+.results > article > a {
     text-decoration: none;
-    display: flex;
     color: #000;
 }
 
-/* #results > article > a:visited {
+/* .results > article > a:visited {
     color: #000;
 } */
 
-#results .info {
-
-    display: flex;
-    flex-direction: column;
-    margin-left: 2em;
-    margin-top: 4em;
-
-}
-
-
-#results > article > a > img {
-
-    height: 15em;
-    width: 20em;
-    object-fit: cover;
-    border-radius: 8px;
-
-}
-
-#results .info #nome {
-
+.results .info #nome {
     font-weight: bolder;
-
 }
 
-#results .info #preco:before {
-
+.results .info #preco:before {
     content: 'Price per day: ';
-
 }
-#results .info #preco:after {
-
+.results .info #preco:after {
     content: '€ / guest';
-
 }
 
-#results .info #max_pessoas:before {
-
+.results .info #max_pessoas:before {
     content: 'Max guests: ';
-
 }
 
-#results .info #localidade:before {
-
+.results .info #localidade:before {
     content: 'Locale: ';
-
 }
 
-#results .info #rating:before {
-
+.results .info #rating:before {
     content: 'Rating: ';
-
 }
 
-#results .info #rating:after {
-
+.results .info #rating:after {
     content: '\2B50';
-
 }
 
 .search_result {
-
     padding: 8px 10px;
     border: 0.2em;
     border-radius: 5em;
     background-color: rgb(241, 162, 42);
-
 }
 
 .search_result[type="text"] {
-
     text-align: center;
     width: 9em;
+}
 
+/* Profile Page */
+
+.profile-container {
+    background-color: #E0E0E0;
 }
 
 /* Edit Profile Page */
 
 .main-container {
-
     text-align: center;
-
 }
 
 .edit-profile-container {
-
     padding-left: 25%;
     display: flex;
     flex-direction: column;
@@ -206,11 +139,9 @@ body {
     padding-bottom: 1em;
     text-align: center;
     width: 50%;
-
 }
 
-.button > input, .button > label
-{
+.button > input, .button > label {
     background-color: rgb(241, 162, 42);
     border: none;
     color: #fff;
@@ -219,63 +150,46 @@ body {
     font-size: 90%;
     margin: 1%;
     border-radius: 2px;
-
 }
 
 .edit-personals {
-
     display: grid;
     grid-template-columns: 48% 4% 48%;
-
 }
 
 .edit-personals .account-details {
-
     grid-column: 3 / 4;
     padding-top: 15%;
-
 }
 
 .edit-personals .account-details > .button {
-
     grid-column: 3 / 4;
     padding-top: 15%;
-
 }
 
 .edit-personals .image > img {
-
     grid-column: 1 / 2;
     width: 100%;
-
 }
 
 .description {
-
     padding-top: 3%;
-
 }
 
 .description > div {
-
     padding-bottom: 1%;
-
 }
 
-.description > div > label{
-
+.description > div > label {
     font-weight: bold;
     padding-right: 100%;
     margin-bottom: 5%;
-
 }
 
 .description > div > textarea {
-
     width: 100%;
     resize: vertical;
     font-size: 130%;
-
 }
 
 /* profile */
@@ -287,7 +201,7 @@ body {
 .profile-side-menu a {
     text-decoration: none;
     font-size: 100%;
-    color: #FFFFFF;
+    color: #fff;
 }
 
 .profile-side-menu a {
@@ -297,7 +211,7 @@ body {
 
 .profile-side-menu a:hover {
     background-color: rgb(241, 162, 42);
-    color: #000000;
+    color: #000;
 }
 
 /* apartment */

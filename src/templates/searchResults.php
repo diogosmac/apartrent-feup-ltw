@@ -9,7 +9,7 @@
     <div class='search_result_form'>
         <?php include_once('../templates/searchParameters.php') ?>
     </div>
-    <section id='results'></section>
+    <section class='results'></section>
 </section>
 
 <script src="../js/search.js" defer></script>

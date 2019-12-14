@@ -11,7 +11,7 @@
     
     <body>
         <a href="index.php">
-            <img src="../resources/logo-#000.png" alt="" id="logo">
+            <img src="../resources/logo-black.png" alt="" id="logo">
         </a>
         <header>Log In</header>
     

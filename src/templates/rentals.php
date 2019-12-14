@@ -14,7 +14,7 @@
         <a href="../pages/viewRentals.php">My Rentals</a>
     </div>
 
-    <section id='search_results'>
+    <section class='results'>
         <?php
             $userID = getUserID();
             $query_results = getUserRents($userID);
@@ -22,6 +22,7 @@
                 echo '<p> No results found. </p>';
             }
             else
+                
                 foreach($query_results as $rent)
                     showRent($rent);
         ?>

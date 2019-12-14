@@ -1,12 +1,11 @@
 <?php
 
-    function getAllListings($location, $checkIn, $checkOut) 
-    {
+    function getAllListings($location, $checkIn, $checkOut) {
 
         global $db;
 
         if ($checkIn == null) {
-            //Dia de hoje
+            // Dia de hoje
             $tempDateTimeIn = new DateTime('now');
             $checkIn = $tempDateTimeIn->format('d-m-Y');
         }
@@ -16,7 +15,7 @@
         }
 
         if ($checkOut == null) {
-            //Dia seguinte ao checkIn
+            // Dia seguinte ao checkIn
             $tempDateTimeOut = new DateTime($checkIn);
             $checkOut = $tempDateTimeOut->modify('+1 day')->format('d-m-Y');
         }
@@ -74,8 +73,7 @@
 
     }
 
-    function getApartmentByID($id)
-    {
+    function getApartmentByID($id) {
         global $db;
 
         $stmt = $db->prepare('SELECT *
@@ -88,8 +86,7 @@
         return $stmt->fetch();
     }
 
-    function getOwnerByID($id)
-    {
+    function getOwnerByID($id) {
         global $db;
 
         $stmt = $db->prepare('SELECT *
@@ -102,8 +99,7 @@
         return $stmt->fetch();
     }
 
-    function getUserListings($userID)
-    {
+    function getUserListings($userID) {
 
         
         global $db;
@@ -164,7 +160,8 @@
         global $db;
         $stmt = $db->prepare('SELECT apartmentID, initDate, endDate
                               FROM Rental
-                              WHERE idUser = :user');
+                              WHERE idUser = :user
+                              ORDER BY initDate');
 
         $stmt->bindParam(":user", $userID, PDO::PARAM_INT);
         $stmt->execute();

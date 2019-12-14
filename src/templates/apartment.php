@@ -9,7 +9,7 @@ include_once('../database/user.php');
 
 $apartment = getApartmentByID($id);
 
-$apartment_images = getApartmentPhotos($id); //Gets all images
+$apartment_images = getApartmentPhotos($id); // Gets all images
 
 $apartment_ownerID = $apartment['owner'];
 

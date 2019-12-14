@@ -2,8 +2,10 @@
 
     function showRent($rental) {
         $rent_apartmentID = $rental['apartmentID'];
-        $rent_initDate = $rental['initDate'];
-        $rent_endDate = $rental['endDate'];
+        $rent_initDate = new DateTime($rental['initDate']);
+        $rent_initDate = $rent_initDate->format('d-m-Y');
+        $rent_endDate = new DateTime($rental['endDate']);
+        $rent_endDate = $rent_endDate->format('d-m-Y');
 
         $apartment = getApartmentByID($rent_apartmentID);
         $apartment_images = getApartmentPhotos($rent_apartmentID); // Gets all images
@@ -18,7 +20,7 @@
                 <section class="info">
                     <span id="nome"> '.$apartment_name.' </span>
                     <span> '.$apartment_locale.' - '.$apartment_addres.', '.$apartment_postalcode.' </span>
-                    <span> CHeck-in: '.$rent_initDate.' </span>
+                    <span> Check-in: '.$rent_initDate.' </span>
                     <span> Check-out: '.$rent_endDate.' </span>
                 </section>
             </article>';

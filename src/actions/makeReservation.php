@@ -7,9 +7,13 @@
     $apartmentID = $_GET['apartmentID'];
     $checkIn = $_GET['checkIn'];
     $checkOut = $_GET['checkOut'];
+    $checkIn = new DateTime($_GET['checkIn']);
+    $checkIn = $checkIn->format('Y-m-d');
+    $checkOut = new DateTime($_GET['checkOut']);
+    $checkOut = $checkOut->format('Y-m-d');
 
     if (null !== getUserID()) {
-        if (isset($checkIn) && isset($checkOut) && $checkOut > $checkIn) {
+        if (isset($_GET['checkIn']) && isset($_GET['checkOut']) && $checkOut > $checkIn) {
             $userID = getUserID();            
             $response = addReservation($apartmentID, $userID, $checkIn, $checkOut);
             echo json_encode($response);

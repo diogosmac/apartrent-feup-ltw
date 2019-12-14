@@ -8,7 +8,7 @@ refresh();
 
 function refresh() {
     let requestUrl = '../actions/sendComment.php?' +
-        encodeForAjax({ 'apartmentID': apartID });
+        encodeForAjax( { 'apartmentID': apartID });
 
     let request = new XMLHttpRequest();
     request.open('get', requestUrl, true);
@@ -27,7 +27,7 @@ function submitComment(event) {
     document.querySelector('#comment-box #message').value = '';
 
     let requestUrl = '../actions/sendComment.php?' +
-        encodeForAjax({ 'apartmentID': apartID, 'text': message });
+        encodeForAjax( { 'apartmentID': apartID, 'text': message });
 
     let request = new XMLHttpRequest();
     request.open('get', requestUrl, true);
@@ -116,7 +116,7 @@ function checkSubmission(event) {
     var checkOut = dates[1].value;
 
     let requestUrl = '../actions/makeReservation.php?' +
-        encodeForAjax({
+        encodeForAjax( {
             'apartmentID': apartID,
             'checkIn': checkIn,
             'checkOut': checkOut

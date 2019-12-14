@@ -33,7 +33,7 @@ function updatePage(event) {
 
 function getListings() {
 
-    let section = document.querySelector('#search_results #results');
+    let section = document.querySelector('#search_results .results');
     section.innerHTML = this.responseText;
 
 }
