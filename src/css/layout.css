@@ -7,24 +7,21 @@ body {
 
 /* header layout */
 
-body > header {
+header {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
 }
 
-body > header img {
+header img {
     grid-column: 1;
     grid-row: 1;
 }
 
-body > header .signup {
+header .signup {
     text-align: end;
-
     grid-column: 2;
     grid-row: 1;
-
-    /* transform: translateY(50%); */
 }
 
 .signup #login_signup {
@@ -53,12 +50,27 @@ body > header .signup {
     flex-direction: column;
 }
 
+/* footer layout */
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 /* profile layout */
 
 .profile-container {
-    /* display: flex;
-    flex-direction: row;
-    align-items: stretch; */
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: [start] 12em [division] auto [end];
@@ -76,7 +88,6 @@ body > header .signup {
 .profile-info-container {
     grid-column: division end;
     grid-row:  1;
-    width: 100%;
     padding: 2em;
     height: 100%;
     float: right;

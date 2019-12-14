@@ -62,7 +62,7 @@
   .flex-container > div > .button{
     background-color: rgb(241, 162, 42);
     border: none;
-    color: white;
+    color: #fff;
     padding: 5% 10%;
     text-align: center;
     text-decoration: none;

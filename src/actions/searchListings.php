@@ -38,15 +38,17 @@
             $apartment_max = $apartment['n_guests'];
             $apartment_locale = $apartment['locale'];
             $apartment_rating = $apartment['average_rating'];
-            echo    '<article>
-                        <img src="' . $image_path . '" alt="">
-                        <section class="info">
-                            <span id="nome">' . $apartment_name . '</span>
-                            <span id="preco"> ' . $apartment_daily_price . '</span>
-                            <span id="max_pessoas">' . $apartment_max . '</span>
-                            <span id="localidade"> ' . $apartment_locale . ' </span>
-                            <span id="rating">' . $apartment_rating . '</span>
-                        </section>
+            echo    '<article class="search-result-article">
+                        <a href="../pages/apartment.php?id='.$apartmentID['id'].'">
+                            <img src="' . $image_path . '" alt="">
+                            <section class="info">
+                                <span id="nome">' . $apartment_name . '</span>
+                                <span id="preco"> ' . $apartment_daily_price . '</span>
+                                <span id="max_pessoas">' . $apartment_max . '</span>
+                                <span id="localidade"> ' . $apartment_locale . ' </span>
+                                <span id="rating">' . $apartment_rating . '</span>
+                            </section>
+                        </a>
                     </article>';
         }
     }

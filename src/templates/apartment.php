@@ -4,6 +4,8 @@ include_once('../includes/init.php');
 $id = $_GET['id'];
 
 include_once('../database/db_apartRent.php');
+include_once('../database/photo.php');
+include_once('../database/user.php');
 
 $apartment = getApartmentByID($id);
 
@@ -20,9 +22,9 @@ $apartment_description = $apartment['description'];
 $apartment_rating = $apartment['average_rating'];
 $apartment_max = $apartment['n_guests'];
 
-$apartment_owner = getOwnerByID($apartment_ownerID);
-$owner_name = $apartment_owner['name'];
-$owner_photo = $apartment_owner['profile_picture'];
+$owner_name = getOwnerByID($apartment_ownerID)['name'];
+// $owner_name = $apartment_owner['name'];
+$owner_photo = getPhotoPathUser($apartment_ownerID);
 ?>
 
 <script src="../js/apartment.js" defer></script>
@@ -31,7 +33,7 @@ $owner_photo = $apartment_owner['profile_picture'];
     <div class="first_row">
         <div class="images">
             <?php foreach ($apartment_images as $photo) { ?>
-                <img class="mySlides" src=" <?php echo $photo['path'] ?> ">
+                <img class="mySlides" src=" <?php echo getPhotoPath($photo['idPhoto']) ?> ">
             <?php } ?>
             <button class="leftButton" onclick="plusDivs(-1)">&#10094;</button>
             <button class="rightButton" onclick="plusDivs(1)">&#10095;</button>
