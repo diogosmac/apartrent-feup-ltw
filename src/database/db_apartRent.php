@@ -117,4 +117,53 @@
         return;
     }
 
+    function addListing($ownerID, $listingName, $locale, $address, $postalCode, $nGuests, $price, $description)
+    {
+        global $db;
+
+        $stmt = $db->prepare('
+                    INSERT INTO
+                    Apartment (
+                        id,
+                        address,
+                        postal_code,
+                        daily_price,
+                        description,
+                        owner,
+                        locale,
+                        listing_name,
+                        n_guests,
+                        n_ratings,
+                        average_rating
+                    )
+                VALUES
+                    (
+                        NULL,
+                        :address,
+                        :postalCode,
+                        :price,
+                        :description,
+                        :owner,
+                        :locale,
+                        :listingName,
+                        :nGuests,
+                        0,
+                        0
+                    );
+                ');
+
+        $stmt->bindParam(":address", $address, PDO::PARAM_STR);
+        $stmt->bindParam(":postalCode", $postalCode, PDO::PARAM_STR);
+        $stmt->bindParam(":price", $price, PDO::PARAM_INT);
+        $stmt->bindParam(":description", $description, PDO::PARAM_STR);
+        $stmt->bindParam(":owner", $ownerID, PDO::PARAM_INT);
+        $stmt->bindParam(":locale", $locale, PDO::PARAM_STR);
+        $stmt->bindParam(":listingName", $listingName, PDO::PARAM_STR);
+        $stmt->bindParam(":nGuests", $nGuests, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return;
+    }
+
 ?>
