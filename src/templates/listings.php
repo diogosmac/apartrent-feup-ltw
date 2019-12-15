@@ -15,7 +15,7 @@
         <a href="../pages/viewRentals.php">My Rentals</a>
     </div>
 
-    <section id='search_results'>
+    <section class='results'>
         <?php
             $userID = getUserID();
             $query_results = getUserListings($userID);
@@ -24,9 +24,7 @@
             }
             else
                 foreach($query_results as $apartmentID) {
-                    echo '<section class="results">';
                         showListing($apartmentID);
-                    echo '</section>';
                 }
         ?>
     </section>
