@@ -13,8 +13,5 @@
 
     $result = $query_results[array_rand($query_results)];
 
+    header('Location: ../pages/apartment.php?id='.$result['id']);
 ?>
-
-<section id="search_results">
-    <?php showListing($result); ?>
-</section>

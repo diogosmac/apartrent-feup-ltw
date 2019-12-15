@@ -23,8 +23,11 @@
                 echo '<p> No results found. </p>';
             }
             else
-                foreach($query_results as $apartmentID)
-                    showListing($apartmentID);
+                foreach($query_results as $apartmentID) {
+                    echo '<section class="results">';
+                        showListing($apartmentID);
+                    echo '</section>';
+                }
         ?>
     </section>
 </div>

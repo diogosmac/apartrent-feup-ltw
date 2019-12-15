@@ -88,7 +88,7 @@ body {
     content: 'Price per day: ';
 }
 .results .info #preco:after {
-    content: '€ / guest';
+    content: '€';
 }
 
 .results .info #max_pessoas:before {
