@@ -408,3 +408,66 @@ body {
     align-self: center;
     width: 50%;
 }
+
+/*Add apartment photo section*/
+
+.ApartmentPhotos{
+    /* background-color: chocolate; */
+    display: grid;
+}
+
+.ApartmentPhotos > label > i{
+    font-size: 3em;
+    cursor: pointer;
+    margin-top: 1em;
+    color: rgb(241, 162, 42);
+}
+
+.ApartmentPhotos > #photo1
+{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.ApartmentPhotos > #photo2
+{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.ApartmentPhotos > #photo3
+{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.ApartmentPhotos > #photo4
+{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.ApartmentPhotos > #photo5
+{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.ApartmentPhotos > #photo6
+{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    margin-bottom: 1.5em;
+}
