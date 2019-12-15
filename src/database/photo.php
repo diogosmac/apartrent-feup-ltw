@@ -151,4 +151,53 @@
         return;
     }
 
+    function addApartmentPhoto($apartmentID, $photoID)
+    {
+        global $db;
+        
+        $stmt = $db->prepare('
+                                INSERT INTO [Apartment-Photo] 
+                                (
+                                    idApartment,
+                                    idPhoto
+                                )
+                                VALUES 
+                                (
+                                    :apartmentID,
+                                    :photoID
+                                );
+                            ');
+
+
+        $stmt->bindParam(":apartmentID", $apartmentID, PDO::PARAM_INT);
+        $stmt->bindParam(":photoID", $photoID, PDO::PARAM_INT);          
+        $stmt->execute();
+
+        return;
+    }
+
+    function addApartmentPhotosAUX($apartmentID, $photo)
+    {
+        global $db;
+
+        if($photo["size"] > 0 && $photo["tmp_name"] != null)
+        {
+            addNewPhoto();
+            $photoID = $db->lastInsertId();
+            $photoDirectory = "../uploadedImages/$photoID.jpg";
+            move_uploaded_file($photo["tmp_name"], $photoDirectory);
+            addApartmentPhoto($apartmentID, $photoID);
+        }
+    }
+
+    function addApartmentPhotos($apartmentID, $photo1, $photo2, $photo3, $photo4, $photo5, $photo6)
+    {
+        addApartmentPhotosAUX($apartmentID, $photo1);
+        addApartmentPhotosAUX($apartmentID, $photo2);
+        addApartmentPhotosAUX($apartmentID, $photo3);
+        addApartmentPhotosAUX($apartmentID, $photo4);
+        addApartmentPhotosAUX($apartmentID, $photo5);
+        addApartmentPhotosAUX($apartmentID, $photo6);
+    }
+
 ?>

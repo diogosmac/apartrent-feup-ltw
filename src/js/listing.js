@@ -40,26 +40,26 @@ var addListing = function()
     <div class="ModalContent">
         <div class="ModalCloseBar"><i class="fas fa-times" onclick=closeAdd()></i></div>
         <p>Please fill the form about your apartment</p>
-        <form id="apartmentInfo" method="Post" action="../actions/addListingAction.php">
+        <form id="apartmentInfo" method="Post" action="../actions/addListingAction.php" enctype="multipart/form-data">
         <p>Photos (min 1)</p>
             <div class="ApartmentPhotos">
                 <label id="photo1" for="photo1I"><i class="fas fa-plus-circle"></i></label>
-                <input name="photo1" id="photo1I" style="visibility:hidden;" type="file" required>
+                <input name="photo1I" id="photo1I" style="visibility:hidden;" type="file" required>
 
                 <label id="photo2" for="photo2I"><i class="fas fa-plus-circle"></i></label>
-                <input name="photo2" id="photo2I" style="visibility:hidden;" type="file">
+                <input name="photo2I" id="photo2I" style="visibility:hidden;" type="file">
 
                 <label id="photo3" for="photo3I"><i class="fas fa-plus-circle"></i></label>
-                <input name="photo3" id="photo3I" style="visibility:hidden;" type="file">
+                <input name="photo3I" id="photo3I" style="visibility:hidden;" type="file">
 
                 <label id="photo4" for="photo4I"><i class="fas fa-plus-circle"></i></label>
-                <input name="photo4" id="photo4I" style="visibility:hidden;" type="file">
+                <input name="photo4I" id="photo4I" style="visibility:hidden;" type="file">
 
                 <label id="photo5" for="photo5I"><i class="fas fa-plus-circle"></i></label>
-                <input name="photo5" id="photo5I" style="visibility:hidden;" type="file">
+                <input name="photo5I" id="photo5I" style="visibility:hidden;" type="file">
 
                 <label id="photo6" for="photo6I" ><i class="fas fa-plus-circle"></i></label>
-                <input name="photo6" id="photo6I" style="visibility:hidden;" type="file">
+                <input name="photo6I" id="photo6I" style="visibility:hidden;" type="file">
             </div>
             <input type="text" name="listingName-Add" placeholder="Listing Name" required>
             <input type="text" name="locale-Add" placeholder="Locale" required>
