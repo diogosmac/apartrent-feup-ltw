@@ -395,6 +395,37 @@ body {
 .ModalContent >  form > input[type="number"]
 {
     margin-bottom: 1em;
+    -moz-appearance:textfield;
+    width: auto;
+}
+
+.ModalContent > form > input::-webkit-outer-spin-button, 
+.ModalContent > form > input::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ModalContent > form > output
+{
+    text-align: left;
+    font-size: 75%;
+    padding-bottom: 2%;
+}
+
+.slider {
+    border-radius: 5px;  
+    background: #d3d3d3;
+    width: 100%;
+    height: 5px;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgb(241, 162, 42);
+    cursor: pointer;
 }
 
 .ModalContent >  form > textarea
