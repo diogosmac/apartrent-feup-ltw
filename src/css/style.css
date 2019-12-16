@@ -283,6 +283,10 @@ body {
 
 /* apartment */
 
+.images {
+    background-color: #E0E0E0;
+}
+
 .leftButton {
     background-color: #000;
     opacity: 0.5;

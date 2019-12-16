@@ -182,11 +182,14 @@ footer {
 }
 
 .images {
+    display: flex;
     position: relative;
 }
 
 .images > img {
     width: 35em;
+    align-self: center;
+    justify-self: center;
 }
 
 .leftButton {
