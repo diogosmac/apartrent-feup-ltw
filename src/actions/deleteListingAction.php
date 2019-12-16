@@ -12,6 +12,7 @@
     if($apartment['owner'] == $_SESSION['userID'])
     {
         deletePhotosFromApartment($apartmentID);
+        deleteRentalsFromApartment($apartmentID);
         deleteApartment($apartmentID);
         header('Location: ../pages/listings.php?manage=1');
     }
