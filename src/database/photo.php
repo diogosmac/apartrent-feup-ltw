@@ -188,6 +188,8 @@
             move_uploaded_file($photo["tmp_name"], $photoDirectory);
             addApartmentPhoto($apartmentID, $photoID);
         }
+
+        return;
     }
 
     function addApartmentPhotos($apartmentID, $photo1, $photo2, $photo3, $photo4, $photo5, $photo6)
@@ -198,6 +200,9 @@
         addApartmentPhotosAUX($apartmentID, $photo4);
         addApartmentPhotosAUX($apartmentID, $photo5);
         addApartmentPhotosAUX($apartmentID, $photo6);
+
+        return;
     }
+
 
 ?>

@@ -352,7 +352,7 @@ body {
 /* Add / Edit Listing  */
 
 .ModalBox{
-    width: 40%;
+    width: 45%;
     max-width: 420px;
     overflow: hidden;
     background: #f1f1f1;
@@ -363,22 +363,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3622;
-    padding: 10px;
-    text-align: center;
+    padding: 2em;
 }
 
 .ModalCloseBar {
-    display: inline-block;
-    text-align: right; 
+    display: inline;
+    /* text-align: right;  */
     font-size: 18px;
     font-weight: bold;
     color: rgb(241, 162, 42);
     cursor: pointer;
-    align-self: right;
-}
-
-.ModalCloseBar > i{
-    align-self: right;
+    /* align-self: right; */
 }
 
 .ModalContent >  form
@@ -407,6 +402,12 @@ body {
 {
     align-self: center;
     width: 50%;
+    background-color: rgb(241, 162, 42);
+    color: white;
+    border: none;
+    padding: 0.5em 0;
+    margin-top: 0.5em;
+    font-weight: bold;
 }
 
 /*Add apartment photo section*/
@@ -414,60 +415,31 @@ body {
 .ApartmentPhotos{
     /* background-color: chocolate; */
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 0.5em;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 1.5em;
 }
+
+.ApartmentPhotos > label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .ApartmentPhotos > input{
+    height: 0;
+    width: 0;
+} */
 
 .ApartmentPhotos > label > i{
     font-size: 3em;
     cursor: pointer;
-    margin-top: 1em;
     color: rgb(241, 162, 42);
 }
 
-.ApartmentPhotos > #photo1
-{
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 1;
-    grid-row-end: 1;
-}
-
-.ApartmentPhotos > #photo2
-{
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
-}
-
-.ApartmentPhotos > #photo3
-{
-    grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 1;
-}
-
-.ApartmentPhotos > #photo4
-{
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 2;
-    grid-row-end: 2;
-}
-
-.ApartmentPhotos > #photo5
-{
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
-}
-
-.ApartmentPhotos > #photo6
-{
-    grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 2;
-    margin-bottom: 1.5em;
+.ApartmentPhotos > img {
+    width: 8.5em;
 }

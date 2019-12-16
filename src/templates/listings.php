@@ -42,41 +42,44 @@ include_once('../database/photo.php');
 
     </section>
 
-        <!-- <div class="ModalBox" id="modalBoxAdd">
+        <div class="ModalBox" id="modalBoxEdit">
             <div class="ModalContent">
-                <div class="ModalCloseBar"><i class="fas fa-times" onclick=closeAdd()></i></div>
-                <p>Please fill the form about your apartment</p>
-                <form id="apartmentInfo" method="Post" action="../actions/addListingAction.php">
-                <p>Photos (min 1)</p>
+                <div class="ModalCloseBar"><i class="fas fa-times" onclick=closeEdit()></i></div>
+                <p>Please enter the fields you want to edit </p>
+                <form id="apartmentInfo" method="POST" action="../actions/editListingAction.php" enctype="multipart/form-data">
                     <div class="ApartmentPhotos">
-                        <label id="photo1" for="photo1I"><i class="fas fa-plus-circle"></i></label>
-                        <input name="photo1" id="photo1I" style="visibility:hidden;" type="file" required>
+                    <?php
+                            $apartmentPhotos = getApartmentPhotos(18);
+                            foreach($apartmentPhotos as $apartmentPhoto)
+                            {
+                                $photoPath = getPhotoPath($apartmentPhoto['idPhoto']);
+                                echo('<img src="'.$photoPath.'">');
+                            }
 
-                        <label id="photo2" for="photo2I"><i class="fas fa-plus-circle"></i></label>
-                        <input name="photo2" id="photo2I" style="visibility:hidden;" type="file">
+                            $nRemainingSlots = 6 - count($apartmentPhotos);
+                            $photoNumber = count($apartmentPhotos) + 1;
+                            while($nRemainingSlots != 0)
+                            {
 
-                        <label id="photo3" for="photo3I"><i class="fas fa-plus-circle"></i></label>
-                        <input name="photo3" id="photo3I" style="visibility:hidden;" type="file">
+                                echo('
+                                    <label id="photo'.$photoNumber.'" for="photo'.$photoNumber.'I"><i class="fas fa-plus-circle"></i></label>
+                                    <input name="photo'.$photoNumber.'I" id="photo'.$photoNumber.'I" style="visibility:hidden;" type="file">
+                                    <input type="hidden" name="photoNumber[]" value="'. $photoNumber. '">
+                                ');
 
-                        <label id="photo4" for="photo4I"><i class="fas fa-plus-circle"></i></label>
-                        <input name="photo4" id="photo4I" style="visibility:hidden;" type="file">
-
-                        <label id="photo5" for="photo5I"><i class="fas fa-plus-circle"></i></label>
-                        <input name="photo5" id="photo5I" style="visibility:hidden;" type="file">
-
-                        <label id="photo6" for="photo6I" ><i class="fas fa-plus-circle"></i></label>
-                        <input name="photo6" id="photo6I" style="visibility:hidden;" type="file">
+                                $photoNumber++;
+                                $nRemainingSlots--;
+                            }
+                        ?>
                     </div>
-                    <input type="text" name="listingName-Add" placeholder="Listing Name" required>
-                    <input type="text" name="locale-Add" placeholder="Locale" required>
-                    <input type="text" name="address-Add" placeholder="Address" required>
-                    <input type="text" name="postalCode-Add" placeholder="Postal Code" pattern="[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]" title="NNNN-NNN, N = number" required>
-                    <input type="number" name="nGuests-Add" step="1" min="1" max="20" id="newNumberGuests" placeholder="Number guests" required>
-                    <input type="number" name="price-Add" step="1" min="1" max="100000" id="newPricePerDay" placeholder="Price per day" required>
-                    <textarea id="newDescription" name="description-Add" rows="3" placeholder="New Description"></textarea>
-                    <button name="submit-Add">Add!</button>
+                    <input type="hidden" name="idApartment" value=18>
+                    <input type="text" name="listingName-Edit" placeholder="New Listing Name">
+                    <input type="number" name="nGuests-Edit" step="1" min="1" max="20" id="newNumberGuests" placeholder="New number guests">
+                    <input type="number" name="price-Edit" step="0.1" min="1" max="100000" id="newPricePerDay" placeholder="New price per day">
+                    <textarea name="description-Edit" id="newDescription" rows="3" placeholder="New Description"></textarea>
+                    <button name="submit-Edit" id="submitEdit">Submit Changes</button>
                 </form>
             </div>
-        </div> -->
+        </div>
 
 </div>
