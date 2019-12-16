@@ -7,11 +7,11 @@
         if ($checkIn == null) {
             // Dia de hoje
             $tempDateTimeIn = new DateTime('now');
-            $checkIn = $tempDateTimeIn->format('d-m-Y');
+            $checkIn = $tempDateTimeIn->format('Y-m-d');
         }
         else {
             $temp = new DateTime($checkIn);
-            $checkIn = $temp->format('d-m-Y');
+            $checkIn = $temp->format('Y-m-d');
         }        
         $checkIn = htmlspecialchars($checkIn);
 
@@ -22,14 +22,13 @@
         }
         else {
             $temp = new DateTime($checkOut);
-            $checkOut = $temp->format('d-m-Y');
+            $checkOut = $temp->format('Y-m-d');
         }
         $checkOut = htmlspecialchars($checkOut);
 
         if ($location == null) {
 
-            $stmt = $db->prepare('SELECT *
-                                  FROM Apartment
+            $stmt = $db->prepare('SELECT * FROM Apartment
                                   WHERE id NOT IN (
                                       SELECT id
                                       FROM Apartment, Rental
@@ -50,8 +49,7 @@
 
             $location = htmlentities($location);
         
-            $stmt = $db->prepare('SELECT *
-                                  FROM Apartment
+            $stmt = $db->prepare('SELECT * FROM Apartment
                                   WHERE id NOT IN (
                                       SELECT id
                                       FROM Apartment, Rental
@@ -81,8 +79,8 @@
         global $db;
 
         $stmt = $db->prepare('SELECT *
-                                  FROM Apartment
-                                  WHERE id = :id');
+                              FROM Apartment
+                              WHERE id = :id');
 
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -119,8 +117,8 @@
     function getNumGuests($id) {
         global $db;
         $stmt = $db->prepare('SELECT n_guests
-                                  FROM Apartment
-                                  WHERE id = :id');
+                              FROM Apartment
+                              WHERE id = :id');
 
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -133,9 +131,7 @@
         global $db;
 
         $stmt = $db->prepare('DELETE FROM Apartment
-                                WHERE Apartment.id = :idApartment
-                ');
-
+                              WHERE Apartment.id = :idApartment');
         
         $stmt->bindParam(":idApartment", $apartmentID, PDO::PARAM_INT);
         $stmt->execute();
@@ -147,36 +143,33 @@
     {
         global $db;
 
-        $stmt = $db->prepare('
-                    INSERT INTO
-                    Apartment (
-                        id,
-                        address,
-                        postal_code,
-                        daily_price,
-                        description,
-                        owner,
-                        locale,
-                        listing_name,
-                        n_guests,
-                        n_ratings,
-                        average_rating
-                    )
-                VALUES
-                    (
-                        NULL,
-                        :address,
-                        :postalCode,
-                        :price,
-                        :description,
-                        :owner,
-                        :locale,
-                        :listingName,
-                        :nGuests,
-                        0,
-                        0
-                    );
-                ');
+        $stmt = $db->prepare('INSERT INTO Apartment (
+                                id,
+                                address,
+                                postal_code,
+                                daily_price,
+                                description,
+                                owner,
+                                locale,
+                                listing_name,
+                                n_guests,
+                                n_ratings,
+                                average_rating
+                            )
+                            VALUES (
+                                NULL,
+                                :address,
+                                :postalCode,
+                                :price,
+                                :description,
+                                :owner,
+                                :locale,
+                                :listingName,
+                                :nGuests,
+                                0,
+                                0
+                            );
+        ');
 
         $stmt->bindParam(":address", $address, PDO::PARAM_STR);
         $stmt->bindParam(":postalCode", $postalCode, PDO::PARAM_STR);
@@ -196,11 +189,9 @@
     {
         global $db;
         
-        $stmt = $db->prepare('
-                                UPDATE Apartment
-                                SET listing_name = :newName
-                                WHERE id = :apartmentID
-                            ');
+        $stmt = $db->prepare('UPDATE Apartment
+                              SET listing_name = :newName
+                              WHERE id = :apartmentID');
 
         $stmt->bindParam(':apartmentID', $apartmentID, PDO::PARAM_INT);
         $stmt->bindParam(':newName', $newName, PDO::PARAM_STR);
@@ -213,11 +204,9 @@
     {
         global $db;
         
-        $stmt = $db->prepare('
-                                UPDATE Apartment
-                                SET n_guests = :nGuests
-                                WHERE id = :apartmentID
-                            ');
+        $stmt = $db->prepare('UPDATE Apartment
+                              SET n_guests = :nGuests
+                              WHERE id = :apartmentID');
 
         $stmt->bindParam(':apartmentID', $apartmentID, PDO::PARAM_INT);
         $stmt->bindParam(':nGuests', $nGuests, PDO::PARAM_INT);
@@ -230,11 +219,9 @@
     {
         global $db;
         
-        $stmt = $db->prepare('
-                                UPDATE Apartment
-                                SET daily_price = :newPrice
-                                WHERE id = :apartmentID
-                            ');
+        $stmt = $db->prepare('UPDATE Apartment
+                              SET daily_price = :newPrice
+                              WHERE id = :apartmentID');
 
         $stmt->bindParam(':apartmentID', $apartmentID, PDO::PARAM_INT);
         $stmt->bindParam(':newPrice', $newPrice, PDO::PARAM_INT);
@@ -247,11 +234,9 @@
     {
         global $db;
         
-        $stmt = $db->prepare('
-                                UPDATE Apartment
-                                SET description = :newDescription
-                                WHERE id = :apartmentID
-                            ');
+        $stmt = $db->prepare('UPDATE Apartment
+                              SET description = :newDescription
+                              WHERE id = :apartmentID');
 
         $stmt->bindParam(':apartmentID', $apartmentID, PDO::PARAM_INT);
         $stmt->bindParam(':newDescription', $newDescription, PDO::PARAM_STR);
@@ -315,6 +300,20 @@
         $stmt->execute();
 
         return $stmt->fetchAll();
+    }
+
+    function deleteRentalsFromApartment($apartmentID) {
+
+        global $db;
+        
+        $stmt = $db->prepare('DELETE FROM Rental
+                              WHERE apartmentID = :apartmentID');
+
+        $stmt->bindParam(":apartmentID", $apartmentID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return;
+
     }
 
 ?>

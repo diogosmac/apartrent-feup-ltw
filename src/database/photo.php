@@ -19,15 +19,14 @@
         global $db;
         
         $stmt = $db->prepare('INSERT INTO [User-Photo] (
-            idUser,
-            idPhoto
-        )
-        VALUES
-        (
-            :uid,
-            0
-        )
-        ');
+                                idUser,
+                                idPhoto
+                              )
+                              VALUES (
+                                :uid,
+                                0
+                              )
+                ');
 
         $stmt->bindParam(':uid', $userID, PDO::PARAM_INT);
         $stmt->execute();
@@ -46,8 +45,7 @@
         
         $stmt = $db->prepare('SELECT idPhoto 
                               FROM [User-Photo]
-                              WHERE idUser = :uid
-                            ');
+                              WHERE idUser = :uid');
 
         $stmt->bindParam(':uid', $userID, PDO::PARAM_INT);
         $stmt->execute();
@@ -61,11 +59,9 @@
  {
         global $db;
         
-        $stmt = $db->prepare('
-                                UPDATE [User-Photo]
-                                SET idPhoto = :newPhotoID
-                                WHERE idUser = :userID
-                            ');
+        $stmt = $db->prepare('UPDATE [User-Photo]
+                              SET idPhoto = :newPhotoID
+                              WHERE idUser = :userID');
 
         $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
         $stmt->bindParam(':newPhotoID', $newPhotoID, PDO::PARAM_INT);
@@ -78,13 +74,8 @@
  {
         global $db;
         
-        $stmt = $db->prepare('
-                                INSERT INTO Photo 
-                                (
-                                    idPhoto
-                                )
-                                VALUES (NULL);
-                            ');
+        $stmt = $db->prepare('INSERT INTO Photo (idPhoto)
+                              VALUES (NULL);');
 
         $stmt->execute();
 
@@ -95,11 +86,9 @@
  {
         global $db;
         
-        $stmt = $db->prepare('
-                                SELECT idPhoto
-                                FROM [User-Photo]
-                                WHERE idUser = :uid
-                            ');
+        $stmt = $db->prepare('SELECT idPhoto
+                              FROM [User-Photo]
+                              WHERE idUser = :uid');
 
         $stmt->bindParam(':uid', $userID, PDO::PARAM_INT);
         $stmt->execute();
@@ -111,10 +100,8 @@
     {
         global $db;
         
-        $stmt = $db->prepare('
-                                DELETE FROM Photo
-                                WHERE idPhoto = :idPhoto
-                            ');
+        $stmt = $db->prepare('DELETE FROM Photo
+                              WHERE idPhoto = :idPhoto');
 
         $stmt->bindParam(':idPhoto', $idPhoto, PDO::PARAM_INT);
         $stmt->execute();
@@ -129,11 +116,8 @@
         global $db;
 
         /* Cleans [Apartment-Photo] relation */
-        $stmt = $db->prepare('
-                                DELETE FROM [Apartment-Photo]
-                                WHERE idApartment = :apartmentID
-                ');
-
+        $stmt = $db->prepare('DELETE FROM [Apartment-Photo]
+                              WHERE idApartment = :apartmentID');
         
         $stmt->bindParam(":apartmentID", $apartmentID, PDO::PARAM_INT);
         $stmt->execute();
@@ -155,18 +139,15 @@
     {
         global $db;
         
-        $stmt = $db->prepare('
-                                INSERT INTO [Apartment-Photo] 
-                                (
-                                    idApartment,
-                                    idPhoto
-                                )
-                                VALUES 
-                                (
-                                    :apartmentID,
-                                    :photoID
-                                );
-                            ');
+        $stmt = $db->prepare('INSERT INTO [Apartment-Photo] (
+                                idApartment,
+                                idPhoto
+                              )
+                              VALUES (
+                                :apartmentID,
+                                :photoID
+                              );
+                ');
 
 
         $stmt->bindParam(":apartmentID", $apartmentID, PDO::PARAM_INT);
