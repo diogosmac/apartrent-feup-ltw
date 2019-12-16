@@ -20,10 +20,13 @@ include_once('../database/photo.php');
         $query_results = getUserRents($userID);
         if (count($query_results) == 0) {
             echo '<p> No results found. </p>';
-        } else
-
-            foreach ($query_results as $rent)
+        } else {
+            
+            foreach ($query_results as $rent) {
                 showRent($rent);
+            }
+            echo '<script type="text/javascript" src="../js/rental.js"></script>';
+        }
         ?>
     </section>
 </div>

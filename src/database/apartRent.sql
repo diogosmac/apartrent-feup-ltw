@@ -36,6 +36,7 @@ CREATE TABLE Rental (
     initDate DATE,
     endDate DATE,
     idUser INTEGER REFERENCES User (idUser),
+    rate DOUBLE,
     PRIMARY KEY (
         apartmentID,
         initDate,

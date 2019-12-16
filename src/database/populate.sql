@@ -120,14 +120,16 @@ INSERT INTO
         apartmentID,
         initDate,
         endDate,
-        idUser
+        idUser,
+        rate
     )
 VALUES
     (
         2,
         '26-11-2019',
         '28-11-2019',
-        2
+        2,
+        NULL
     );
 
 INSERT INTO
