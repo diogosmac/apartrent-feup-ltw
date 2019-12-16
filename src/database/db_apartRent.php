@@ -102,6 +102,18 @@
         return $stmt->fetchAll();
     }
 
+    function getNumGuests($id) {
+        global $db;
+        $stmt = $db->prepare('SELECT n_guests
+                                  FROM Apartment
+                                  WHERE id = :id');
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch()['n_guests'];
+    }
+
     function deleteApartment($apartmentID)
     {
         global $db;

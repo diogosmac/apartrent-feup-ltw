@@ -15,9 +15,6 @@
         foreach($photos as $photoNumber)
         {
             $photoName = "photo".$photoNumber."I";
-            // echo('==============');
-            // echo($photoName);
-            // echo('==============');
             addApartmentPhotosAUX($apartmentID, $_FILES[$photoName]);
         }
         
