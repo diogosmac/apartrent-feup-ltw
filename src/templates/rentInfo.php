@@ -22,6 +22,7 @@
         $total_price = $apartment_dailyprice * $number_days;
 
         echo '<article>
+                <a href="../pages/apartment.php?id=' . $rent_apartmentID . '">
                 <img src="' . $image_path . '" alt="">
                 <section class="info">
                     <span id="nome"> '.$apartment_name.' </span>
