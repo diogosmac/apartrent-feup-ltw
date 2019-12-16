@@ -22,6 +22,7 @@ INSERT INTO "Apartment-Photo" (idApartment, idPhoto) VALUES (3, 16);
 INSERT INTO "Apartment-Photo" (idApartment, idPhoto) VALUES (3, 17);
 INSERT INTO "Apartment-Photo" (idApartment, idPhoto) VALUES (3, 18);
 
+<<<<<<< HEAD
 -- Table: Comments
 CREATE TABLE Comments (apartmentID INTEGER CONSTRAINT fk_comments_apartment REFERENCES Apartment (id), numComment INTEGER CONSTRAINT nn_comments_num NOT NULL, idUser INTEGER CONSTRAINT fk_comments_user REFERENCES User (idUser), date_time DATETIME CONSTRAINT nn_comments_timestamp NOT NULL, text TEXT CONSTRAINT nn_comments_text NOT NULL, CONSTRAINT pk_comments PRIMARY KEY (apartmentID, numComment));
 INSERT INTO Comments (apartmentID, numComment, idUser, date_time, text) VALUES (1, 1, 2, '2019-12-12 17:30:00', 'Mas que casa mais heterossexual, um petisco, de facto!');
@@ -33,6 +34,43 @@ INSERT INTO Comments (apartmentID, numComment, idUser, date_time, text) VALUES (
 INSERT INTO Comments (apartmentID, numComment, idUser, date_time, text) VALUES (1, 4, 2, '2019-12-12 20:00:54', 'AI CHASSUUUS QUE ELE ATÉ ARRANJA OS BUGS E TUDO MAIS, MAS QUE ADMIN ESTE ADMIN');
 INSERT INTO Comments (apartmentID, numComment, idUser, date_time, text) VALUES (3, 1, 2, '2019-12-16 17:38:51', 'Mas que casa de teste, esta casa de teste!');
 INSERT INTO Comments (apartmentID, numComment, idUser, date_time, text) VALUES (3, 2, 2, '2019-12-16 17:38:59', 'Beleza!!');
+=======
+DROP TABLE IF EXISTS Apartment;
+
+CREATE TABLE Apartment (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    address VARCHAR NOT NULL,
+    postal_code CHAR (8) NOT NULL,
+    daily_price REAL NOT NULL,
+    description TEXT,
+    owner INTEGER REFERENCES User (idUser),
+    locale TEXT NOT NULL,
+    listing_name TEXT NOT NULL,
+    n_guests INTEGER NOT NULL CONSTRAINT [Number Guests] CHECK (n_guests > 0),
+    n_ratings INTEGER DEFAULT (0) NOT NULL CONSTRAINT [Number Ratings] CHECK (n_ratings >= 0),
+    average_rating DOUBLE CONSTRAINT [Average Rating Limits] CHECK (0.0 <= average_rating <= 5.0),
+    CHECK (daily_price > 0),
+    CHECK (postal_code LIKE '____-___')
+);
+
+DROP TABLE IF EXISTS Rental;
+
+CREATE TABLE Rental (
+    apartmentID INTEGER REFERENCES Apartment (id),
+    initDate DATE,
+    endDate DATE,
+    idUser INTEGER REFERENCES User (idUser),
+    rate DOUBLE,
+    PRIMARY KEY (
+        apartmentID,
+        initDate,
+        endDate
+    ),
+    CHECK (initDate < endDate)
+);
+
+DROP TABLE IF EXISTS Photo;
+>>>>>>> df5b176fc2bd256e94893dc0bcf29f39aefafb6c
 
 -- Table: Photo
 CREATE TABLE Photo (idPhoto INTEGER PRIMARY KEY AUTOINCREMENT);

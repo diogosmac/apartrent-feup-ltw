@@ -1,5 +1,3 @@
-
-
 <?php
 
     function showRent($rental) {
@@ -8,6 +6,8 @@
         $rent_initDate = $rent_initDate->format('d-m-Y');
         $rent_endDate = new DateTime($rental['endDate']);
         $rent_endDate = $rent_endDate->format('d-m-Y');
+
+        $checkout = $rental['endDate'];
 
         $apartment = getApartmentByID($rent_apartmentID);
         $apartment_images = getApartmentPhotos($rent_apartmentID); // Gets all images
@@ -21,16 +21,18 @@
 
         $total_price = $apartment_dailyprice * $number_days;
 
-        echo '<article>
+      echo '
+            <article class="rental">
                 <a href="../pages/apartment.php?id=' . $rent_apartmentID . '">
                 <img src="' . $image_path . '" alt="">
                 <section class="info">
                     <span id="nome"> '.$apartment_name.' </span>
                     <span> '.$apartment_locale.' - '.$apartment_addres.', '.$apartment_postalcode.' </span>
-                    <span> Check-in: '.$rent_initDate.' </span>
-                    <span> Check-out: '.$rent_endDate.' </span>
+                    <span id="checkin">'.$rent_initDate.'</span>
+                    <span id="checkout">'.$rent_endDate.' </span>
                     <span> Total price: '.$total_price.' € </span>
                 </section>
+                </a>
             </article>';
     }
 

@@ -429,10 +429,17 @@ body {
 
 /* My Rentals*/
 
-.info > span {
+.rental > .info > span {
     padding-bottom: 2%;
 }
 
+.rental .info > #checkin:before {
+    content: 'Check-in: ';
+}
+
+.rental .info > #checkout:before {
+    content: 'Check-out: ';
+}
 
 /* Add / Edit Listing  */
 
