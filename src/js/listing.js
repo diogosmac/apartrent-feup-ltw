@@ -52,6 +52,20 @@ var addListing = function() {
     </div>
     `;
 
+    var inputs = element.querySelectorAll('.ApartmentPhotos input');
+    inputs.forEach(function(input) {
+        input.addEventListener('change', function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var image = document.createElement('img');
+                image.src = reader.result;
+                var label = element.querySelector('label');
+                label.replaceWith(image);
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        });
+    });
+
     var page = document.getElementById("profile-container");
     page.appendChild(element);
 
@@ -96,6 +110,21 @@ var createListingDialog = function() {
     element.classList.add('ModalBox');
     element.id = 'modalBoxEdit';
     element.innerHTML += this.responseText;
+
+    var inputs = element.querySelectorAll('.ApartmentPhotos input');
+    inputs.forEach(function (input) {
+        input.addEventListener('change', function (event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var image = document.createElement('img');
+                image.src = reader.result;
+                var label = element.querySelector('label');
+                label.replaceWith(image);
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        });
+    });
+
     var page = document.getElementById("profile-container");
     page.appendChild(element);
 
