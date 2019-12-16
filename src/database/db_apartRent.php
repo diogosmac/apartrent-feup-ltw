@@ -302,4 +302,18 @@
         return $stmt->fetchAll();
     }
 
+    function deleteRentalsFromApartment($apartmentID) {
+
+        global $db;
+        
+        $stmt = $db->prepare('DELETE FROM Rental
+                              WHERE apartmentID = :apartmentID');
+
+        $stmt->bindParam(":apartmentID", $apartmentID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return;
+
+    }
+
 ?>

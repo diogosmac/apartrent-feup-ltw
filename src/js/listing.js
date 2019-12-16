@@ -83,13 +83,15 @@ var validateAddListing = function() {
 
 var editButtons = document.querySelectorAll('.edit-listing');
 editButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
+    button.parentNode.addEventListener('click', function() {
         editListing(button);
     });
 })
 
 function editListing(element) {
-    var element = event.target.parentNode;
+    var element = event.target;
+    if (element.className == 'fa fa-cogs')
+        element = element.parentNode;
     var apartID = element.getAttribute('data-listingId');
 
     let requestUrl = "../actions/showEditListing.php" +

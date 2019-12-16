@@ -18,10 +18,10 @@
             addApartmentPhotosAUX($apartmentID, $_FILES[$photoName]);
         }
         
-        $listingName = $_POST['listingName-Edit'];
+        $listingName = htmlspecialchars($_POST['listingName-Edit']);
         $nGuests = $_POST['nGuests-Edit'];
         $price = $_POST['price-Edit'];
-        $description = $_POST['description-Edit'];
+        $description = htmlspecialchars($_POST['description-Edit']);
         
         if($listingName != null)
             updateListingName($apartmentID, $listingName);
