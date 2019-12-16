@@ -1,26 +1,6 @@
-var editListing = function(idApartment){
-    var page = document.getElementById("profile-container");
-
-    page.innerHTML += `
-            <div class="ModalBox" id="modalBoxEdit">
-            <div class="ModalContent">
-                <div class="ModalCloseBar"><i class="fas fa-times" onclick=closeEdit()></i></div>
-                <p>Please enter the fields you want to edit </p>
-                <form id="apartmentInfo" method="POST" action="../actions/editListingAction.php">
-                    <input type="hidden" name="idApartment" value=` + idApartment +`>
-                    <input type="text" name="listingName-Edit" placeholder="New Listing Name">
-                    <input type="number" name="nGuests-Edit" step="1" min="1" max="20" id="newNumberGuests" placeholder="New number guests">
-                    <input type="number" name="price-Edit" step="0.1" min="1" max="100000" id="newPricePerDay" placeholder="New price per day">
-                    <textarea name="description-Edit" id="newDescription" rows="3" placeholder="New Description"></textarea>
-                    <button name="submit-Edit" id="submitEdit">Submit Changes</button>
-                </form>
-            </div>
-        </div>
-    `;
-};
-
-var closeEdit = function(){
-    document.getElementById("modalBoxEdit").remove();
+var closeEdit = function(button){
+    var element = button.parentNode.parentNode.parentNode;
+    element.parentNode.removeChild(element);
 };
 
 var validateEditListing = function() {
@@ -29,14 +9,12 @@ var validateEditListing = function() {
     return true;
 }
 
+var addListing = function() {
 
-
-var addListing = function()
-{
-    var page = document.getElementById("profile-container");
-
-    page.innerHTML += `
-    <div class="ModalBox" id="modalBoxAdd">
+    var element = document.createElement('div');
+    element.classList.add('ModalBox');
+    element.id = 'modalBoxAdd';
+    element.innerHTML += `
     <div class="ModalContent">
         <div class="ModalCloseBar"><i class="fas fa-times" onclick=closeAdd()></i></div>
         <p>Please fill the form about your apartment</p>
@@ -72,12 +50,14 @@ var addListing = function()
             <button name="submit-Add">Add!</button>
         </form>
     </div>
-</div>
     `;
+
+    var page = document.getElementById("profile-container");
+    page.appendChild(element);
+
 };
 
-var closeAdd = function closeAdd()
-{
+var closeAdd = function closeAdd() {
     document.getElementById("modalBoxAdd").remove();
 };
 
@@ -86,3 +66,37 @@ var validateAddListing = function() {
 
     return true;
 }
+
+var editButtons = document.querySelectorAll('.edit-listing');
+editButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        editListing(button);
+    });
+})
+
+function editListing(element) {
+    var element = event.target.parentNode;
+    var apartID = element.getAttribute('data-listingId');
+
+    let requestUrl = "../actions/showEditListing.php" +
+        "?apartID=" + apartID;
+
+    let request = new XMLHttpRequest();
+    request.addEventListener("load", createListingDialog);
+    request.open("get", requestUrl, true);
+    request.send();
+
+    event.preventDefault();
+
+}
+
+var createListingDialog = function() {
+
+    var element = document.createElement('div');
+    element.classList.add('ModalBox');
+    element.id = 'modalBoxEdit';
+    element.innerHTML += this.responseText;
+    var page = document.getElementById("profile-container");
+    page.appendChild(element);
+
+};

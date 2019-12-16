@@ -26,10 +26,7 @@
             echo ('
                 <section class="listing_buttons">
                 <a href="../actions/deleteListingAction.php?id='.$listing['id'].'"><i class="fas fa-trash"></i></a>
-                <a onclick=editListing('.$listing['id'].')><i class="fa fa-cogs" aria-hidden="true"></i></a>
-
-                    
-
+                <a class="edit-listing" data-listingId='.$listing['id'].'><i class="fa fa-cogs" aria-hidden="true"></i></a>
                 </section>
             ');
         }
