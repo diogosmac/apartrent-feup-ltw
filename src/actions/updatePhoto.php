@@ -17,9 +17,9 @@
     updateProfilePhoto($userID, $id);
     $_SESSION['profile_picture'] = getPhotoPath($id);
     
-    //Deletes old profile photo, to save some space
+    // Deletes old profile photo, to save some space
     if($oldPhotoID['idPhoto'] != 0)
-    {
+ {
         $oldPhotoPath = getPhotoPath($oldPhotoID['idPhoto']);
         unlink($oldPhotoPath);
     }

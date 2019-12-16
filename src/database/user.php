@@ -1,7 +1,7 @@
 <?php
 
     function getAllMatches($uid, $pass)
-    {
+ {
         global $db;
 
         $stmt = $db->prepare('SELECT * FROM User
@@ -16,7 +16,7 @@
     }
 
     function getIdFromUsername($username)
-    {
+ {
         global $db;
 
         $stmt = $db->prepare('SELECT idUser 
@@ -29,10 +29,24 @@
 
         return $stmt->fetch();
     }
+
+    function getUsernameFromId($id) {
+        global $db;
+
+        $stmt = $db->prepare('SELECT username 
+                              FROM User
+                              WHERE idUser = :id
+                            ');
+
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetch()['username'];
+    }
     
 
     function getAllUserInfo($userID)
-    {
+ {
         global $db;
 
         $stmt = $db->prepare('SELECT username, name, email, description 
@@ -47,7 +61,7 @@
 
     
     function addUser($uid, $pwd, $name, $mail)
-    {
+ {
         global $db;
 
         $stmt = $db->prepare('INSERT INTO User (
@@ -75,7 +89,7 @@
     }
 
     function searchByUsername($username)
-    {
+ {
         global $db;
 
         $stmt = $db->prepare('SELECT idUser
@@ -90,7 +104,7 @@
     }
 
     function updateUsername($userID, $newUsername)
-    {
+ {
         global $db;
         
         $stmt = $db->prepare('
@@ -107,7 +121,7 @@
     }
 
     function updatePassword($userID, $newPassword)
-    {
+ {
         global $db;
         
         $stmt = $db->prepare('
@@ -124,7 +138,7 @@
     }
 
     function updateDescription($userID, $newDescription)
-    {
+ {
         global $db;
         
         $stmt = $db->prepare('

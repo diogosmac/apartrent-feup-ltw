@@ -1,24 +1,28 @@
-    <?php
-        include_once('../includes/init.php');
-        include_once('../actions/validSession.php');            
-    ?>
+<?php
+    include_once('../includes/init.php');
+    include_once('../actions/validSession.php');            
+?>
 
-    <div class="profile-container">
+<div class="profile-container">
 
         <div class="profile-side-menu">
             <a href="../pages/editProfile.php">Edit Profile</a>
-            <a href="../pages/view_rentals.php">My Rentals</a>
+            <a href="../pages/viewRentals.php">My Rentals</a>
             <a href="../pages/listings.php">My Listings</a>
             <a href="../pages/listings.php?manage=1">Manage Listings</a>
         </div>
 
-        <?php
-           include_once('../actions/profileAction.php');          
-        ?>
+    <?php
+       include_once('../actions/profileAction.php');          
+    ?>
 
-        <div class="profile-info-container">
-            <div class="profile-picture">
-                <?php echo '<img src="'.$profile_picture.'">'; ?>
+    <div class="profile-info-container">
+        <div class="profile-picture">
+            <?php echo '<img src="'.$profile_picture.'">'; ?>
+        </div>
+        <div class="personal-details">
+            <div class="name">
+                <?php echo '<h1>'.$name.'</h1>'; ?>
             </div>
             <div class="personal-details">
                 <div class="name">
@@ -29,5 +33,6 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+</div>

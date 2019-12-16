@@ -5,21 +5,18 @@
     include_once('../database/photo.php');
 
     // Verifica se o utilizador chegou a pagina atraves da pagina de login
-    if(isset($_POST['login_button']))
-    {
+    if(isset($_POST['login_button'])) {
 
         $username = $_POST['username'];
         $password = $_POST['password'];
 
         // Se a password ou username estiverem em branco
-        if(empty($username) || empty($password))
-        {
+        if(empty($username) || empty($password)) {
             // redireciona para a pagina inicial
             header("Location: ../pages/login.php?error=emptyfields");
             exit();
         }
-        else
-        {
+        else {
             // $options = ['cost' => 12];
             // $securePassword = password_hash($password, PASSWORD_DEFAULT, $options);
 
@@ -27,8 +24,7 @@
             $query_results = getAllMatches($username, $password);
 
             // username and password match
-            if(count($query_results) == 1)
-            {
+            if(count($query_results) == 1) {
 
                 $_SESSION['userID'] = $query_results[0]['idUser'];
                 $_SESSION['name'] = $query_results[0]['name'];
@@ -39,15 +35,13 @@
                 header("Location: ../index.php?login=success");
                 exit();
             }
-            else
-            {
+            else {
                 header("Location: ../pages/login.php?error=wrongpassword");
                 exit();
             }
         }
     }
-    else
-    {
+    else {
         // Redireciona para a pagina login, em caso contrario 
         header("Location: ../pages/login.php");
         exit();

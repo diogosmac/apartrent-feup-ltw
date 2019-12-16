@@ -6,18 +6,17 @@ include_once('../database/db_apartRent.php');
 include_once('../database/photo.php');
 ?>
 
-
 <div class="profile-container" id="profile-container">
 
     <div class="profile-side-menu">
         <a href="../pages/editProfile.php">Edit Profile</a>
-        <a href="../pages/view_rentals.php">My Rentals</a>
+        <a href="../pages/viewRentals.php">My Rentals</a>
         <a href="../pages/listings.php">My Listings</a>
         <a href="../pages/listings.php?manage=1">Manage Listings</a>
     </div>
 
     <script src="../js/listing.js" defer></script>
-    <section id='search_results'>
+    <section class='results'>
         <?php
         $userID = getUserID();
         $query_results = getUserListings($userID);

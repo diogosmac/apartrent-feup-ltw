@@ -13,6 +13,8 @@
 
     <body>
 
+        <div id="page-container">
+
         <header>
             <a href="index.php">
                 <img src="../resources/logo-white.png" alt="" id="logo">
@@ -23,3 +25,5 @@
                 ?>
             </div>
         </header>
+
+        <div id="content-wrap">

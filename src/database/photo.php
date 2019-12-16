@@ -1,7 +1,7 @@
 <?php
 
     function getApartmentPhotos($idApartment)
-    {
+ {
         global $db;
 
         $stmt = $db->prepare('SELECT idPhoto
@@ -15,7 +15,7 @@
     }
 
     function setDefaultPicture($userID)
-    {
+ {
         global $db;
         
         $stmt = $db->prepare('INSERT INTO [User-Photo] (
@@ -36,12 +36,12 @@
     }
 
     function getPhotoPath($photoID)
-    {
+ {
         return '../uploadedImages/'.$photoID.'.jpg';
     }
 
     function getPhotoPathUser($userID)
-    {
+ {
         global $db;
         
         $stmt = $db->prepare('SELECT idPhoto 
@@ -58,7 +58,7 @@
     }
 
     function updateProfilePhoto($userID, $newPhotoID)
-    {
+ {
         global $db;
         
         $stmt = $db->prepare('
@@ -75,7 +75,7 @@
     }
 
     function addNewPhoto()
-    {
+ {
         global $db;
         
         $stmt = $db->prepare('
@@ -92,7 +92,7 @@
     }
 
     function getPhotoID($userID)
-    {
+ {
         global $db;
         
         $stmt = $db->prepare('

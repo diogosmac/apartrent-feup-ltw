@@ -5,6 +5,6 @@
 
     $userID = getUserID();
 
-    if (!isset($userID)) //Se Sessao não iniciada
+    if (!isset($userID)) // Se Sessao não iniciada
         header('Location: ../index.php');
 ?>

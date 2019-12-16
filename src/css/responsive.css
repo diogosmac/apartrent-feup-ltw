@@ -1,9 +1,9 @@
 @media (max-width: 60em) {
-    body{
+    body {
         width: 100%;
     }
 
-    body > footer {
+    footer {
         margin: 0;
     }
 }
