@@ -155,7 +155,7 @@ body {
     content: 'Price per day: ';
 }
 .results .info #preco:after {
-    content: '€ / guest';
+    content: '€';
 }
 
 .results .info #max_pessoas:before {
@@ -196,16 +196,17 @@ body {
 
 .main-container {
     text-align: center;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 12em auto;
 }
 
 .edit-profile-container {
-    padding-left: 25%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    text-align: center;
-    width: 50%;
+    display: grid;
+    width: 100%;
+    background-color: #E0E0E0;
+    grid-template-rows: auto auto;
+    grid-template-columns: 12em auto;
 }
 
 .button > input, .button > label {
@@ -226,12 +227,16 @@ body {
 
 .edit-personals .account-details {
     grid-column: 3 / 4;
-    padding-top: 15%;
+    padding-bottom: 15%;
 }
 
 .edit-personals .account-details > .button {
     grid-column: 3 / 4;
     padding-top: 15%;
+}
+
+.account-details > div > input {
+    margin-bottom: 1%;
 }
 
 .edit-personals .image > img {
@@ -254,7 +259,7 @@ body {
 }
 
 .description > div > textarea {
-    width: 100%;
+    width: 80%;
     resize: vertical;
     font-size: 130%;
 }

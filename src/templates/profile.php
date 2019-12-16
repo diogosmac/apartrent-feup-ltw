@@ -24,13 +24,8 @@
             <div class="name">
                 <?php echo '<h1>'.$name.'</h1>'; ?>
             </div>
-            <div class="personal-details">
-                <div class="name">
-                    <?php echo '<h1>'.$name.'</h1>'; ?>
-                </div>
-                <div class="description">
-                    <?php echo '<article>'.$description.'</article>'; ?>
-                </div>
+            <div class="description">
+                <?php echo '<article>'.$description.'</article>'; ?>
             </div>
         </div>
     </div>
