@@ -65,8 +65,9 @@ var addListing = function()
             <input type="text" name="locale-Add" placeholder="Locale" required>
             <input type="text" name="address-Add" placeholder="Address" required>
             <input type="text" name="postalCode-Add" placeholder="Postal Code" pattern="[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]" title="NNNN-NNN, N = number" required>
-            <input type="number" name="nGuests-Add" step="1" min="1" max="20" id="newNumberGuests" placeholder="Number guests" required>
             <input type="number" name="price-Add" step="1" min="1" max="100000" id="newPricePerDay" placeholder="Price per day" required>
+            <output name="nGuests-Add_output" id="newNumberGuestsOutput"> Number of guests: 1 </output> 
+            <input type="range" name="nGuests-Add" value="0" min="1" max="20" id="newNumberGuests" class="slider" oninput="newNumberGuestsOutput.value = 'Number of guests: ' + newNumberGuests.value" required>
             <textarea id="newDescription" name="description-Add" rows="3" placeholder="New Description"></textarea>
             <button name="submit-Add">Add!</button>
         </form>
