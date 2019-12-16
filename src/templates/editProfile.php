@@ -18,9 +18,9 @@ include_once('../actions/profileAction.php');
     
     <div class="profile-side-menu">
         <a href="../pages/editProfile.php">Edit Profile</a>
-        <a href="../pages/add_listings.php">Add Listings</a>
-        <a href="../pages/viewListings.php">My Listings</a>
         <a href="../pages/viewRentals.php">My Rentals</a>
+        <a href="../pages/listings.php">My Listings</a>
+        <a href="../pages/listings.php?manage=1">Manage Listings</a>
     </div>
 
     <div class="edit-personals">

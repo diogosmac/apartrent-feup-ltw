@@ -31,7 +31,7 @@ include_once('../database/photo.php');
             }
         }
 
-        if($_GET['manage'] == 1)
+        if(isset($_GET['manage']) && $_GET['manage'] == 1)
             echo '<article id="addNewListing" onclick="addListing();">
                     <i class="fas fa-plus-circle"></i>
                     <span>Add new</span>

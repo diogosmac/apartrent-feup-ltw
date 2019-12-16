@@ -23,7 +23,7 @@ function showListing($listing)
                     </section>
                 </a>';
 
-    if ($_GET['manage'] == 1) {
+    if (isset($_GET['manage']) && $_GET['manage'] == 1) {
         echo '
                 <section class="listing_buttons">
                 <a href="../actions/deleteListingAction.php?id=' . $listing['id'] . '"><i class="fas fa-trash"></i></a>
