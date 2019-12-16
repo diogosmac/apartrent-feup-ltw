@@ -4,6 +4,7 @@
     <head>
         <?php echo '<title>' . $title . '</title>'; ?>
         <meta charset="utf-8">
+        <link rel="icon" href="../resources/logo-mini.ico">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
         <link href="../css/layout.css" rel="stylesheet">

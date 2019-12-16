@@ -12,7 +12,8 @@
         else {
             $temp = new DateTime($checkIn);
             $checkIn = $temp->format('d-m-Y');
-        }
+        }        
+        $checkIn = htmlspecialchars($checkIn);
 
         if ($checkOut == null) {
             // Dia seguinte ao checkIn
@@ -23,6 +24,7 @@
             $temp = new DateTime($checkOut);
             $checkOut = $temp->format('d-m-Y');
         }
+        $checkOut = htmlspecialchars($checkOut);
 
         if ($location == null) {
 
@@ -45,6 +47,8 @@
         
         }
         else {
+
+            $location = htmlentities($location);
         
             $stmt = $db->prepare('SELECT *
                                   FROM Apartment
