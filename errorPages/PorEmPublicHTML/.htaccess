@@ -1,0 +1,8 @@
+ErrorDocument 404 http://gnomo.fe.up.pt/~up201705255/Proj/errorPages/new404.html
+
+ErrorDocument 403 http://gnomo.fe.up.pt/~up201705255/Proj/errorPages/new403.html
+
+<Files ~ "\.db">
+Order allow,deny
+Deny from all
+</Files>
