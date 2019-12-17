@@ -5,9 +5,9 @@
     include('../database/db_apartRent.php');
     include('../database/photo.php');
 
-    $location = $_GET['location'];
-    $checkIn = $_GET['checkIn'];
-    $checkOut = $_GET['checkOut'];
+    $location = htmlspecialchars($_GET['location']);
+    $checkIn = htmlspecialchars($_GET['checkIn']);
+    $checkOut = htmlspecialchars($_GET['checkOut']);
 
     $query_results = getAllListings($location, $checkIn, $checkOut);
 

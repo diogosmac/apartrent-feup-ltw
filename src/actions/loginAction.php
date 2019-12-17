@@ -7,28 +7,26 @@
     // Verifica se o utilizador chegou a pagina atraves da pagina de login
     if(isset($_POST['login_button'])) {
 
-        $username = $_POST['username'];
+        $username = htmlspecialchars($_POST['username']);
         $password = $_POST['password'];
 
         // Se a password ou username estiverem em branco
-        if(empty($username) || empty($password)) {
+        if(empty($username) || empty($password)) 
+        {
             // redireciona para a pagina inicial
             header("Location: ../pages/login.php?error=emptyfields");
             exit();
         }
         else {
-            // $options = ['cost' => 12];
-            // $securePassword = password_hash($password, PASSWORD_DEFAULT, $options);
 
-            // Executa a query de verificacao
-            $query_results = getAllMatches($username, $password);
+            $validation = validateUser($username, $password);
 
             // username and password match
-            if(count($query_results) == 1) {
+            if($validation != false) {
 
-                $_SESSION['userID'] = $query_results[0]['idUser'];
-                $_SESSION['name'] = $query_results[0]['name'];
-                $_SESSION['username'] = $query_results[0]['username'];
+                $_SESSION['userID'] = $validation['idUser'];
+                $_SESSION['name'] = $validation['name'];
+                $_SESSION['username'] = $validation['username'];
                 $_SESSION['profile_picture'] = getPhotoPathUser($_SESSION['userID']);
 
 

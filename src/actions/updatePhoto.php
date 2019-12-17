@@ -19,7 +19,7 @@
     
     // Deletes old profile photo, to save some space
     if($oldPhotoID['idPhoto'] != 0)
- {
+    {
         $oldPhotoPath = getPhotoPath($oldPhotoID['idPhoto']);
         unlink($oldPhotoPath);
     }

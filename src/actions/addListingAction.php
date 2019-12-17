@@ -11,13 +11,13 @@
     {
         
         $ownerID = getUserID();
-        $listingName = $_POST['listingName-Add'];
-        $locale = $_POST['locale-Add'];
-        $address = $_POST['address-Add'];
+        $listingName = htmlspecialchars($_POST['listingName-Add']);
+        $locale = htmlspecialchars($_POST['locale-Add']);
+        $address = htmlspecialchars($_POST['address-Add']);
         $postalCode = $_POST['postalCode-Add'];
         $nGuests = $_POST['nGuests-Add'];
         $price = $_POST['price-Add'];
-        $description = $_POST['description-Add'];
+        $description = htmlspecialchars($_POST['description-Add']);
         
         addListing($ownerID, $listingName, $locale, $address, $postalCode, $nGuests, $price, $description);
         global $db;

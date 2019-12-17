@@ -18,20 +18,20 @@
     <form method="POST" action="../actions/signupAction.php" onsubmit="return checkMatch();">
         <div class="container">
             <div class="Name"><input type="text" name="name" placeholder="Name"
-            pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*() {}|~<>;:[\]] {2,}$" 
+            pattern="^(?!.*[ ] {1})^[A-Za-zéáãç ]{1,20}$" 
             title="Names can only have letters, no numbers nor special caracters"
             required></div>
 
             <div class="Email"><input type="email" name="email" placeholder="Email" required></div>
 
             <div class="Username"><input type="text" name="username" placeholder="Username" 
-            pattern='^(?=. {5,12}$)(?!.*[._-] {2})[a-zA-Z][a-zA-Z0-9._-]*[a-zA-Z0-9]$'
-            title="A username must have between 5 and 12 characters. It cannot start nor end with special characters and those cannot appear more than once in a row"
+            pattern='^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{5,16}$'
+            title="A username must have between 5 and 16 characters. Only special characters allowed: _ and ."
             required></div>
             
             <div class="Password"><input type="password" id="password" name="password" placeholder="Password"
-                                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d] {8,}$" 
-                                         title="Password must contain at least 8 characters, with one Uppercase letter, one lowercase letter, and one number"
+                                         pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,64})" 
+                                         title="Password must contain at least 8 characters, with one Uppercase letter, one lowercase letter, one number and one special character."
                                          required onkeyup='checkMatch();'></div>
 
             <div class="ConfPassword"><input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required onkeyup='checkMatch();'></div>

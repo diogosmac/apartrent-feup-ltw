@@ -4,12 +4,12 @@
     include('../database/db_apartRent.php');
     include('../database/user.php');
 
-    $apartmentID = $_GET['apartmentID'];
-    $checkIn = $_GET['checkIn'];
-    $checkOut = $_GET['checkOut'];
-    $checkIn = new DateTime($_GET['checkIn']);
+    $apartmentID = htmlspecialchars($_GET['apartmentID']);
+    $checkIn = htmlspecialchars($_GET['checkIn']);
+    $checkOut = htmlspecialchars($_GET['checkOut']);
+    $checkIn = new DateTime(htmlspecialchars($_GET['checkIn']));
     $checkIn = $checkIn->format('Y-m-d');
-    $checkOut = new DateTime($_GET['checkOut']);
+    $checkOut = new DateTime(htmlspecialchars($_GET['checkOut']));
     $checkOut = $checkOut->format('Y-m-d');
 
     if (null !== getUserID()) {
