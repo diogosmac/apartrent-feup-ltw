@@ -320,3 +320,18 @@ footer {
 }
 
 /* my rentals */
+
+.results > .rental img {
+    height: 15em;
+    width: 20em;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.rental .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    margin-top: 4em;
+    width: 17em;
+}

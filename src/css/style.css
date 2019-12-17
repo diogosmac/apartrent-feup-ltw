@@ -433,6 +433,10 @@ body {
     padding-bottom: 2%;
 }
 
+.rental .info #id {
+    display: none;
+}
+
 .rental .info > #checkin:before {
     content: 'Check-in: ';
 }
@@ -452,6 +456,10 @@ body {
     margin-inline-start: auto;
     margin-block-end: auto;
     border-radius: 2px;
+}
+
+.rateButton .hidden {
+    display: none;
 }
 
 /* Add / Edit Listing  */
@@ -594,21 +602,35 @@ body {
 .RateBox {
     display: table;
     margin: 0 auto;
-    width: 60%;
-    height: 5%;
-    background: #f1f1f1;
+    width: 30vw;
+    background: #E0E0E0;
     box-shadow: 0 0 20px black;
     border-radius: 8px;
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 2em;
     
+}
+
+.RateBox {
+    align-self: center;
+}
+
+.RateBox .hidden {
+    display: none;
+}
+
+.RateBox button {
+    width: 100%;
 }
 
 .RateContent {
     display: flex;
     flex-direction: column;
     margin: auto;
-}
+}    
 
 .rate {
     margin: auto;
@@ -626,8 +648,9 @@ body {
     font-size:50px;
     color:#ccc;
 }
+
 .rate:not(:checked) > label:before {
-    content: '\2605  ';
+    content: ' \2605 ';
 }
 
 .rate > input:checked ~ label {

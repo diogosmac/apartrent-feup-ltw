@@ -26,6 +26,7 @@
                 <a href="../pages/apartment.php?id=' . $rent_apartmentID . '">
                     <img src="' . $image_path . '" alt="">
                     <section class="info">
+                        <span id="id">'.$rent_apartmentID.'</span>
                         <span id="nome"> '.$apartment_name.' </span>
                         <span> '.$apartment_locale.' - '.$apartment_addres.', '.$apartment_postalcode.' </span>
                         <span id="checkin">'.$rent_initDate.'</span>

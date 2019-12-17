@@ -276,7 +276,7 @@
         if (count(conflictingReservations($idApartment, $checkIn, $checkOut)) == 0) {
 
             $stmt = $db->prepare('INSERT INTO Rental
-                VALUES(:apart, :chkIn, :chkOut, :user)');
+                VALUES(:apart, :chkIn, :chkOut, :user, null)');
             $stmt->bindParam(":apart", $idApartment, PDO::PARAM_INT);
             $stmt->bindParam(":chkIn", $checkIn, PDO::PARAM_STR);
             $stmt->bindParam(":chkOut", $checkOut, PDO::PARAM_STR);
@@ -313,6 +313,85 @@
         $stmt->execute();
 
         return;
+
+    }
+
+    function getAvg($apartID) {
+        global $db;
+
+        $stmt = $db->prepare('SELECT n_ratings, average_rating
+                              FROM Apartment
+                              WHERE id = :apartID');
+        $stmt->bindParam(":apartID", $apartID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
+    function updateAvg($rating, $apartID) {
+
+        global $db;
+
+        $vals = getAvg($apartID);
+
+        $oldAvg = $vals['average_rating'];
+        $oldN = $vals['n_ratings'];
+
+        $newAvg = ($oldAvg * $oldN + $rating) / ($oldN + 1);
+        $newAvg = round($newAvg, 2);
+        $newN = $oldN + 1;
+
+        $stmt = $db->prepare('UPDATE Apartment
+                              SET average_rating = :average,
+                                  n_ratings = :n
+                              WHERE id = :apartID');
+        $stmt->bindParam(":average", $newAvg);
+        $stmt->bindParam(":n", $newN, PDO::PARAM_INT);
+        $stmt->bindParam(":apartID", $apartID, PDO::PARAM_INT);
+        $stmt->execute();
+
+    }
+
+    function getStayRating($apartID, $checkIn, $checkOut) {
+        global $db;
+
+        $stmt = $db->prepare('SELECT rating FROM Rental
+                              WHERE apartmentID = :apartID
+                              AND initDate = :checkIn
+                              AND endDate = :checkOut');
+        $stmt->bindParam(":apartID", $apartID, PDO::PARAM_INT);
+        $stmt->bindParam(":checkIn", $checkIn, PDO::PARAM_STR);
+        $stmt->bindParam(":checkOut", $checkOut, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetch()['rating'];
+
+    }
+
+    function rateStay($rating, $apartmentID, $checkIn, $checkOut) {
+
+        global $db;
+
+        $oldVal = getStayRating($apartmentID, $checkIn, $checkOut);
+        if ($oldVal !== null) {
+            // stay has already been rated
+            return 1;
+        }
+
+        $stmt = $db->prepare('UPDATE Rental
+                              SET rating = :rating
+                              WHERE apartmentID = :apartmentID
+                              AND initDate = :checkIn
+                              AND endDate = :checkOut');
+        $stmt->bindParam(":rating", $rating, PDO::PARAM_INT);
+        $stmt->bindParam(":apartmentID", $apartmentID, PDO::PARAM_INT);
+        $stmt->bindParam(":checkIn", $checkIn, PDO::PARAM_STR);
+        $stmt->bindParam(":checkOut", $checkOut, PDO::PARAM_STR);
+        $stmt->execute();
+
+        updateAvg($rating, $apartmentID);
+
+        return 0;
 
     }
 
