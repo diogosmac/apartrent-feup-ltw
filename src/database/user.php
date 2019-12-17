@@ -1,22 +1,21 @@
 <?php
 
-    function getAllMatches($uid, $pass)
- {
+    function validateUser($uid, $pass) {
         global $db;
 
         $stmt = $db->prepare('SELECT * FROM User
-                              WHERE username = :username
-                              AND password = :password');
-
+                              WHERE username = :username');
         $stmt->bindParam(':username', $uid, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $pass, PDO::PARAM_STR);
         $stmt->execute();
+        $user = $stmt->fetch();
 
-        return $stmt->fetchAll();
+        if ($user !== false && password_verify($pass, $user['password']))
+            return $user;
+        
+        return false;
     }
 
-    function getIdFromUsername($username)
- {
+    function getIdFromUsername($username) {
         global $db;
 
         $stmt = $db->prepare('SELECT idUser 
@@ -45,8 +44,7 @@
     }
     
 
-    function getAllUserInfo($userID)
- {
+    function getAllUserInfo($userID) {
         global $db;
 
         $stmt = $db->prepare('SELECT username, name, email, description 
@@ -60,9 +58,11 @@
     }
 
     
-    function addUser($uid, $pwd, $name, $mail)
- {
+    function addUser($uid, $pwd, $name, $mail) {
         global $db;
+
+        $options = ['cost' => 12];
+        $hash = password_hash($pwd, PASSWORD_DEFAULT, $options);
 
         $stmt = $db->prepare('INSERT INTO User (
                                 username,
@@ -80,7 +80,7 @@
         );
 
         $stmt->bindParam(':username', $uid, PDO::PARAM_STR);
-        $stmt->bindParam(':pass', $pwd, PDO::PARAM_STR);
+        $stmt->bindParam(':pass', $hash, PDO::PARAM_STR);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':email', $mail, PDO::PARAM_STR);
         $stmt->execute();
@@ -88,8 +88,7 @@
         return;
     }
 
-    function searchByUsername($username)
- {
+    function searchByUsername($username) {
         global $db;
 
         $stmt = $db->prepare('SELECT idUser
@@ -103,15 +102,12 @@
         return $stmt->fetchAll();
     }
 
-    function updateUsername($userID, $newUsername)
- {
+    function updateUsername($userID, $newUsername) {
         global $db;
         
-        $stmt = $db->prepare('
-                                UPDATE User
-                                SET username = :newUsername
-                                WHERE idUser = :userID
-                            ');
+        $stmt = $db->prepare('UPDATE User
+                              SET username = :newUsername
+                              WHERE idUser = :userID');
 
         $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
         $stmt->bindParam(':newUsername', $newUsername, PDO::PARAM_STR);
@@ -120,25 +116,24 @@
         return;
     }
 
-    function updatePassword($userID, $newPassword)
- {
+    function updatePassword($userID, $newPassword) {
         global $db;
-        
-        $stmt = $db->prepare('
-                                UPDATE User
-                                SET password = :newPassword
-                                WHERE idUser = :userID
-                            ');
+
+        $options = ['cost' => 12];
+        $hash = password_hash($newPassword, PASSWORD_DEFAULT, $options);
+
+        $stmt = $db->prepare('UPDATE User
+                              SET password = :newPassword
+                              WHERE idUser = :userID');
 
         $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
-        $stmt->bindParam(':newPassword', $newPassword, PDO::PARAM_STR);
+        $stmt->bindParam(':newPassword', $hash, PDO::PARAM_STR);
         $stmt->execute();
                     
         return;
     }
 
-    function updateDescription($userID, $newDescription)
- {
+    function updateDescription($userID, $newDescription) {
         global $db;
         
         $stmt = $db->prepare('
