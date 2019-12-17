@@ -3,12 +3,6 @@ var closeEdit = function(button){
     element.parentNode.removeChild(element);
 };
 
-var validateEditListing = function() {
-    //TODO
-
-    return true;
-}
-
 var addListing = function() {
 
     var element = document.createElement('div');
@@ -75,15 +69,9 @@ var closeAdd = function closeAdd() {
     document.getElementById("modalBoxAdd").remove();
 };
 
-var validateAddListing = function() {
-    //TODO
-
-    return true;
-}
-
-var editButtons = document.querySelectorAll('.edit-listing');
+var editButtons = document.querySelectorAll('#edit-listing');
 editButtons.forEach(function(button) {
-    button.parentNode.addEventListener('click', function() {
+    button.addEventListener('click', function() {
         editListing(button);
     });
 })

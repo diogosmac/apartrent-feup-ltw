@@ -8,17 +8,17 @@
     $apartmentID = htmlspecialchars($_GET ['id']);
     $apartment = getApartmentByID($apartmentID);
 
-    //Se o user que tem sessao iniciada for o dono do apartment que se esta a tentar remover
-    if($apartment['owner'] == $_SESSION['userID'])
-    {
+    // Se o user que tem sessao iniciada for o dono 
+    // do apartment que se esta a tentar remover
+    if($apartment['owner'] == $_SESSION['userID']) {
+
         deletePhotosFromApartment($apartmentID);
         deleteRentalsFromApartment($apartmentID);
         deleteApartment($apartmentID);
         header('Location: ../pages/listings.php?manage=1');
+
     }
     else
-    {
         header('Location: ../pages/listings.php?manage=1');
-    }
 
 ?>

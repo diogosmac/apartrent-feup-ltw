@@ -26,10 +26,10 @@ function showListing($listing)
     if (isset($_GET['manage']) && $_GET['manage'] == 1) {
         echo '
                 <section class="listing_buttons">
-                    <a href="../actions/deleteListingAction.php?id=' . $listing['id'] . '">
+                    <a id="delete-listing" href="../actions/deleteListingAction.php?id=' . $listing['id'] . '">
                         <i class="fas fa-trash"></i>
                     </a>
-                    <a class="edit-listing" data-listingId=' . $listing['id'] . '>
+                    <a id="edit-listing" data-listingId=' . $listing['id'] . '>
                         <i class="fa fa-cogs" aria-hidden="true"></i>
                     </a>
                 </section>

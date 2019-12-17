@@ -36,7 +36,6 @@ include_once('../database/photo.php');
                     <i class="fas fa-plus-circle"></i>
                     <span>Add new</span>
                 </article>';
-
         ?>
 
     </section>
