@@ -441,6 +441,19 @@ body {
     content: 'Check-out: ';
 }
 
+.rental > button {
+    background-color: rgb(241, 162, 42);
+    border: none;
+    color: #fff;
+    padding: 2% 3%;
+    font-weight: bold;
+    font-size: 90%;
+    margin-top: auto;
+    margin-inline-start: auto;
+    margin-block-end: auto;
+    border-radius: 2px;
+}
+
 /* Add / Edit Listing  */
 
 .ModalBox{
@@ -457,6 +470,7 @@ body {
     z-index: 3622;
     padding: 2em;
 }
+
 
 .ModalCloseBar {
     display: inline;
@@ -572,4 +586,55 @@ body {
     justify-self: center;
     max-width: 85%;
     max-height: 8em;
+}
+
+
+/* Rate */
+
+.RateBox {
+    display: table;
+    margin: 0 auto;
+    width: 60%;
+    height: 5%;
+    background: #f1f1f1;
+    box-shadow: 0 0 20px black;
+    border-radius: 8px;
+    position: absolute;
+    padding: 2em;
+    
+}
+
+.RateContent {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.rate {
+    margin: auto;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-1000px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:50px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '\2605  ';
+}
+
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
 }
