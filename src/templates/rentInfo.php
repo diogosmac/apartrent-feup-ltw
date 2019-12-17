@@ -22,16 +22,16 @@
         $total_price = $apartment_dailyprice * $number_days;
 
       echo '
-            <article class="rental">
+            <article class="rental" id="popup">
                 <a href="../pages/apartment.php?id=' . $rent_apartmentID . '">
-                <img src="' . $image_path . '" alt="">
-                <section class="info">
-                    <span id="nome"> '.$apartment_name.' </span>
-                    <span> '.$apartment_locale.' - '.$apartment_addres.', '.$apartment_postalcode.' </span>
-                    <span id="checkin">'.$rent_initDate.'</span>
-                    <span id="checkout">'.$rent_endDate.' </span>
-                    <span> Total price: '.$total_price.' € </span>
-                </section>
+                    <img src="' . $image_path . '" alt="">
+                    <section class="info">
+                        <span id="nome"> '.$apartment_name.' </span>
+                        <span> '.$apartment_locale.' - '.$apartment_addres.', '.$apartment_postalcode.' </span>
+                        <span id="checkin">'.$rent_initDate.'</span>
+                        <span id="checkout">'.$rent_endDate.' </span>
+                        <span> Total price: '.$total_price.' € </span>
+                    </section>
                 </a>
             </article>';
     }
