@@ -7,9 +7,9 @@
     // Verifica se o utilizador chegou a pagina atraves da pagina de signup
     if (isset($_POST['register_button'])) 
  {
-        $name = $_POST['name'];
-        $username = $_POST['username'];
-        $email = $_POST['email'];
+        $name = htmlspecialchars($_POST['name']);
+        $username = htmlspecialchars($_POST['username']);
+        $email = htmlspecialchars($_POST['email']);
         $pwd = $_POST['password'];
         $c_pwd = $_POST['confirm_password'];
 

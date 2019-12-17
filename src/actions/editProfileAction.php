@@ -14,7 +14,7 @@
 
     // Verifica se foi pedida uma alteracao de username
     if($_POST['username'] != null)
-      updateUsername($userID, $_POST['username']);
+      updateUsername($userID, htmlspecialchars($_POST['username']));
 
     // Verifica se foi pedida uma alteracao de password
     if($_POST['password'] != null) {
@@ -27,7 +27,7 @@
     }
 
     if($_POST['description'] != null) {
-      updateDescription($userID, $_POST['description']);
+      updateDescription($userID, htmlspecialchars($_POST['description']));
     }
 
     // Redireciona para a pagina de perfil

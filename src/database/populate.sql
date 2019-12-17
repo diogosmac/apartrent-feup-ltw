@@ -12,7 +12,7 @@ INSERT INTO
 VALUES
     (
         'quimquim',
-        'bemlindobemlindo',
+        '$2y$12$iL6deC5cg6SHjUDe9g2MV.qvmDsVP0AJx9T4x/RQohw8Z8pbZgCzq',
         'Joaquim Alberto',
         'joaquim@alberto.pt',
         'Bem Alimentado! Bem liindooooo',
@@ -31,7 +31,7 @@ INSERT INTO
 VALUES
     (
         'admin',
-        'Admin123',
+        '$2y$12$q81OUraDYVN8snZxsu11/.b4.muVqyw53daQvxR0QcHwYDKvPYNkS',
         'Definitely Not Admin',
         'admin@admin.com',
         'A ginger bread man lives in a ginger bread house. Is the house made of flesh, or is he made of house? He screams, for he does not know.',
@@ -50,7 +50,7 @@ INSERT INTO
 VALUES
     (
         'PedroBaptista',
-        'Pedro123',
+        '$2y$12$fE2ZUU0Of.w2RTQbSVjH..UolCVmmMoaPeo4GHkg51dl32cy54OjO',
         'Pedro Baptista',
         'up201705255@fe.up.pt',
         NULL,
@@ -69,8 +69,8 @@ INSERT INTO
 VALUES
     (
         'Teste',
-        'Teste123',
-        'teste',
+        '$2y$12$SfE/.ckVqrrDEvg6oN6XF.Kjc0ffKTXsMw2La4jZ276l8NDzJgtDO',
+        'Señor Teste',
         'teste2@test.pt',
         NULL,
         4
@@ -88,7 +88,7 @@ INSERT INTO
 VALUES
     (
         'smacc',
-        'DocenteDeCal0',
+        '$2y$12$DygaNa/kJtdRp5t.kKcrved14dWMbfqGhay8y5YcVRkpiRzLe48SO',
         'Diogo Machoado',
         'address@domain.cal',
         NULL,

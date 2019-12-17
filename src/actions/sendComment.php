@@ -4,11 +4,11 @@
   include('../database/comments.php');
   include('../database/user.php');
 
-  $apartmentID = $_GET['apartmentID'];
+  $apartmentID = htmlspecialchars($_GET['apartmentID']);
 
   if (null !== getUserID() && isset($_GET['text'])) {
      $userID = getUserID();
-     $text = $_GET['text'];
+     $text = htmlspecialchars($_GET['text']);
      addComment($apartmentID, $userID, $text);
    }
 
